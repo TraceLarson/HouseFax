@@ -1,0 +1,30 @@
+{
+  "name": "housefax",
+  "version": "1.0.0",
+  "description": "HouseFax web application for Capstone Project at Full Sail University",
+  "main": "bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TraceLarson/HouseFax.git"
+  },
+  "author": "Trace Larson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TraceLarson/HouseFax/issues"
+  },
+  "homepage": "https://github.com/TraceLarson/HouseFax#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
