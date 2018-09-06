@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d5562c1-52b2-4c1a-aa26-3cde71f53726" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/brief.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/projectMilestones.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/spec.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/brief.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/brief.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/projectMilestones.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/projectMilestones.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/spec.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/spec.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +30,7 @@
           <entry key="gitignore" value="2" />
           <entry key="js" value="2" />
           <entry key="json" value="1" />
-          <entry key="md" value="5" />
+          <entry key="md" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -39,7 +38,7 @@
           <entry key=".env file" value="2" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="2" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="8" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -47,14 +46,14 @@
         <counts>
           <entry key="env" value="78" />
           <entry key="js" value="1181" />
-          <entry key="md" value="2549" />
+          <entry key="md" value="3126" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="78" />
           <entry key="JavaScript" value="1181" />
-          <entry key="Markdown" value="2549" />
+          <entry key="Markdown" value="3126" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
@@ -110,20 +109,8 @@
         <entry file="file://$PROJECT_DIR$/docs/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="23">
-                <caret line="1" selection-start-line="1" selection-end-line="1" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/brief.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="276">
-                <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <first_editor relative-caret-position="115">
+                <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               </first_editor>
               <second_editor />
             </state>
@@ -134,27 +121,22 @@
         <entry file="file://$PROJECT_DIR$/docs/spec.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor />
+              <first_editor relative-caret-position="69">
+                <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/projectMilestones.md">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/brief.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor />
+              <first_editor relative-caret-position="46">
+                <caret line="2" column="106" selection-start-line="2" selection-start-column="106" selection-end-line="2" selection-end-column="106" />
+              </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -179,7 +161,9 @@
         <option value="$PROJECT_DIR$/bin/www.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/docs/projectMilestones.md" />
         <option value="$PROJECT_DIR$/docs/readme.md" />
+        <option value="$PROJECT_DIR$/docs/spec.md" />
         <option value="$PROJECT_DIR$/docs/brief.md" />
       </list>
     </option>
@@ -208,9 +192,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1201" />
+    <option name="x" value="684" />
     <option name="y" value="22" />
-    <option name="width" value="1359" />
+    <option name="width" value="1876" />
     <option name="height" value="1373" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -269,18 +253,18 @@
       <updated>1536117169961</updated>
       <workItem from="1536117171274" duration="950000" />
       <workItem from="1536121552761" duration="2325000" />
-      <workItem from="1536205328453" duration="1788000" />
+      <workItem from="1536205328453" duration="2928000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7493000" />
+    <option name="totallyTimeSpent" value="8633000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1201" y="22" width="1359" height="1373" extended-state="0" />
+    <frame x="684" y="22" width="1876" height="1373" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14578588" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1046892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -336,13 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -353,18 +330,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/spec.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/projectMilestones.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="230">
+            <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          </first_editor>
           <second_editor />
         </state>
       </provider>
@@ -372,8 +350,18 @@
     <entry file="file://$PROJECT_DIR$/docs/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="23">
-            <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <first_editor relative-caret-position="115">
+            <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/spec.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="69">
+            <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
@@ -382,8 +370,8 @@
     <entry file="file://$PROJECT_DIR$/docs/brief.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="276">
-            <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <first_editor relative-caret-position="46">
+            <caret line="2" column="106" selection-start-line="2" selection-start-column="106" selection-end-line="2" selection-end-column="106" />
           </first_editor>
           <second_editor />
         </state>
