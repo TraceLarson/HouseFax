@@ -1,0 +1,12 @@
+# Brief
+- **Audience**
+    - The Primary audience will be technology literate users between the ages of 21 to 60 years old, all education levels, and social backgrounds.Users should be interested in crime statistics and real estate.
+    - Primary audience members include a current real estate agent, a person looking to sell their home who has experience with their local real estate market, and a prospective home buyer.
+- **Problem**
+    - The problem with the current real estate applications is that they put crime and the surrounding neighborhood secondary to every other statistic available.
+- **Solution**
+    - This application will show crime statistics first and foremost. Emphasis will be put on any available data starting from the most recent occurence.
+- **Unique Value Proposition**
+    - This application is separated by being light weight and instead of being feature rich, will aim to one or two things really well. Display crime data and allow the user to view vital statistics about a particular property.
+- **Pitch**
+    -  [![Trace Larson Pitch Video](http://img.youtube.com/vi/XwzjJlKh2sw/0.jpg)](https://youtu.be/XwzjJlKh2sw)
