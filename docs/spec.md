@@ -22,13 +22,29 @@
 - **Interface**
     - _Information Architecture_
     - _Browser Support_
-        - Chrome
-        - Firefox
-        - Edge
+        - Chrome 72+
+        - Firefox 64+
+        - Edge 18 +
+        - Safari 12 +
+        - IOS Safari - 12 +
+        - Chrome Android 67
+        - UC Browser Android 11.8
+        - Samsung Internet 7.2 +
+        
 - **Infrastructure**
     - _Technical Requirements_
     - _Programming Languages_
+        - ES6 Javascript
+        - CSS3
+        - HTML5
     - _Integrations_
+        - React JS
+        - React Redux
+        - AXIOS
+        - Node JS
+        - Express JS
+        - Create-react-app
+        - Babel
     - _Deployment Workflow_
     - _Web Host_
         - Heroku for main application.
