@@ -6,7 +6,7 @@ const path = require('path')
 
 
 // Configure Body Parser
-app.use(bodyParser.json)
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 
@@ -25,6 +25,10 @@ db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 
 // ROUTES
 // TODO: create routes
+const index = require('./routes/index')
+const api = require('./routes/api')
+app.use('/', index)
+app.use('/api', api)
 
 
 module.exports = app
