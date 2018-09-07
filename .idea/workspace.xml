@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d5562c1-52b2-4c1a-aa26-3cde71f53726" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exampleJSON/bridge.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Bridge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Crime.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +30,8 @@
           <entry key="env" value="2" />
           <entry key="gitignore" value="3" />
           <entry key="html" value="1" />
-          <entry key="js" value="7" />
-          <entry key="json" value="2" />
+          <entry key="js" value="10" />
+          <entry key="json" value="3" />
           <entry key="md" value="10" />
         </counts>
       </usages-collector>
@@ -40,8 +39,8 @@
         <counts>
           <entry key=".env file" value="2" />
           <entry key="HTML" value="1" />
-          <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="7" />
+          <entry key="JSON" value="3" />
+          <entry key="JavaScript" value="10" />
           <entry key="Markdown" value="10" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
@@ -50,7 +49,7 @@
         <counts>
           <entry key="env" value="255" />
           <entry key="html" value="25" />
-          <entry key="js" value="3342" />
+          <entry key="js" value="4127" />
           <entry key="md" value="4643" />
         </counts>
       </usages-collector>
@@ -58,7 +57,7 @@
         <counts>
           <entry key=".env file" value="255" />
           <entry key="HTML" value="25" />
-          <entry key="JavaScript" value="3342" />
+          <entry key="JavaScript" value="4127" />
           <entry key="Markdown" value="4643" />
         </counts>
       </usages-collector>
@@ -75,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="368">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -90,20 +89,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="667">
+              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/Crime.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
+        <entry file="file://$PROJECT_DIR$/models/Bridge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="62" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="62" />
+            <state relative-caret-position="437">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -113,8 +121,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -135,7 +143,10 @@
         <option value="$PROJECT_DIR$/bin/www.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/exampleJSON/bridge.json" />
         <option value="$PROJECT_DIR$/routes/api.js" />
+        <option value="$PROJECT_DIR$/models/Bridge.js" />
+        <option value="$PROJECT_DIR$/models/Crime.js" />
       </list>
     </option>
   </component>
@@ -189,6 +200,11 @@
             <path>
               <item name="HouseFax" type="b2602c69:ProjectViewProjectNode" />
               <item name="HouseFax" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HouseFax" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HouseFax" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -235,12 +251,12 @@
       <updated>1536117169961</updated>
       <workItem from="1536117171274" duration="950000" />
       <workItem from="1536121552761" duration="2325000" />
-      <workItem from="1536205328453" duration="19930000" />
+      <workItem from="1536205328453" duration="24218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25635000" />
+    <option name="totallyTimeSpent" value="29923000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="844" y="22" width="1716" height="1373" extended-state="0" />
@@ -352,10 +368,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="368">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -366,17 +382,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/exampleJSON/bridge.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="474">
+          <caret line="4053" column="30" lean-forward="true" selection-start-line="4053" selection-start-column="30" selection-end-line="4053" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="667">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Bridge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Crime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
