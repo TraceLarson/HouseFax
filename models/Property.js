@@ -6,8 +6,8 @@ const propertySchema = new mongoose.Schema({
 	address: {type: String, unique: true},
 	city: String,
 	state: String,
-	likes: Number,
-	user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+	likes: {type: Number, default: 0},
+	users: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
 	created_at: {type: Date, default: Date.now},
 	updated_at: Date
 })
