@@ -27,8 +27,12 @@ db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 // TODO: create routes
 const index = require('./routes/index')
 const api = require('./routes/api')
+const user = require('./routes/user')
+const property = require('./routes/property')
 app.use('/', index)
 app.use('/api', api)
+app.use('/user', user)
+app.use('/property', property)
 
 
 module.exports = app

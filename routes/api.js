@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const bodyParser  = require('body-parser')
 const mongoose = require('mongoose')
 const axios = require('axios')
 const path = require('path')
@@ -26,5 +27,6 @@ router.get('/bridge', (req, res, next) => {
 			res.send(response)
 		})
 })
+
 
 module.exports = router
