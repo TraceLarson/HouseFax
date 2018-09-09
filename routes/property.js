@@ -47,31 +47,34 @@ router.post('/', (req, res, next) => {
 router.put('/:id/likes', (req, res, next) => {
 	// From token
 	let token = {
-		userId: '5b931ded0055ac5b07933e61'
+		userId: '5b933723b45f685e82d5212f'
 	}
-	Property.findOne({_id: req.params.id}).exec((err, property) => {
-		err ? console.log('Error finding property to update likes', err) : ''
-		let newlikes = property.likes + 1
-		!property.users.includes(token.userId) ? property.users.push(token.userId) : ''
-		Property.findOneAndUpdate(
-			{_id: req.params.id},
-			{likes: newlikes, users: property.users},
-			{new: true},
-			(err, updatedProperty) => {
-				err ? console.log('Error updating likes', err) : console.log(updatedProperty)
+	User.findOne({_id: token.userId}).exec((err, user) => {
+		err ? console.log('Error loading user to add property', err) : ''
 
-				User.findOne({_id: token.userId}).exec((err, user) => {
-					err ? console.log('Error loading user to add property', err) : ''
-					!user.properties.includes(req.params.id) ? user.properties.push(req.params.id) : ''
-					user.save(err => {
-						err ? console.log('Error saving property to user', err) : ''
-						res.send('Added property to user')
-					})
-				})
+		Property.findOne({_id: req.params.id}).exec((err, property) => {
+			err ? console.log('Error finding property to update likes', err) : ''
+
+
+			!JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.log('user already likes this property')
+			property.likes = property.users.length
+			property.save(err => {
+				err ? console.log('Error saving likes and updating users') : ''
 			})
-	})
 
+			!JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
+			user.save(err => {
+				err ? console.log('Error saving property to user', err) : ''
+				res.send('Added property to user')
+			})
+		})
+	})
 })
 
+router.delete('/:id', (req, res, next) => {
+	Property.findOneAndRemove({_id: req.params.id}).exec((err, property) => {
+		err ? console.log('Error deleting property', err) : res.send(`deleted id: ${req.params.id}`)
+	})
+})
 
 module.exports = router
