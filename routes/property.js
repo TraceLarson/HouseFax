@@ -52,7 +52,7 @@ router.put('/:id/likes', (req, res, next) => {
 	Property.findOne({_id: req.params.id}).exec((err, property) => {
 		err ? console.log('Error finding property to update likes', err) : ''
 		let newlikes = property.likes + 1
-		property.users.push(token.userId)
+		!property.users.includes(token.userId) ? property.users.push(token.userId) : ''
 		Property.findOneAndUpdate(
 			{_id: req.params.id},
 			{likes: newlikes, users: property.users},
@@ -62,7 +62,7 @@ router.put('/:id/likes', (req, res, next) => {
 
 				User.findOne({_id: token.userId}).exec((err, user) => {
 					err ? console.log('Error loading user to add property', err) : ''
-					user.properties.push(req.params.id)
+					!user.properties.includes(req.params.id) ? user.properties.push(req.params.id) : ''
 					user.save(err => {
 						err ? console.log('Error saving property to user', err) : ''
 						res.send('Added property to user')
