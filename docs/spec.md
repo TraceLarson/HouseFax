@@ -1,10 +1,11 @@
 #Spec
 - **Feature Definitions**
+    - __Back End__
     - Bridge API calls
         - GET listings /api/bridge
         - GET lat lng of specific listing /api/bridge/:propertyid
     - CrimeReports API calls
-        - GET crimes within radius of lat long /api/crime/
+        - GET crimes within radius of lat long /api/crime/:location
     - HouseFax API calls
         - GET user info /user/:id
         - GET likes on property /property/:id/likes
@@ -18,7 +19,8 @@
         - DELETE remove property from user /user/properties/:id
         - DELETE remove user /user/:id
         - DELETE remove property /property/:id
-    - 
+    - __Front End__ 
+    - (Pending design meeting)
 - **Sitemap**
     - (Pending design meeting)
 - **Interface**
