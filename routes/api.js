@@ -9,10 +9,10 @@ const Crime = require('../models/Crime')
 
 
 
-router.get('/crime', (req, res, next) => {
+router.get('/crime/:location', (req, res, next) => {
 	let location = {
-		lat: '30.276581', // req.body.latitude
-		lng: '-97.766132' // req.body.longitude
+		lat: '30.276581', // req.params.location.lat
+		lng: '-97.766132' // req.params.location.lng
 	}
 	Crime.getCrime(location.lat, location.lng)
 		.then(response => {

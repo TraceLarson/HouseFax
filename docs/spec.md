@@ -5,7 +5,7 @@
         - GET listings /api/bridge
         - GET lat lng of specific listing /api/bridge/:propertyid
     - CrimeReports API calls
-        - GET crimes within radius of lat long /api/crime/:location
+        - GET crimes within radius of lat long /api/crime/:location (location is object with lat and lng)
     - HouseFax API calls
         - GET user info /user/:id
         - GET likes on property /property/:id/likes
