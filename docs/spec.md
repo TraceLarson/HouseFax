@@ -13,9 +13,11 @@
         - POST login user /user/login
         - POST save property /property
         - PUT update user info /user/:id
-        - PUT add property to favorites /user/properties
-        - PUT update likes to property /property/likes
+        - PUT add property to favorites /property/:id/likes
+        - PUT update likes to property /property/:id/likes
         - DELETE remove property from user /user/properties/:id
+        - DELETE remove user /user/:id
+        - DELETE remove property /property/:id
     - 
 - **Sitemap**
     - (Pending design meeting)
