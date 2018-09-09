@@ -7,7 +7,7 @@
         - GET crimes within radius of lat long /api/crime/
     - HouseFax API calls
         - GET user info /user/:id
-        - GET likes on property /property/likes
+        - GET likes on property /property/:id/likes
         - GET saved property /property/:id
         - POST create user /user
         - POST login user /user/login
