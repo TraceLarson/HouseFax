@@ -15,5 +15,6 @@ vendor
 # MacOS
 .DS_Store
 
-.idea
-.idea/workspace.xml
+.idea*
+.idea/
+*.xml

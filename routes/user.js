@@ -7,6 +7,7 @@ const User = require('../models/User')
 const Property = require('../models/Property')
 
 
+
 router.get('/', (req, res, next) => {
 	User.find().populate('properties').exec((err, users) => {
 		err ? console.log('Error finding users', err) : ''
@@ -74,10 +75,7 @@ router.delete('/properties/:id', (req, res, next) => {
 
 			res.send(`Deleted property ${req.params.id} from user id: ${token.userId}`)
 		})
-
-
 	})
-
 })
 
 module.exports = router

@@ -20,7 +20,20 @@
         - DELETE remove user /user/:id
         - DELETE remove property /property/:id
     - __Front End__ 
-    - (Pending design meeting)
+        - __Pages__
+            - HomePage Component
+            - ProfilePage Component
+            - RegisterPage Component
+            - LoginPage Component
+            - ResultsPage Component
+            - DetailsPage Component
+        - __Components__
+            - Navigation Component
+            - Search Component
+            - Footer Component
+            - Login Form Component
+            - Register Form Component
+        
 - **Sitemap**
     - (Pending design meeting)
 - **Interface**

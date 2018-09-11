@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 
+
 const propertySchema = new mongoose.Schema({
 	listingId: {type: String, unique: true },
 	address: {type: String, unique: true},
