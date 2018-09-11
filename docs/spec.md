@@ -33,6 +33,10 @@
             - Footer Component
             - Login Form Component
             - Register Form Component
+            - ResultsItem Component
+            - Detail Component
+            - FamilyFriendlyRating Component
+            - CrimeMap Component
         
 - **Sitemap**
     - (Pending design meeting)
