@@ -9,10 +9,11 @@ This project will be built using the MERN stack with the following popular techn
 - Redux
 - MongoDB
 
-Run the following to get started:
+Run the following two commands to get started, one installs backend dependencies and the other installs client side dependencies:
 
 ```terminal
 npm install
+npm client-install
 ```
 
 This project will include a .env file that will include my API keys. This file will remain private with the exception of the FullSail Capstone team/ Project leads. 
