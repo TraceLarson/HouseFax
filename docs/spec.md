@@ -28,7 +28,7 @@
             - ResultsPage Component
             - DetailsPage Component
         - __Components__
-            - Navigation Component
+            - NavigationHeader Component
             - Search Component
             - Footer Component
             - Login Form Component

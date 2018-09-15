@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Navigation extends Component {
+class NavigationHeader extends Component {
 	render() {
 		return (
 			<div>
@@ -10,4 +10,4 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation;
+export default NavigationHeader;
