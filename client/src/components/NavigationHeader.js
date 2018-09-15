@@ -6,11 +6,7 @@ import {
 	NavbarBrand,
 	Nav,
 	NavItem,
-	NavLink,
-	UncontrolledDropdown,
-	DropdownToggle,
-	DropdownMenu,
-	DropdownItem } from 'reactstrap'
+	NavLink } from 'reactstrap';
 
 class NavigationHeader extends Component {
 	state = {
@@ -23,23 +19,22 @@ class NavigationHeader extends Component {
 		})
 	}
 
-
 	render() {
 		return (
 			<div>
-				<Navbar color={'light'} light expand={'md'}  >
-					<NavbarBrand href={'/'}>HomeFax</NavbarBrand>
+				<Navbar color="light" light expand="md">
+					<NavbarBrand href="/">HomeFax</NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
-					<Collapse isOpen={this.state.isOpen} navbar >
-						<Nav>
-							<NavItem >
-								<NavLink  href={'/Login'}>Login</NavLink>
+					<Collapse isOpen={this.state.isOpen} navbar>
+						<Nav className="ml-auto" navbar>
+							<NavItem>
+								<NavLink href="/Login">Login</NavLink>
 							</NavItem>
-							<NavItem >
-								<NavLink href={'/Register'} >Register</NavLink>
+							<NavItem>
+								<NavLink href="/">About</NavLink>
 							</NavItem>
-							<NavItem  >
-								<NavLink href={'/Details'}>Details</NavLink>
+							<NavItem>
+								<NavLink href="/">Contact</NavLink>
 							</NavItem>
 						</Nav>
 					</Collapse>
