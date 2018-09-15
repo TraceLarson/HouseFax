@@ -3,12 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
+import HomePage from './pages/HomePage'
+
 class App extends Component {
 	render() {
 		return (
 			<Router>
 				<div className="App">
-					<h1>Hello</h1>
+					<HomePage />
 				</div>
 			</Router>
 		);
