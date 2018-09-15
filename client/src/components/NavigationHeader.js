@@ -27,36 +27,20 @@ class NavigationHeader extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar color={'light'} light expand={'md'} >
+				<Navbar color={'light'} light expand={'md'}  >
 					<NavbarBrand href={'/'}>HomeFax</NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
-					<Collapse isOpen={this.state.isOpen} navbar>
+					<Collapse isOpen={this.state.isOpen} navbar >
 						<Nav>
-							<NavItem>
-								<NavLink href={'/Login'}>Login</NavLink>
+							<NavItem >
+								<NavLink  href={'/Login'}>Login</NavLink>
 							</NavItem>
-							<NavItem>
+							<NavItem >
 								<NavLink href={'/Register'} >Register</NavLink>
 							</NavItem>
-							<NavItem>
+							<NavItem  >
 								<NavLink href={'/Details'}>Details</NavLink>
 							</NavItem>
-							<UncontrolledDropdown nav inNavBar>
-								<DropdownToggle nav caret>
-									Options
-								</DropdownToggle>
-								<DropdownMenu right>
-									<DropdownItem>
-										Option 1
-									</DropdownItem>
-									<DropdownItem>
-										Option 2
-									</DropdownItem>
-									<DropdownItem divider>
-										Reset
-									</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
 						</Nav>
 					</Collapse>
 				</Navbar>
