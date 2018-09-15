@@ -37,6 +37,8 @@
             - Detail Component
             - FamilyFriendlyRating Component
             - CrimeMap Component
+            - CrimeList Component
+            - Description Component
         
 - **Sitemap**
     - (Pending design meeting)
