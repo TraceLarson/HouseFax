@@ -15,6 +15,7 @@ vendor
 # MacOS
 .DS_Store
 
+# PHPStorm IDE files
 .idea*
 .idea/
 *.xml
