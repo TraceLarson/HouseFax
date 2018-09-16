@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'

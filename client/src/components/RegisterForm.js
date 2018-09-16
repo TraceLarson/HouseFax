@@ -5,15 +5,14 @@ import {
 	Form,
 	FormGroup,
 	Label,
-	Input,
-	FormText
+	Input
 } from 'reactstrap'
 
 class RegisterForm extends Component {
 	render() {
 		return (
 			<Container>
-				<Form action={''} method={'POST'} className={'text-center'}>
+				<Form action={'/user'} method={'POST'} className={'text-center'}>
 					<FormGroup>
 						<Label for={'firstname'}> </Label>
 						<Input type={'text'} name={'firstname'} placeholder={'First name'}/>
