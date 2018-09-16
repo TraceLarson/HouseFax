@@ -9,6 +9,25 @@ import {
 } from 'reactstrap'
 
 class RegisterForm extends Component {
+
+	state = {
+		password: '',
+		repeatpassword: '',
+		alert: ''
+	}
+
+	setPassword = (e) => {
+		e.preventDefault()
+
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	// checkPassword = (e) => {
+	// 	!this.ref.password.value === this.ref.repeatpassword.value ? this.setState({alert: 'danger'}) : this.setState({alert: ''})
+	// }
+
 	render() {
 		return (
 			<Container>
@@ -27,11 +46,11 @@ class RegisterForm extends Component {
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password'}> </Label>
-						<Input type={'password'} name={'password'} placeholder={'Password'}/>
+						<Input className={this.state.alert} onChange={this.setPassword}  type={'password'} name={'password'} placeholder={'Password'}/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'repeatpassword'}> </Label>
-						<Input type={'password'} name={'repeatpassword'} placeholder={'Repeat password'}/>
+						<Input className={this.state.alert} onChange={this.setPassword} type={'password'} name={'repeatpassword'} placeholder={'Repeat password'}/>
 					</FormGroup>
 					<Button type={'submit'} className={'btn btn-info'} >Sign Up!</Button>
 				</Form>
