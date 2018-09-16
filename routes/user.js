@@ -24,7 +24,8 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 	let newUser = User({
-		name: req.body.name,
+		firstname: req.body.firstname,
+		lastname: req.body.lastname,
 		email: req.body.email,
 		password: req.body.password
 	})
