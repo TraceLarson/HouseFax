@@ -13,7 +13,7 @@ class RegisterForm extends Component {
 	render() {
 		return (
 			<Container>
-				<Form>
+				<Form action={''} method={'POST'} className={'text-center'}>
 					<FormGroup>
 						<Label for={'firstname'}> </Label>
 						<Input type={'text'} name={'firstname'} placeholder={'First name'}/>
@@ -24,7 +24,7 @@ class RegisterForm extends Component {
 					</FormGroup>
 					<FormGroup>
 						<Label for={'email'}> </Label>
-						<Input type={'email'} name={'email'} placeholder={'Email address'}/>
+						<Input type={'email'} name={'email'} placeholder={'Email'}/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password'}> </Label>
@@ -34,6 +34,7 @@ class RegisterForm extends Component {
 						<Label for={'repeatpassword'}> </Label>
 						<Input type={'password'} name={'repeatpassword'} placeholder={'Repeat password'}/>
 					</FormGroup>
+					<Button type={'submit'} className={'btn btn-info'} >Sign Up!</Button>
 				</Form>
 			</Container>
 		);
