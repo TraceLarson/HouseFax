@@ -27,17 +27,31 @@ router.get('/:id', (req, res, next) => {
 	})
 })
 
+// REGISTER
 router.post('/', (req, res, next) => {
-	let newUser = User({
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
-		email: req.body.email,
-		password: req.body.password
-	})
 
-	newUser.save((err, user) => {
-		err ? console.log('Error saving user', err) : ''
-		res.redirect('/Login')
+	User.findOne({
+		email: req.body.email
+	}).then(user => {
+		user ?  res.status(400).json({email: 'email already exits'}) : ''
+		let newUser = User({
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			email: req.body.email,
+			password: req.body.password
+		})
+		bcrypt.genSalt(10, (err, salt) => {
+			err ? console.error('Error bcrypt-ing', err) : ''
+			bcrypt.hash(newUser.password, salt, (err, hash) => {
+				err ? console.error('Error bcrypt-ing password', err) : ''
+				newUser.password = hash
+				newUser.save((err, user) => {
+					err ? console.log('Error saving user', err) : ''
+				}).then(user => {
+					res.json(user)
+				})
+			})
+		})
 	})
 })
 
