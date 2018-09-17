@@ -32,7 +32,7 @@ router.post('/', (req, res, next) => {
 
 	newUser.save((err, user) => {
 		err ? console.log('Error creating user') : ''
-		res.send('User Created')
+		res.redirect('/Login')
 	})
 })
 
