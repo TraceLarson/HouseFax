@@ -26,7 +26,6 @@ class RegisterForm extends Component {
 
 	handleInputChange = (e) => {
 		e.preventDefault()
-
 		this.setState({
 			[e.target.name]: e.target.value
 		})
@@ -34,7 +33,14 @@ class RegisterForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-
+		const user = {
+			firstname: this.state.firstname,
+			lastname: this.state.lastname,
+			email: this.state.email,
+			password: this.state.password,
+			password_confirm: this.state.password_confirm
+		}
+		console.log(user)
 
 	}
 
@@ -43,7 +49,7 @@ class RegisterForm extends Component {
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
-				<Form onSubmit={this.handleSubmit} {/*action={'/user'} method={'POST'}*/} >
+				<Form onSubmit={this.handleSubmit} >
 					<FormGroup>
 						<Label for={'firstname'}> </Label>
 						<Input type={'text'}

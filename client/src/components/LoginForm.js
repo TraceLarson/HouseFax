@@ -10,18 +10,51 @@ import {
 
 
 class LoginForm extends Component {
+
+	state = {
+		email: '',
+		password: '',
+		errors: {}
+	}
+
+	handleInputChange = (e) => {
+		e.preventDefault()
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault()
+		const user = {
+			email: this.state.email,
+			password: this.state.password
+		}
+		console.log(user)
+	}
+
 	render() {
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
-				<Form action={'/user/login'} method={'POST'}>
+				<Form onSubmit={this.handleSubmit}>
 					<FormGroup>
 						<Label className={'d-none'} htmlFor={'email'}>Email</Label>
-						<Input name={'email'} type={'email'} placeholder={'email'}/>
+						<Input name={'email'}
+						       type={'email'}
+						       placeholder={'email'}
+						       onChange={this.handleInputChange}
+						       value={this.state.email}
+						/>
 					</FormGroup>
 					<FormGroup>
 						<Label className={'d-none'} htmlFor={'password'}>Password</Label>
-						<Input name={'password'} type={'password'} placeholder={'Password'}/>
+						<Input name={'password'}
+						       type={'password'}
+						       placeholder={'Password'}
+						       onChange={this.handleInputChange}
+						       value={this.state.password}
+						/>
 					</FormGroup>
 					<Button type={'submit'}>Login</Button>
 					<FormGroup>
