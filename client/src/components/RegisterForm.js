@@ -54,8 +54,8 @@ class RegisterForm extends Component {
 						<Input className={this.state.alert} onChange={this.setPassword}  type={'password'} name={'password'} placeholder={'Password'}/>
 					</FormGroup>
 					<FormGroup>
-						<Label for={'repeatpassword'}> </Label>
-						<Input className={this.state.alert} onChange={this.setPassword} type={'password'} name={'repeatpassword'} placeholder={'Repeat password'}/>
+						<Label for={'password_confirm'}> </Label>
+						<Input className={this.state.alert} onChange={this.setPassword} type={'password'} name={'password_confirm'} placeholder={'Confirm Password'}/>
 					</FormGroup>
 					<Button type={'submit'} className={'btn btn-info'} >Sign Up!</Button>
 				</Form>
