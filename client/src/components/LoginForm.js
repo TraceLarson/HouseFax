@@ -14,7 +14,7 @@ class LoginForm extends Component {
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
-				<Form action={''} method={'POST'}>
+				<Form action={'/user/login'} method={'POST'}>
 					<FormGroup>
 						<Label className={'d-none'} htmlFor={'email'}>Email</Label>
 						<Input name={'email'} type={'email'} placeholder={'email'}/>
