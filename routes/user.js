@@ -55,6 +55,51 @@ router.post('/', (req, res, next) => {
 	})
 })
 
+// LOGIN
+router.post('/login', (req, res, next) => {
+
+	const email = req.body.email
+	const password = req.body.password
+
+	User.findOne({email})
+		.then(user => {
+			!user ? res.status(404).json(errors) : ''
+
+			bcrypt.compare(password, user.password)
+				.then(isMatch => {
+					if(ifMatch) {
+						const payload = {
+							id: user.id,
+							firstname: user.firstname,
+							lastname: user.lastname,
+						}
+						jwt.sign(payload, 'secret', {
+							expiresIn: 3600
+						}, (err, token) => {
+							err ? console.error('Error in token', err) : ''
+							res.json({
+								success: true,
+								token: `Bearer ${token}`
+							})
+						})
+					}
+					else {
+						return res.status(400).json(errors)
+					}
+				})
+		})
+})
+
+// Get user
+router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+	return res.json({
+		id: req.user.id,
+		firstname: req.user.firstname,
+		lastname: req.user.lastname
+	})
+})
+
+
 router.put('/:id', (req, res, next) => {
 	User.findOneAndUpdate(
 		{_id: req.params.id},
