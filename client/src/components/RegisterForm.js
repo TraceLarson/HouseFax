@@ -15,12 +15,16 @@ import {
 class RegisterForm extends Component {
 
 	state = {
+		firstname: '',
+		lastname: '',
+		email: '',
 		password: '',
-		repeatpassword: '',
+		password_confirm: '',
+		errors: {},
 		alert: ''
 	}
 
-	setPassword = (e) => {
+	handleInputChange = (e) => {
 		e.preventDefault()
 
 		this.setState({
@@ -28,34 +32,64 @@ class RegisterForm extends Component {
 		})
 	}
 
-	// checkPassword = (e) => {
-	// 	!this.ref.password.value === this.ref.repeatpassword.value ? this.setState({alert: 'danger'}) : this.setState({alert: ''})
-	// }
+	handleSubmit = (e) => {
+		e.preventDefault()
+
+
+	}
+
 
 	render() {
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
-				<Form action={'/user'} method={'POST'} >
+				<Form onSubmit={this.handleSubmit} {/*action={'/user'} method={'POST'}*/} >
 					<FormGroup>
 						<Label for={'firstname'}> </Label>
-						<Input type={'text'} name={'firstname'} placeholder={'First name'}/>
+						<Input type={'text'}
+						       name={'firstname'}
+						       placeholder={'First name'}
+						       onChange={this.handleInputChange}
+						       value={this.state.firstname}
+						/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'lastname'}> </Label>
-						<Input type={'text'} name={'lastname'} placeholder={'Last name'}/>
+						<Input type={'text'}
+						       name={'lastname'}
+						       placeholder={'Last name'}
+						       onChange={this.handleInputChange}
+						       value={this.state.lastname}
+						/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'email'}> </Label>
-						<Input type={'email'} name={'email'} placeholder={'Email'}/>
+						<Input type={'email'}
+						       name={'email'}
+						       placeholder={'Email'}
+						       onChange={this.handleInputChange}
+						       value={this.state.email}
+						/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password'}> </Label>
-						<Input className={this.state.alert} onChange={this.setPassword}  type={'password'} name={'password'} placeholder={'Password'}/>
+						<Input className={this.state.alert}
+						       type={'password'}
+						       name={'password'}
+						       placeholder={'Password'}
+						       onChange={this.handleInputChange}
+						       value={this.state.password}
+						/>
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password_confirm'}> </Label>
-						<Input className={this.state.alert} onChange={this.setPassword} type={'password'} name={'password_confirm'} placeholder={'Confirm Password'}/>
+						<Input className={this.state.alert}
+						       type={'password'}
+						       name={'password_confirm'}
+						       placeholder={'Confirm Password'}
+						       onChange={this.handleInputChange}
+						       value={this.state.password_confirm}
+						/>
 					</FormGroup>
 					<Button type={'submit'} className={'btn btn-info'} >Sign Up!</Button>
 				</Form>
