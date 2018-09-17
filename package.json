@@ -22,11 +22,15 @@
   "homepage": "https://github.com/TraceLarson/HouseFax#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.13",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
   },
