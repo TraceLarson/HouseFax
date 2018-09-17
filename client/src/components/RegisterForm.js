@@ -44,8 +44,15 @@ class RegisterForm extends Component {
 			password: this.state.password,
 			password_confirm: this.state.password_confirm
 		}
-		console.log(user)
+		this.props.registerUser(user, this.props.history)
+	}
 
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			})
+		}
 	}
 
 
