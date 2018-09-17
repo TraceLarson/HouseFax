@@ -47,7 +47,6 @@ router.post('/', (req, res, next) => {
 				newUser.password = hash
 				newUser.save((err, user) => {
 					err ? console.log('Error saving user', err) : ''
-				}).then(user => {
 					res.json(user)
 				})
 			})
@@ -67,7 +66,7 @@ router.post('/login', (req, res, next) => {
 
 			bcrypt.compare(password, user.password)
 				.then(isMatch => {
-					if(ifMatch) {
+					if(isMatch) {
 						const payload = {
 							id: user.id,
 							firstname: user.firstname,
