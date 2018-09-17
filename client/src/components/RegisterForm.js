@@ -1,3 +1,5 @@
+// TODO: Get check password and re-enter password working
+
 import React, {Component} from 'react';
 import {
 	Container,
@@ -7,6 +9,8 @@ import {
 	Label,
 	Input
 } from 'reactstrap'
+
+
 
 class RegisterForm extends Component {
 
@@ -30,8 +34,9 @@ class RegisterForm extends Component {
 
 	render() {
 		return (
-			<Container>
-				<Form action={'/user'} method={'POST'} className={'text-center'}>
+			<Container className={'text-center'}>
+				<h1>HouseFax</h1>
+				<Form action={'/user'} method={'POST'} >
 					<FormGroup>
 						<Label for={'firstname'}> </Label>
 						<Input type={'text'} name={'firstname'} placeholder={'First name'}/>

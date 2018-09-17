@@ -31,7 +31,7 @@ router.post('/', (req, res, next) => {
 	})
 
 	newUser.save((err, user) => {
-		err ? console.log('Error creating user') : ''
+		err ? console.log('Error saving user', err) : ''
 		res.redirect('/Login')
 	})
 })
