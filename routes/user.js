@@ -3,8 +3,10 @@ const router = express.Router()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
+
 const User = require('../models/User')
 const Property = require('../models/Property')
+
 
 
 
