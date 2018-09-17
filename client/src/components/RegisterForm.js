@@ -1,6 +1,10 @@
 // TODO: Get check password and re-enter password working
 
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { registerUser} from '../actions/authentication'
 import {
 	Container,
 	Button,
@@ -104,4 +108,12 @@ class RegisterForm extends Component {
 	}
 }
 
-export default RegisterForm;
+RegisterForm.propTypes = {
+	registerUser: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state => ({
+	errors: state.errors
+})
+
+export default connect(mapStateToProps, { registerUser })(withRouter(RegisterForm));
