@@ -29,7 +29,6 @@ class RegisterForm extends Component {
 	}
 
 	handleInputChange = (e) => {
-		e.preventDefault()
 		this.setState({
 			[e.target.name]: e.target.value
 		})
@@ -54,7 +53,6 @@ class RegisterForm extends Component {
 			})
 		}
 	}
-
 
 	render() {
 		return (
