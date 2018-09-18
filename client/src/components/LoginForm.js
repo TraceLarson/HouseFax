@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/authentication'
+import classnames from 'classnames'
 import {
 	Container,
 	Button,
@@ -44,6 +45,7 @@ class LoginForm extends Component {
 	}
 
 	render() {
+		const {errors} = this.state
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
@@ -53,18 +55,26 @@ class LoginForm extends Component {
 						<Input name={'email'}
 						       type={'email'}
 						       placeholder={'email'}
+						       className={classnames('form-control form-control-lg', {
+							       'is-invalid': errors.email
+						       })}
 						       onChange={this.handleInputChange}
 						       value={this.state.email}
 						/>
+						{errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
 					</FormGroup>
 					<FormGroup>
 						<Label className={'d-none'} htmlFor={'password'}>Password</Label>
 						<Input name={'password'}
 						       type={'password'}
 						       placeholder={'Password'}
+						       className={classnames('form-control form-control-lg', {
+							       'is-invalid': errors.password
+						       })}
 						       onChange={this.handleInputChange}
 						       value={this.state.password}
 						/>
+						{errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
 					</FormGroup>
 					<Button type={'submit'}>Login</Button>
 					<FormGroup>
