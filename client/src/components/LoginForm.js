@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {loginUser} from '../actions/authentication'
 import {
 	Container,
 	Button,
@@ -18,7 +21,6 @@ class LoginForm extends Component {
 	}
 
 	handleInputChange = (e) => {
-		e.preventDefault()
 		this.setState({
 			[e.target.name]: e.target.value
 		})
