@@ -32,7 +32,15 @@ class LoginForm extends Component {
 			email: this.state.email,
 			password: this.state.password
 		}
-		console.log(user)
+		this.props.loginUser(user)
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			})
+		}
 	}
 
 	render() {
@@ -72,4 +80,12 @@ class LoginForm extends Component {
 	}
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+	errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+	errors: state.errors
+})
+
+export default connect(mapStateToProps, { loginUser })(LoginForm);
