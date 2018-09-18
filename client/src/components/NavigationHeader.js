@@ -32,7 +32,6 @@ class NavigationHeader extends Component {
 
 	render() {
 		const {isAuthenticated, user} = this.props.auth
-
 		const authLinks = (
 			<Nav className="ml-auto" navbar>
 				<NavItem>
@@ -80,8 +79,8 @@ NavigationHeader.propTypes = {
 	auth: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
 	auth: state.auth
-}
+})
 
-export default connect(mapStateToProps, {logoutUser})(NavigationHeader);
+export default connect(mapStateToProps, {logoutUser})(withRouter(NavigationHeader));
