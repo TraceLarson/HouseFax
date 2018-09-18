@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { registerUser} from '../actions/authentication'
+import { registerUser } from '../actions/authentication'
 import classnames from 'classnames'
 import {
 	Container,
@@ -56,7 +56,7 @@ class RegisterForm extends Component {
 	}
 
 	render() {
-		const {errors} = this.state.errors
+		const {errors} = this.state
 		return (
 			<Container className={'text-center'}>
 				<h1>HouseFax</h1>
@@ -102,8 +102,7 @@ class RegisterForm extends Component {
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password'}> </Label>
-						<Input className={this.state.alert}
-						       type={'password'}
+						<Input type={'password'}
 						       name={'password'}
 						       placeholder={'Password'}
 						       className={classnames('form-control form-control-lg',{
@@ -116,8 +115,7 @@ class RegisterForm extends Component {
 					</FormGroup>
 					<FormGroup>
 						<Label for={'password_confirm'}> </Label>
-						<Input className={this.state.alert}
-						       type={'password'}
+						<Input type={'password'}
 						       name={'password_confirm'}
 						       placeholder={'Confirm Password'}
 						       className={classnames('form-control for-control-lg', {
