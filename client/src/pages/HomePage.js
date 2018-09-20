@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
+import Search from '../components/Search'
 
-class HomePage extends Component{
+class HomePage extends Component {
 	render() {
-		return(
-			<h1>Home Page</h1>
+		return (
+			<div>
+				<p>Home Page</p>
+				<Search />
+			</div>
 		)
 	}
 }

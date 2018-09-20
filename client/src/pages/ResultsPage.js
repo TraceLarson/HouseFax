@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import Search from '../components/Search'
+import ResultsItem from '../components/ResultsItem'
 
 class ResultsPage extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Results Page</h1>
+				<p>Results Page</p>
+				<Search />
+				<ResultsItem />
 			</div>
 		);
 	}
