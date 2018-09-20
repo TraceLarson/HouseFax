@@ -17,6 +17,7 @@ const Property = require('../models/Property')
 
 // Get user
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+
 	return res.json({
 		id: req.user.id,
 		firstname: req.user.firstname,
@@ -128,12 +129,11 @@ router.delete('/:id', (req, res, next) => {
 	})
 })
 
-router.delete('/properties/:id', (req, res, next) => {
+router.delete('/properties/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 	// From token
-	let token = {
-		userId: '5b933723b45f685e82d5212f'
-	}
-	User.findOne({_id: token.userId}).exec((err, user) => {
+	let token = req.user
+
+	User.findOne({_id: token.Id}).exec((err, user) => {
 		err ? console.log('Error finding user to remove property from', err) : ''
 
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
