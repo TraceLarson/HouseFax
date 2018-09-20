@@ -24,7 +24,7 @@ router.get('/crime/:location', (req, res, next) => {
 router.get('/bridge', (req, res, next) => {
 	Bridge.getListing()
 		.then(response => {
-			res.send(response)
+			res.json(response)
 		})
 })
 
