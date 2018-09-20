@@ -7,7 +7,10 @@ const initialState = {
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case GET_ALL_LISTINGS:
-			console.log(action.payload)
+			return {
+				...state,
+				listings: [action.payload]
+			}
 		default:
 			return state
 	}

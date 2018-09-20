@@ -5,12 +5,12 @@ export const getAllListings = () => dispatch => {
 	axios.get('/api/bridge')
 		.then(response => {
 			console.log('listing data: ', response.data)
-			// dispatch({
-			// 			// 	action: GET_ALL_LISTINGS,
-			// 			// 	payload: res.data
-			// 			// })
+			dispatch({
+				type: GET_ALL_LISTINGS,
+				payload: response.data
+			})
 		})
 		.catch(err => {
-			console.log('error getAllListings: ', err)
+			console.error('Error calling bridge API', err)
 		})
 }
