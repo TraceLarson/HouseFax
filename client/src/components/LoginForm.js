@@ -36,7 +36,16 @@ class LoginForm extends Component {
 		this.props.loginUser(user)
 	}
 
+	componentDidMount() {
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push('/')
+		}
+	}
+
 	componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			this.props.history.push('/')
+		}
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors
@@ -91,11 +100,13 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-	errors: PropTypes.object.isRequired
+	errors: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-	errors: state.errors
+	errors: state.errors,
+	auth: state.auth
 })
 
 export default connect(mapStateToProps, { loginUser })(LoginForm);
