@@ -10,7 +10,7 @@ class ProfilePage extends Component {
 	componentWillMount() {
 		axios.get('/user/me')
 			.then(response => {
-				console.log(response)
+				console.log(JSON.stringify(response.data))
 			})
 	}
 
