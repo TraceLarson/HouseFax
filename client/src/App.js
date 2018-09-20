@@ -20,7 +20,17 @@ import DetailsPage from './pages/DetailsPage'
 import NavigationHeader from './components/NavigationHeader'
 import Footer from './components/Footer'
 
-if()
+if (localStorage.jwtToken) {
+	setAuthToken(localStorage.jwtToken)
+	const decoded = jwt_decode(localStorage.jwtToken)
+	store.dispatch(setCurrentUser(decoded))
+
+	const currentTime = Date.now() / 1000
+	if (decoded.exp < currentTime) {
+		store.dispatc(logoutUser())
+		window.location.href = '/Login'
+	}
+}
 
 class App extends Component {
 	render() {
