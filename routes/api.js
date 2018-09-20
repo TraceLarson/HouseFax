@@ -22,7 +22,16 @@ router.get('/crime/:location', (req, res, next) => {
 
 
 router.get('/bridge', (req, res, next) => {
-	Bridge.getListing()
+	Bridge.getAllListings()
+		.then(response => {
+			res.json(response)
+		})
+})
+
+router.post('/bridge', (req, res, next) => {
+	let nearHere = '6900  Live Oak Cir austin tx'
+
+	Bridge.getListingCluster(nearHere)
 		.then(response => {
 			res.json(response)
 		})
