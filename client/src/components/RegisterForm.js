@@ -1,4 +1,3 @@
-// TODO: Get check password and re-enter password working
 
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
@@ -48,10 +47,19 @@ class RegisterForm extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			this.props.history.push('/')
+		}
 		if(nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors
 			})
+		}
+	}
+
+	componentDidMount() {
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push('/')
 		}
 	}
 
@@ -135,10 +143,12 @@ class RegisterForm extends Component {
 
 RegisterForm.propTypes = {
 	registerUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-	errors: state.errors
+	errors: state.errors,
+	auth: state.auth
 })
 
 export default connect(mapStateToProps, { registerUser })(withRouter(RegisterForm));
