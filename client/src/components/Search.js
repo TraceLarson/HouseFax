@@ -1,11 +1,26 @@
 import React, {Component} from 'react';
+import {
+	Container,
+	Form,
+	FormLabel,
+	FormGroup,
+	Input,
+	FormText,
+	Button
+} from 'reactstrap'
 
 class Search extends Component {
 	render() {
 		return (
-			<div>
-				<h1>Search Component</h1>
-			</div>
+			<Container className={'text-center'}>
+				<p>Search Component</p>
+				<Form onSubmit={''} >
+					<FormGroup className={'d-flex'}>
+						<Input type={'text'}/>
+						<Button type={'submit'}>Search!</Button>
+					</FormGroup>
+				</Form>
+			</Container>
 		);
 	}
 }
