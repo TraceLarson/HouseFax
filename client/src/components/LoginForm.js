@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/authentication'
 import classnames from 'classnames'
+import {withRouter} from 'react-router-dom'
 import {
 	Container,
 	Button,
@@ -109,4 +110,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 })
 
-export default connect(mapStateToProps, { loginUser })(LoginForm);
+export default connect(mapStateToProps, { loginUser })(withRouter(LoginForm));

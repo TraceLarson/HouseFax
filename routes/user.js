@@ -15,6 +15,16 @@ const Property = require('../models/Property')
 
 
 
+// Get user
+router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+	return res.json({
+		id: req.user.id,
+		firstname: req.user.firstname,
+		lastname: req.user.lastname,
+		email: req.user.email
+	})
+})
+
 router.get('/', (req, res, next) => {
 	User.find().populate('properties').exec((err, users) => {
 		err ? console.log('Error finding users', err) : ''
@@ -100,17 +110,6 @@ router.post('/login', (req, res, next) => {
 				})
 		})
 })
-
-// Get user
-router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-	return res.json({
-		id: req.user.id,
-		firstname: req.user.firstname,
-		lastname: req.user.lastname,
-		email: req.user.email
-	})
-})
-
 
 router.put('/:id', (req, res, next) => {
 	User.findOneAndUpdate(
