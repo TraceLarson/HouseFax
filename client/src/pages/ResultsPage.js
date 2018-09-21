@@ -7,9 +7,17 @@ import {withRouter} from 'react-router-dom'
 
 class ResultsPage extends Component {
 
+	componentDidMount() {
+		console.log('ResultsPageProps',this.props.bridge.listings)
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('ShouldComponentUpdate ResultsPageProps',nextProps.bridge.listings)
+	}
 
 	render() {
-		let resultItems = this.props.listings.map(listing => {
+		let resultItems
+		this.props.bridge && (resultItems = this.props.bridge.listings.map(listing => {
 			return(
 				<ResultsItem
 					key={listing.ListingKey}
@@ -21,23 +29,23 @@ class ResultsPage extends Component {
 					imageSRC={listing.Media[0].MediaURL}
 				/>
 			)
-		})
+		}))
 		return (
 			<div>
 				<p>Results Page</p>
 				<Search />
-				<ResultsItem />
+				{resultItems}
 			</div>
 		);
 	}
 }
 
 ResultsPage.propTypes = {
-
+	bridge: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state => {
-	listings: state.listings
-}
+const mapStateToProps = state =>({
+	bridge: state.bridge
+})
 
 export default connect(mapStateToProps)(withRouter(ResultsPage));
