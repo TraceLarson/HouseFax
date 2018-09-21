@@ -25,21 +25,21 @@ class Bridge {
 		)
 	}
 
-	static getListingCluster(query){
+	static getNearbyListings(query){
 		return (
-			axios.get(process.env.BRIDGE_API_CLUSTER_ENDPOINT + query, {
+			axios.get(process.env.BRIDGE_API_ENDPOINT, {
 				method: "GET",
 				params: {
-					access_token: process.env.BRIDGE_API_SERVER_TOKEN
+					access_token: process.env.BRIDGE_API_SERVER_TOKEN,
+					near: query,
+					radius: 0.5
 				}
 			})
 				.then(response => {
-					let cluster = []
-					console.log(JSON.stringify(response.data.bundle))
-					response.data.bundle.map(listing => {
-						cluster.push(listing)
-					})
-					return cluster
+					let data = response.data.bundle
+					console.log(response)
+
+					return response.data
 				})
 				.catch(err => {
 					console.log('error fetching cluster from MLS', err)

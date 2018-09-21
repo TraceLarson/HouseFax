@@ -29,9 +29,9 @@ router.get('/bridge', (req, res, next) => {
 })
 
 router.post('/bridge', (req, res, next) => {
-	let nearHere = '6900  Live Oak Cir austin tx'
+	let nearHere = '214 Pecan Creek Dr Horseshoe Bay'
 
-	Bridge.getListingCluster(nearHere)
+	Bridge.getNearbyListings(nearHere)
 		.then(response => {
 			res.json(response)
 		})
