@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_ERRORS, GET_LISTINGS} from './types'
+import {GET_LISTINGS} from './types'
 
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})

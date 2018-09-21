@@ -4,7 +4,6 @@ import ResultsItem from '../components/ResultsItem'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
-import isEmpty from '../validation/is-empty'
 
 
 

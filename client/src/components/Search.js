@@ -6,10 +6,8 @@ import {getListings} from '../actions/api'
 import {
 	Container,
 	Form,
-	FormLabel,
 	FormGroup,
 	Input,
-	FormText,
 	Button
 } from 'reactstrap'
 

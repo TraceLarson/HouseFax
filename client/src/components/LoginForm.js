@@ -90,7 +90,7 @@ class LoginForm extends Component {
 					<FormGroup>
 						<Label>
 							<Input type={'checkbox'} name={'rememberCheck'}/>
-							Remember Me <a href={'#'}>Forgot password?</a>
+							Remember Me <a href={'/Login'}>Forgot password?</a>
 						</Label>
 					</FormGroup>
 				</Form>

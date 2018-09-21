@@ -31,7 +31,7 @@ class NavigationHeader extends Component {
 	}
 
 	render() {
-		const {isAuthenticated, user} = this.props.auth
+		const {isAuthenticated} = this.props.auth
 		const authLinks = (
 			<Nav className="ml-auto" navbar>
 				<NavItem>

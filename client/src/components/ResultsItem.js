@@ -19,7 +19,7 @@ class ResultsItem extends Component {
 				<p>ResultsItem Component</p>
 				<br/>
 				<ul>
-					<li><img src={imageSrc} alt={'property photo'}/></li>
+					<li><img src={imageSrc} alt={'property'}/></li>
 					<li>{this.props.id}</li>
 					<li>{this.props.price}</li>
 					<li>{this.props.address}</li>
