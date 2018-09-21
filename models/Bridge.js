@@ -36,9 +36,6 @@ class Bridge {
 				}
 			})
 				.then(response => {
-					let data = response.data.bundle
-					console.log(response)
-
 					return response.data
 				})
 				.catch(err => {

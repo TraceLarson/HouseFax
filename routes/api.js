@@ -29,7 +29,7 @@ router.get('/bridge', (req, res, next) => {
 })
 
 router.post('/bridge', (req, res, next) => {
-	let nearHere = '214 Pecan Creek Dr Horseshoe Bay'
+	let nearHere = req.body.location
 
 	Bridge.getNearbyListings(nearHere)
 		.then(response => {
