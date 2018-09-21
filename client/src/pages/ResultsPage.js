@@ -9,8 +9,8 @@ class ResultsPage extends Component {
 
 
 	render() {
-		let resultItems = this.props.listings.map((listing => {
-			return (
+		let resultItems = this.props.listings.map(listing => {
+			return(
 				<ResultsItem
 					key={listing.ListingKey}
 					id={listing.ListingId}
