@@ -6,5 +6,5 @@ import bridgeReducer from './bridgeReducer'
 export default combineReducers({
 	errors: errorReducer,
 	auth: authReducer,
-	bridge: bridgeReducer
+	listings: bridgeReducer
 })

@@ -4,48 +4,45 @@ import ResultsItem from '../components/ResultsItem'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
+import isEmpty from '../validation/is-empty'
+
+
+
 
 class ResultsPage extends Component {
-
-	componentDidMount() {
-		console.log('ResultsPageProps',this.props.bridge.listings)
-	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		console.log('ShouldComponentUpdate ResultsPageProps',nextProps.bridge.listings)
-	}
-
 	render() {
-		let resultItems
-		this.props.bridge && (resultItems = this.props.bridge.listings.map(listing => {
-			return(
+
+		let resultsItems = Object.keys(this.props.listings).map(key => {
+			let listing = this.props.listings[key]
+			return (
 				<ResultsItem
-					key={listing.ListingKey}
+					key={key}
 					id={listing.ListingId}
 					price={listing.ListPrice}
 					address={listing.UnparsedAddress}
 					city={listing.City}
 					state={listing.StateOrProvince}
-					imageSRC={listing.Media[0].MediaURL}
+					media={listing.Media}
 				/>
 			)
-		}))
+		})
+
 		return (
 			<div>
 				<p>Results Page</p>
-				<Search />
-				{resultItems}
+				<Search/>
+				{resultsItems}
 			</div>
 		);
 	}
 }
 
 ResultsPage.propTypes = {
-	bridge: PropTypes.object.isRequired
+	listings: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state =>({
-	bridge: state.bridge
+const mapStateToProps = state => ({
+	listings: state.listings
 })
 
 export default connect(mapStateToProps)(withRouter(ResultsPage));
