@@ -6,7 +6,9 @@ import {
 	Button,
 	CardTitle,
 	CardText,
-	CardImg
+	CardImg,
+	Row,
+	Col
 } from 'reactstrap'
 
 class ResultsItem extends Component {
@@ -20,21 +22,19 @@ class ResultsItem extends Component {
 			}),
 				imageSrc = mediaArray[0].MediaURL
 		) : (
-			imageSrc = ''
+			imageSrc = 'http://fpoimg.com/245x200'
 		)
 
 		return (
 			<div>
-				<Container>
-					<Card>
-						<CardBody>
-							<img src={imageSrc} alt={'property'} width={"245px"} height={"200px"}/>
-							<CardTitle>${this.props.price}.00</CardTitle>
-							<CardText>{this.props.address}</CardText>
-							<CardText>{this.props.city}, {this.props.state}</CardText>
-						</CardBody>
-					</Card>
-				</Container>
+				<Col sm={'6'}>
+					<div className={'d-flex'}>
+						<img className={'rounded float-left'} src={imageSrc} alt={'property'} width={"245px"} height={"200px"}/>
+						<CardTitle>${this.props.price}.00</CardTitle>
+						<CardText>{this.props.address}</CardText>
+						<CardText>{this.props.city}, {this.props.state}</CardText>
+					</div>
+				</Col>
 			</div>
 
 		);

@@ -7,3 +7,7 @@
 .nav-link {
     color: #4A90E2 !important;
 }
+
+.dev-border {
+    border: 1px solid red;
+}
