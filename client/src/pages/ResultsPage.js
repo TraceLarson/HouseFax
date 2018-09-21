@@ -4,7 +4,7 @@ import ResultsItem from '../components/ResultsItem'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
-import {Row} from 'reactstrap'
+import {Container, Row} from 'reactstrap'
 
 
 
@@ -21,19 +21,20 @@ class ResultsPage extends Component {
 					address={listing.UnparsedAddress}
 					city={listing.City}
 					state={listing.StateOrProvince}
+					zip={listing.PostalCode}
 					media={listing.Media}
 				/>
 			)
 		})
 
 		return (
-			<div>
+			<Container className={'px-5'}>
 				<p>Results Page</p>
 				<Search/>
 				<Row>
 					{resultsItems}
 				</Row>
-			</div>
+			</Container>
 		);
 	}
 }

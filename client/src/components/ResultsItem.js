@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import {
 	Container,
-	Card,
-	CardBody,
 	Button,
 	CardTitle,
 	CardText,
-	CardImg,
-	Row,
 	Col
 } from 'reactstrap'
 
 class ResultsItem extends Component {
+
+	numberWithCommas = (x) => {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
 	render() {
 		let mediaArray = []
 		let imageSrc
@@ -26,17 +27,16 @@ class ResultsItem extends Component {
 		)
 
 		return (
-			<div>
-				<Col sm={'6'}>
-					<div className={'d-flex'}>
-						<img className={'rounded float-left'} src={imageSrc} alt={'property'} width={"245px"} height={"200px"}/>
-						<CardTitle>${this.props.price}.00</CardTitle>
-						<CardText>{this.props.address}</CardText>
-						<CardText>{this.props.city}, {this.props.state}</CardText>
+			<Col sm={'6'} className={'container mb-5 '}>
+				<div className={'d-flex result-item'}>
+					<img className={'rounded float-left'} src={imageSrc} alt={'property'} width={"245px"}
+					     height={"200px"}/>
+					<div className={'ml-4 mt-2'}>
+						<CardTitle><h4>${this.numberWithCommas(this.props.price)}.00</h4></CardTitle>
+						<CardText>{this.props.address}<br/><small>{this.props.city}, {this.props.state} {this.props.zip}</small></CardText>
 					</div>
-				</Col>
-			</div>
-
+				</div>
+			</Col>
 		);
 	}
 }

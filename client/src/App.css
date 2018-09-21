@@ -11,3 +11,10 @@
 .dev-border {
     border: 1px solid red;
 }
+
+.result-item {
+    background: #F3F3F3;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px #000 ;
+}
