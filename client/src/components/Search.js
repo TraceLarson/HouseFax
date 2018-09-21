@@ -26,7 +26,7 @@ class Search extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
-		this.props.getListings(this.state.location)
+		this.props.getListings(this.state.location, this.props.history)
 	}
 
 	render() {
