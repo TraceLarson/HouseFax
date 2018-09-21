@@ -1,3 +1,3 @@
 export const GET_ERRORS = 'GET_ERRORS'
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
-export const GET_ALL_LISTINGS = 'GET_ALL_LISTINGS'
+export const GET_LISTINGS = 'GET_LISTINGS'

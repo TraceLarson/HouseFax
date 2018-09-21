@@ -1,4 +1,4 @@
-import {GET_ALL_LISTINGS} from '../actions/types'
+import {GET_LISTINGS} from '../actions/types'
 
 const initialState = {
 	listings: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case GET_ALL_LISTINGS:
+		case GET_LISTINGS:
 			return {
 				...state,
 				listings: [action.payload]

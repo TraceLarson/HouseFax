@@ -1,12 +1,12 @@
 import axios from 'axios'
-import {GET_ERRORS, GET_ALL_LISTINGS} from './types'
+import {GET_ERRORS, GET_LISTINGS} from './types'
 
-export const getAllListings = () => dispatch => {
-	axios.get('/api/bridge')
+export const getListings = (query) => dispatch => {
+	axios.post('/api/bridge',{location: query})
 		.then(response => {
 			console.log('listing data: ', response.data)
 			dispatch({
-				type: GET_ALL_LISTINGS,
+				type: GET_LISTINGS,
 				payload: response.data
 			})
 		})

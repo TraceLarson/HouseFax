@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
-import {getAllListings} from '../actions/api'
+import {getListings} from '../actions/api'
 import {
 	Container,
 	Form,
@@ -14,13 +14,19 @@ import {
 } from 'reactstrap'
 
 class Search extends Component {
-
 	state = {
-		listings: []
+		location: ''
 	}
 
-	componentWillMount() {
-		this.props.getAllListings()
+	handleChange = (e) =>{
+		this.setState({
+			location: e.target.value
+		})
+	}
+
+	handleSubmit = e => {
+		e.preventDefault()
+		this.props.getListings(this.state.location)
 	}
 
 	render() {
@@ -29,7 +35,7 @@ class Search extends Component {
 				<p>Search Component</p>
 				<Form >
 					<FormGroup className={'d-flex'}>
-						<Input type={'text'}/>
+						<Input type={'text'} onChange={this.handleChange} value={this.state.location}/>
 						<Button type={'submit'}>Search!</Button>
 					</FormGroup>
 				</Form>
@@ -39,12 +45,11 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-	getAllListings: PropTypes.func.isRequired,
-	listings: PropTypes.array.isRequired
+	getListings: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
 	listings: state.listings
-}
+})
 
-export default connect(mapStateToProps, {getAllListings})(withRouter(Search));
+export default connect(mapStateToProps, {getListings})(withRouter(Search));
