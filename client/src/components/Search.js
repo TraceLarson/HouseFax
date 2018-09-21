@@ -33,7 +33,7 @@ class Search extends Component {
 		return (
 			<Container className={'text-center'}>
 				<p>Search Component</p>
-				<Form >
+				<Form onSubmit={this.handleSubmit}>
 					<FormGroup className={'d-flex'}>
 						<Input type={'text'} onChange={this.handleChange} value={this.state.location}/>
 						<Button type={'submit'}>Search!</Button>
