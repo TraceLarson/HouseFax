@@ -27,9 +27,9 @@ class ResultsItem extends Component {
 		)
 
 		return (
-			<Col sm={'6'} className={'container mb-5 '}>
+			<Col sm={'12'} md={'10'} lg={'6'} className={'container mb-5 '}>
 				<div className={'d-flex result-item'}>
-					<img className={'rounded float-left'} src={imageSrc} alt={'property'} width={"245px"}
+					<img className={'rounded float-left img-fluid'} src={imageSrc} alt={'property'} width={"245px"}
 					     height={"200px"}/>
 					<div className={'ml-4 mt-2'}>
 						<CardTitle><h4>${this.numberWithCommas(this.props.price)}.00</h4></CardTitle>
