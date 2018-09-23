@@ -11,7 +11,7 @@ import {setCurrentListing} from "../actions/api";
 class ResultsPage extends Component {
 
 	handleDetails = listing => {
-		console.log(listing)
+		this.props.setCurrentListing(listing, this.props.history)
 	}
 
 
