@@ -10,8 +10,8 @@ import {Container, Row} from 'reactstrap'
 
 class ResultsPage extends Component {
 
-	handleDetails = listingKey => {
-		console.log(listingKey)
+	handleDetails = listing => {
+		console.log(listing)
 	}
 	render() {
 		let resultsItems = Object.keys(this.props.listings).map(key => {
@@ -26,7 +26,7 @@ class ResultsPage extends Component {
 					state={listing.StateOrProvince}
 					zip={listing.PostalCode}
 					media={listing.Media}
-					handleDetails={() => this.handleDetails(key)}
+					handleDetails={() => this.handleDetails(listing)}
 				/>
 			)
 		})
