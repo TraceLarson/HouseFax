@@ -17,6 +17,8 @@ export const getListings = (query, history) => dispatch => {
 
 export const setCurrentListing = (listing, history) => dispatch => {
 	history.push('/Details')
+	console.log(listing)
+	localStorage.setItem('currentListing' , JSON.stringify(listing))
 	dispatch({
 		type: SET_CURRENT_LISTING,
 		payload: listing

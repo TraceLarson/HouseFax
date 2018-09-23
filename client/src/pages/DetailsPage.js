@@ -17,6 +17,9 @@ import PropertyDetails from "../components/PropertyDetails";
 
 class DetailsPage extends Component {
 
+    componentWillMount() {
+    	console.log(this.props.currentListing)
+    }
 
 	render() {
 		return (
