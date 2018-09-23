@@ -10,7 +10,7 @@ class DetailsPage extends Component {
 	render() {
 		return (
 			<Container>
-				<h1>Details Page</h1>
+				<p>Details Page</p>
 				<Detail />
 			</Container>
 		);
