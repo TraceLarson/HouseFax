@@ -17,22 +17,39 @@ import PropertyDetails from "../components/PropertyDetails";
 
 class DetailsPage extends Component {
 
+	state = {
+		listing: {}
+	}
+
     componentWillMount() {
-    	console.log(this.props.currentListing)
+		console.log(this.props.currentListing)
+    	this.setState({
+			listing: this.props.currentListing
+		})
     }
 
 	render() {
-		return (
-			<Container>
-				<p>Details Page</p>
-				<DetailsBanner />
-				<DetailsImage />
-				<AgentContactForm />
-				<FamilyFriendlyRating />
-				<RecentCrimeReports />
-				<PropertyDetails />
-			</Container>
-		);
+		const listing = this.state.listing
+        return (
+            <Container>
+                <p>Details Page</p>
+                <DetailsBanner address={listing.UnparsedAddress}
+                               city={listing.city}
+                               state={listing.StateOrProvince}
+							   zip={listing.PostalCode}
+							   bedrooms={listing.BedroomsTotal}
+							   bathrooms={listing.BathroomsTotalInteger}
+							   propertyType={listing.PropertyType + ' ' + listing.PropertySubType && listing.PropertySubType}
+							   buildYear={listing.YearBuilt}
+							   price={listing.ListPrice}
+                />
+                <DetailsImage/>
+                <AgentContactForm/>
+                <FamilyFriendlyRating/>
+                <RecentCrimeReports/>
+                <PropertyDetails/>
+            </Container>
+        );
 	}
 }
 
