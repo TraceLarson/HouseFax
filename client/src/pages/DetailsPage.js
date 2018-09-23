@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {
 	Container
@@ -31,4 +33,12 @@ class DetailsPage extends Component {
 	}
 }
 
-export default withRouter(DetailsPage);
+DetailsPage.propTypes = {
+	currentListing: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+	currentListing: state.currentListing
+})
+
+export default connect(mapStateToProps )(withRouter(DetailsPage));
