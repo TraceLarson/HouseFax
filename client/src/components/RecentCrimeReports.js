@@ -6,6 +6,7 @@ class RecentCrimeReports extends Component {
     render() {
         return (
             <div>
+                <p>RecentCrimeReports Component</p>
                 <CrimeCard/>
             </div>
         );

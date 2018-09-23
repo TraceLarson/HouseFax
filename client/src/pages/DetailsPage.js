@@ -12,7 +12,10 @@ import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
 
+
 class DetailsPage extends Component {
+
+
 	render() {
 		return (
 			<Container>
