@@ -4,7 +4,7 @@ class CrimeCard extends Component {
 	render() {
 		return (
 			<div>
-				<h1>CrimeList Component</h1>
+				<p>------[ CrimeCard Component</p>
 			</div>
 		);
 	}

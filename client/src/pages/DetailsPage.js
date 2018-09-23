@@ -23,8 +23,6 @@ class DetailsPage extends Component {
 				<FamilyFriendlyRating />
 				<RecentCrimeReports />
 				<PropertyDetails />
-
-
 			</Container>
 		);
 	}
