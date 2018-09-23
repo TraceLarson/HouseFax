@@ -8,6 +8,8 @@ import DetailsBanner from '../components/DetailsBanner'
 import DetailsImage from "../components/DetailsImage";
 import AgentContactForm from "../components/AgentContactForm";
 import FamilyFriendlyRating from "../components/FamilyFriendlyRating";
+import RecentCrimeReports from "../components/RecentCrimeReports";
+import PropertyDetails from "../components/PropertyDetails";
 
 
 class DetailsPage extends Component {
@@ -17,8 +19,10 @@ class DetailsPage extends Component {
 				<p>Details Page</p>
 				<DetailsBanner />
 				<DetailsImage />
-				<AgentContactForm/>
-				<FamilyFriendlyRating/>
+				<AgentContactForm />
+				<FamilyFriendlyRating />
+				<RecentCrimeReports />
+				<PropertyDetails />
 
 
 			</Container>
