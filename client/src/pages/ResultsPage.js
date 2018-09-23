@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 import {Container, Row} from 'reactstrap'
-
+import {setCurrentListing} from "../actions/api";
 
 
 class ResultsPage extends Component {
@@ -13,6 +13,8 @@ class ResultsPage extends Component {
 	handleDetails = listing => {
 		console.log(listing)
 	}
+
+
 	render() {
 		let resultsItems = Object.keys(this.props.listings).map(key => {
 			let listing = this.props.listings[key]
@@ -44,11 +46,13 @@ class ResultsPage extends Component {
 }
 
 ResultsPage.propTypes = {
-	listings: PropTypes.object.isRequired
+	listings: PropTypes.object.isRequired,
+	setCurrentListing: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-	listings: state.listings
+	listings: state.listings,
+	currentListing: state.currentListing
 })
 
-export default connect(mapStateToProps)(withRouter(ResultsPage));
+export default connect(mapStateToProps, {setCurrentListing})(withRouter(ResultsPage));

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_LISTINGS} from './types'
+import {GET_LISTINGS, SET_CURRENT_LISTING} from './types'
 
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
@@ -13,4 +13,12 @@ export const getListings = (query, history) => dispatch => {
 		.catch(err => {
 			console.error('Error calling bridge API', err)
 		})
+}
+
+export const setCurrentListing = (listing, history) => dispatch => {
+	history.push('/DetailsPage')
+	dispatch({
+		type: SET_CURRENT_LISTING,
+		payload: listing
+	})
 }
