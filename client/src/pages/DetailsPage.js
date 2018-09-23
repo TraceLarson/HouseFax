@@ -31,10 +31,9 @@ class DetailsPage extends Component {
 	render() {
 		const listing = this.state.listing
         return (
-            <Container>
-                <p>Details Page</p>
+            <div>
                 <DetailsBanner address={listing.UnparsedAddress}
-                               city={listing.city}
+                               city={listing.City}
                                state={listing.StateOrProvince}
 							   zip={listing.PostalCode}
 							   bedrooms={listing.BedroomsTotal}
@@ -48,7 +47,7 @@ class DetailsPage extends Component {
                 <FamilyFriendlyRating/>
                 <RecentCrimeReports/>
                 <PropertyDetails/>
-            </Container>
+            </div>
         );
 	}
 }
