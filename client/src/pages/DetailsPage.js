@@ -4,14 +4,18 @@ import {
 	Container
 } from 'reactstrap'
 
-import Detail from '../components/Detail'
+import DetailsBanner from '../components/DetailsBanner'
+import FamilyFriendlyRating from "../components/FamilyFriendlyRating";
 
 class DetailsPage extends Component {
 	render() {
 		return (
 			<Container>
 				<p>Details Page</p>
-				<Detail />
+				<DetailsBanner />
+
+				<FamilyFriendlyRating />
+
 			</Container>
 		);
 	}

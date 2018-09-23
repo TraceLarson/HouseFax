@@ -34,7 +34,7 @@
             - Login Form Component
             - Register Form Component
             - ResultsItem Component
-            - Detail Component
+            - DetailsBanner Component
             - FamilyFriendlyRating Component
             - CrimeMap Component
             - CrimeList Component
