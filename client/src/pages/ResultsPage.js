@@ -9,8 +9,11 @@ import {Container, Row} from 'reactstrap'
 
 
 class ResultsPage extends Component {
-	render() {
 
+	handleDetails = listingKey => {
+		console.log(listingKey)
+	}
+	render() {
 		let resultsItems = Object.keys(this.props.listings).map(key => {
 			let listing = this.props.listings[key]
 			return (
@@ -23,6 +26,7 @@ class ResultsPage extends Component {
 					state={listing.StateOrProvince}
 					zip={listing.PostalCode}
 					media={listing.Media}
+					handleDetails={() => this.handleDetails(key)}
 				/>
 			)
 		})

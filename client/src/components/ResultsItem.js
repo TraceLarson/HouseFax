@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-	Container,
 	Button,
 	CardTitle,
 	CardText,
@@ -32,8 +31,9 @@ class ResultsItem extends Component {
 					<img className={'rounded float-left img-fluid'} src={imageSrc} alt={'property'} width={"245px"}
 					     height={"200px"}/>
 					<div className={'ml-4 mt-2'}>
-						<CardTitle><h4>${this.numberWithCommas(this.props.price)}.00</h4></CardTitle>
+						<CardTitle>${this.numberWithCommas(this.props.price)}.00</CardTitle>
 						<CardText>{this.props.address}<br/><small>{this.props.city}, {this.props.state} {this.props.zip}</small></CardText>
+						<Button onClick={this.props.handleDetails} color={'success'}>View Details</Button>
 					</div>
 				</div>
 			</Col>
