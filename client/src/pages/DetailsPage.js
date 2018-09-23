@@ -5,7 +5,10 @@ import {
 } from 'reactstrap'
 
 import DetailsBanner from '../components/DetailsBanner'
+import DetailsImage from "../components/DetailsImage";
+import AgentContactForm from "../components/AgentContactForm";
 import FamilyFriendlyRating from "../components/FamilyFriendlyRating";
+
 
 class DetailsPage extends Component {
 	render() {
@@ -13,8 +16,10 @@ class DetailsPage extends Component {
 			<Container>
 				<p>Details Page</p>
 				<DetailsBanner />
+				<DetailsImage />
+				<AgentContactForm/>
+				<FamilyFriendlyRating/>
 
-				<FamilyFriendlyRating />
 
 			</Container>
 		);

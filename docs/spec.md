@@ -37,7 +37,7 @@
             - DetailsBanner Component
             - FamilyFriendlyRating Component
             - CrimeMap Component
-            - CrimeList Component
+            - CrimeCard Component
             - Description Component
         
 - **Sitemap**
