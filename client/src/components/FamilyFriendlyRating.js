@@ -4,7 +4,7 @@ class FamilyFriendlyRating extends Component {
 	render() {
 		return (
 			<div>
-				<h1>FamilyFriendlyRating Component</h1>
+				<p>FamilyFriendlyRating Component</p>
 			</div>
 		);
 	}
