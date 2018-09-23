@@ -14,7 +14,7 @@ class ResultsItem extends Component {
 
 	render() {
 		let mediaArray = []
-		let imageSrc
+		let imageSrc = ''
 		this.props.media != null ? (
 			Object.keys(this.props.media).map(key => {
 				let mediaItem = this.props.media[key]
@@ -33,6 +33,7 @@ class ResultsItem extends Component {
 					<div className={'ml-4 mt-2'}>
 						<CardTitle>${this.numberWithCommas(this.props.price)}.00</CardTitle>
 						<CardText>{this.props.address}<br/><small>{this.props.city}, {this.props.state} {this.props.zip}</small></CardText>
+						<br/>
 						<Button onClick={this.props.handleDetails} color={'success'}>View Details</Button>
 					</div>
 				</div>
