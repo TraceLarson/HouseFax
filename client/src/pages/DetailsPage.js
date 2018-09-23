@@ -38,7 +38,7 @@ class DetailsPage extends Component {
 							   zip={listing.PostalCode}
 							   bedrooms={listing.BedroomsTotal}
 							   bathrooms={listing.BathroomsTotalInteger}
-							   propertyType={listing.PropertyType + ' ' + listing.PropertySubType && listing.PropertySubType}
+							   propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 							   buildYear={listing.YearBuilt}
 							   price={listing.ListPrice}
                 />
