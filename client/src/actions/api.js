@@ -16,7 +16,7 @@ export const getListings = (query, history) => dispatch => {
 }
 
 export const setCurrentListing = (listing, history) => dispatch => {
-	history.push('/DetailsPage')
+	history.push('/Details')
 	dispatch({
 		type: SET_CURRENT_LISTING,
 		payload: listing
