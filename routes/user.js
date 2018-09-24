@@ -3,9 +3,28 @@ const router = express.Router()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const passport = require('passport')
+
+const validateRegisterInput = require('../validation/register')
+const validateLoginInput = require('../validation/login')
+
 const User = require('../models/User')
 const Property = require('../models/Property')
 
+
+
+// Get user
+router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+
+	return res.json({
+		id: req.user.id,
+		firstname: req.user.firstname,
+		lastname: req.user.lastname,
+		email: req.user.email
+	})
+})
 
 router.get('/', (req, res, next) => {
 	User.find().populate('properties').exec((err, users) => {
@@ -21,17 +40,76 @@ router.get('/:id', (req, res, next) => {
 	})
 })
 
+// REGISTER
 router.post('/', (req, res, next) => {
-	let newUser = User({
-		name: req.body.name,
-		email: req.body.email,
-		password: req.body.password
-	})
 
-	newUser.save((err, user) => {
-		err ? console.log('Error creating user') : ''
-		res.send('User Created')
+	const {errors, isValid} = validateRegisterInput(req.body)
+	!isValid ? res.status(400).json(errors) : ''
+
+	User.findOne({
+		email: req.body.email
+	}).then(user => {
+		user ?  res.status(400).json({email: 'email already exits'}) : ''
+		let newUser = new User({
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			email: req.body.email,
+			password: req.body.password
+		})
+		bcrypt.genSalt(10, (err, salt) => {
+			err ? console.error('Error bcrypt-ing', err) : ''
+			bcrypt.hash(newUser.password, salt, (err, hash) => {
+				err ? console.error('Error bcrypt-ing password', err) : ''
+				newUser.password = hash
+				newUser.save((err, user) => {
+					err ? console.log('Error saving user', err) : ''
+					res.json(user)
+				})
+			})
+		})
 	})
+})
+
+// LOGIN
+router.post('/login', (req, res, next) => {
+
+	const {errors, isValid} = validateLoginInput(req.body)
+	!isValid ? res.status(400).json(errors) : ''
+
+	const email = req.body.email
+	const password = req.body.password
+
+	User.findOne({email})
+		.then(user => {
+			if(!user){
+				errors.email = 'User not found'
+				return res.status(404).json(errors)
+			}
+			bcrypt.compare(password, user.password)
+				.then(isMatch => {
+					if(isMatch) {
+						const payload = {
+							id: user.id,
+							firstname: user.firstname,
+							lastname: user.lastname,
+							email: user.email
+						}
+						jwt.sign(payload, process.env.JWT_SECRET, {
+							expiresIn: 3600
+						}, (err, token) => {
+							err ? console.error('Error in token', err) : ''
+							res.json({
+								success: true,
+								token: `Bearer ${token}`
+							})
+						})
+					}
+					else {
+						errors.password = 'Incorrect Password'
+						return res.status(400).json(errors)
+					}
+				})
+		})
 })
 
 router.put('/:id', (req, res, next) => {
@@ -51,12 +129,11 @@ router.delete('/:id', (req, res, next) => {
 	})
 })
 
-router.delete('/properties/:id', (req, res, next) => {
+router.delete('/properties/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 	// From token
-	let token = {
-		userId: '5b933723b45f685e82d5212f'
-	}
-	User.findOne({_id: token.userId}).exec((err, user) => {
+	let token = req.user
+
+	User.findOne({_id: token.Id}).exec((err, user) => {
 		err ? console.log('Error finding user to remove property from', err) : ''
 
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
@@ -74,10 +151,7 @@ router.delete('/properties/:id', (req, res, next) => {
 
 			res.send(`Deleted property ${req.params.id} from user id: ${token.userId}`)
 		})
-
-
 	})
-
 })
 
 module.exports = router

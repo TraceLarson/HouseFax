@@ -22,9 +22,18 @@ router.get('/crime/:location', (req, res, next) => {
 
 
 router.get('/bridge', (req, res, next) => {
-	Bridge.getListing()
+	Bridge.getAllListings()
 		.then(response => {
-			res.send(response)
+			res.json(response)
+		})
+})
+
+router.post('/bridge', (req, res, next) => {
+	let nearHere = req.body.location
+
+	Bridge.getNearbyListings(nearHere)
+		.then(response => {
+			res.json(response)
 		})
 })
 

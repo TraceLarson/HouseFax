@@ -7,6 +7,7 @@ const Property = require('../models/Property')
 const User = require('../models/User')
 
 
+
 router.get('/', (req, res, next) => {
 	Property.find().populate('users').exec((err, properties) => {
 		err ? console.log('Error finding properties', err) : ''

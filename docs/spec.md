@@ -28,15 +28,17 @@
             - ResultsPage Component
             - DetailsPage Component
         - __Components__
-            - Navigation Component
+            - NavigationHeader Component
             - Search Component
             - Footer Component
             - Login Form Component
             - Register Form Component
             - ResultsItem Component
-            - Detail Component
+            - DetailsBanner Component
             - FamilyFriendlyRating Component
             - CrimeMap Component
+            - CrimeCard Component
+            - Description Component
         
 - **Sitemap**
     - (Pending design meeting)

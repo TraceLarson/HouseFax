@@ -3,7 +3,12 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
+const passport = require('passport')
 
+
+// Passport Requirements
+app.use(passport.initialize())
+require('./passport')(passport)
 
 // Configure Body Parser
 app.use(bodyParser.json())
