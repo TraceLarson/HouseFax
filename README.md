@@ -13,7 +13,7 @@ Run the following two commands to get started, one installs backend dependencies
 
 ```terminal
 npm install
-npm client-install
+npm run client-install
 ```
 
 This project will include a .env file that will include my API keys. This file will remain private with the exception of the FullSail Capstone team/ Project leads. 
