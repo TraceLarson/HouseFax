@@ -11,7 +11,7 @@ This project will be built using the MERN stack with the following popular techn
 
 First ensure that MongoDB is running on your system:
 ```terminal
-mongodb
+mongod
 ```
 if you do not have MongoDB installed you can follow the directions here:
 https://docs.mongodb.com/manual/installation/
