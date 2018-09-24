@@ -59,7 +59,15 @@ class DetailsPage extends Component {
 					</Container>
 				</div>
 				<Container>
-					<PropertyDetails/>
+					<PropertyDetails propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
+					                 bedrooms={listing.BedroomsTotal}
+					                 bathrooms={listing.BathroomsTotalInteger}
+					                 buildYear={listing.YearBuilt}
+					                 sqft={listing.LivingArea}
+					                 price={listing.ListPrice}
+					                 hoaFee={listing.AssociationFee}
+					                 description={listing.PublicRemarks}
+					/>
 				</Container>
 			</div>
 		);

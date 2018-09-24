@@ -13,18 +13,18 @@ class PropertyDetails extends Component {
 				<Container>
 					<div>
 						<ul>
-							<li>Home type</li>
-							<li> Beds</li>
-							<li> Bath</li>
-							<li>Built in</li>
+							<li>{this.props.propertyType}</li>
+							<li>{this.props.bedrooms} Beds</li>
+							<li>{this.props.bathrooms} Bath</li>
+							<li>Built in {this.props.buildYear}</li>
 						</ul>
 						<ul>
-							<li> sq ft</li>
-							<li>$ /sqft</li>
-							<li>$ /month HOA</li>
+							<li>{this.props.sqft} sqft</li>
+							<li>${ Math.round((this.props.price / this.props.sqft)*100) / 100} /sqft</li>
+							<li>${this.props.hoaFee == null ? 0 : this.props.hoaFee} /month HOA</li>
 						</ul>
 					</div>
-					<p>Description</p>
+					<p>{this.props.description}</p>
 				</Container>
 			</div>
 		);
