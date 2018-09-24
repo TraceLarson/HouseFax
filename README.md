@@ -9,6 +9,13 @@ This project will be built using the MERN stack with the following popular techn
 - Redux
 - MongoDB
 
+First ensure that MongoDB is running on your system:
+```terminal
+mongodb
+```
+if you do not have MongoDB installed you can follow the directions here:
+https://docs.mongodb.com/manual/installation/
+
 Run the following two commands to get started, one installs backend dependencies and the other installs client side dependencies:
 
 ```terminal
