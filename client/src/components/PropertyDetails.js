@@ -7,11 +7,11 @@ import {
 class PropertyDetails extends Component {
 	render() {
 		return (
-			<div>
+			<div className={'details-property-details-container'}>
 				<h2>Property Details</h2>
 				<hr/>
 				<Container>
-					<div>
+					<div className={'d-flex'}>
 						<ul>
 							<li>{this.props.propertyType}</li>
 							<li>{this.props.bedrooms} Beds</li>

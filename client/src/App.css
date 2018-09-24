@@ -59,3 +59,10 @@
     top: 85%;
     left: 85%;
 }
+
+/*PROPERTY DETAILS*/
+.details-property-details-container ul {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 10px;
+}
