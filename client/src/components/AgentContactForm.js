@@ -27,6 +27,7 @@ class AgentContactForm extends Component {
                         <Label>Message</Label>
                         <Input type={'textarea'} name={'message'} id={'message'} placeholder={`Hi , I am interested in ${this.props.address}, ${this.props.city}, ${this.props.state} ${this.props.zip}`}/>
                     </FormGroup>
+                    <Button color={'primary'}>Request Information</Button>
                 </Form>
             </div>
         );
