@@ -32,11 +32,11 @@ export const getCrimesList = (latitude, longitude) => dispatch => {
 		lng: longitude
 	})
 		.then(response => {
-			console.log('getCrimesList: ', response)
-			// dispatch({
-			// 	type: GET_CRIMES,
-			// 	payload: response.data
-			// })
+			console.log('getCrimesList: ', response.data)
+			dispatch({
+				type: GET_CRIMES,
+				payload: response.data
+			})
 		})
 		.catch(err => {
 			console.error('Error retrieving crimes for this location', err)
