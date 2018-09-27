@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_LISTINGS, SET_CURRENT_LISTING} from './types'
+import {GET_LISTINGS, SET_CURRENT_LISTING, GET_CRIMES} from './types'
 
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
@@ -23,4 +23,21 @@ export const setCurrentListing = (listing, history) => dispatch => {
 		type: SET_CURRENT_LISTING,
 		payload: listing
 	})
+}
+
+export const getCrimesList = (latitude, longitude) => dispatch => {
+	axios.post('/api/crime', {
+		lat: latitude,
+		lng: longitude
+	})
+		.then(response => {
+			console.log('getCrimesList: ', response.data)
+			// dispatch({
+			// 	type: GET_CRIMES,
+			// 	payload: response.data
+			// })
+		})
+		.catch(err => {
+			console.error('Error retrieving crimes for this location')
+		})
 }
