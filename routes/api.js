@@ -11,9 +11,7 @@ const Crime = require('../models/Crime')
 router.post('/crime', (req, res, next) => {
 
 	let lat = req.body.lat
-	/*'30.276581'*/
 	let lng = req.body.lng
-	/*'-97.766132'*/
 
 	Crime.getCrime(lat, lng)
 		.then(response => {

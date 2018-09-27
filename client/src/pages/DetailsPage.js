@@ -25,12 +25,16 @@ class DetailsPage extends Component {
 
 	componentWillMount() {
 		console.log(this.props.currentListing)
+		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude )
+
+		this.props.getCrimesList(this.state.listing.Latitude, this.state.listing.Longitude)
+
 		this.setState({
 			listing: this.props.currentListing
 		})
 
-		this.props.getCrimesList(this.state.listing.Latitude, this.state.listing.Longitude)
 	}
+
 
 	render() {
 		const listing = this.state.listing

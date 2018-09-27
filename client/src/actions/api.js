@@ -31,7 +31,7 @@ export const getCrimesList = (latitude, longitude) => dispatch => {
 		lng: longitude
 	})
 		.then(response => {
-			console.log('getCrimesList: ', response.data)
+			console.log('getCrimesList: ', response)
 			// dispatch({
 			// 	type: GET_CRIMES,
 			// 	payload: response.data
