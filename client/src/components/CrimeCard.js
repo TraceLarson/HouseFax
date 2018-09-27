@@ -4,7 +4,8 @@ class CrimeCard extends Component {
 	render() {
 		return (
 			<div>
-				<p>------[ CrimeCard Component</p>
+				<h5>{this.props.crimeType}</h5>
+				<p>{this.props.occDateTime}</p>
 			</div>
 		);
 	}

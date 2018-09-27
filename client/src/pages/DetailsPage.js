@@ -71,12 +71,7 @@ class DetailsPage extends Component {
 					</Container>
 					<Container>
 						<FamilyFriendlyRating/>
-						<RecentCrimeReports latitude={crimeList.latitude}
-						                    longitude={crimeList.longitude}
-						                    occDateTime={crimeList.occ_date_time}
-						                    crimeType={crimeList.crime_type}
-						                    familyViolence={crimeList.family_violence}
-						/>
+						<RecentCrimeReports crimeList={crimeList}/>
 					</Container>
 				</div>
 				<Container>
