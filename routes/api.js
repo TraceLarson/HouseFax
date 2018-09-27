@@ -9,16 +9,13 @@ const Crime = require('../models/Crime')
 
 
 router.post('/crime', (req, res, next) => {
-	console.log('BACKEND API/CRIME LATITUDE',req.body.lat)
-	console.log('BACKEND API/CRIME LONGITUDE',req.body.lng)
-	res.send(`BACKEND API/CRIME LATITUDE ${req.body.lat} BACKEND API/CRIME LONGITUDE ${req.body.lng}`)
-	// let lat = req.body.lat
-	// let lng = req.body.lng
-	//
-	// Crime.getCrime(lat, lng)
-	// 	.then(response => {
-	// 		res.send(response)
-	// 	})
+	let lat = req.body.lat
+	let lng = req.body.lng
+
+	Crime.getCrime(lat, lng)
+		.then(response => {
+			res.send(response)
+		})
 })
 
 
