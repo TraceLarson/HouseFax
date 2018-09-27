@@ -26,6 +26,7 @@ class DetailsPage extends Component {
 	componentWillMount() {
 		console.log(this.props.currentListing)
 		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude )
+		console.log(typeof this.props.recentCrimes)
 
 		let latitude = this.props.currentListing.Latitude
 		let	longitude = this.props.currentListing.Longitude
@@ -89,7 +90,9 @@ class DetailsPage extends Component {
 
 DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
+	recentCrimes: PropTypes.object.isRequired,
 	getCrimesList: PropTypes.func.isRequired
+
 }
 
 const mapStateToProps = state => ({
