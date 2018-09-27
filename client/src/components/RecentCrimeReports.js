@@ -19,8 +19,7 @@ class RecentCrimeReports extends Component {
         })
 
         return (
-            <div>
-                <p>RecentCrimeReports Component</p>
+            <div className={'crime-cards-container'}>
                 {crimes}
             </div>
         );
