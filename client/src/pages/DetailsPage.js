@@ -13,6 +13,8 @@ import FamilyFriendlyRating from "../components/FamilyFriendlyRating";
 import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
+import {getCrimesList} from '../actions/api'
+
 
 class DetailsPage extends Component {
 
@@ -77,11 +79,13 @@ class DetailsPage extends Component {
 }
 
 DetailsPage.propTypes = {
-	currentListing: PropTypes.object.isRequired
+	currentListing: PropTypes.object.isRequired,
+	getCrimesList: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-	currentListing: state.currentListing
+	currentListing: state.currentListing,
+	recentCrimes: state.recentCrimes
 })
 
-export default connect(mapStateToProps)(withRouter(DetailsPage));
+export default connect(mapStateToProps, {getCrimesList})(withRouter(DetailsPage));
