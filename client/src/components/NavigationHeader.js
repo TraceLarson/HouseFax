@@ -52,7 +52,7 @@ class NavigationHeader extends Component {
 					<NavLink href="/Login" className={'nav-link'}>Login</NavLink>
 				</NavItem>
 				<NavItem>
-					<NavLink href="/Register" onClick={this.onLogout}>Register</NavLink>
+					<NavLink href="/Register">Register</NavLink>
 				</NavItem>
 				<NavItem>
 					<NavLink href="/">Contact</NavLink>
