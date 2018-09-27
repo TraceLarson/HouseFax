@@ -8,7 +8,8 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case GET_CRIMES:
 			return (
-				Object.assign({}, state, action.payload)
+				/*Object.assign({}, state, action.payload)*/
+				console.log('crimeListReducer running')
 			)
 		default:
 			return state
