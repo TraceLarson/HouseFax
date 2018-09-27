@@ -19,7 +19,8 @@ import {getCrimesList} from '../actions/api'
 class DetailsPage extends Component {
 
 	state = {
-		listing: {}
+		listing: {},
+		crimeList: {}
 	}
 
 	componentWillMount() {
@@ -28,7 +29,7 @@ class DetailsPage extends Component {
 			listing: this.props.currentListing
 		})
 
-
+		this.props.getCrimesList(this.state.listing.Latitude, this.state.listing.Longitude)
 	}
 
 	render() {
