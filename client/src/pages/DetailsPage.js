@@ -43,6 +43,8 @@ class DetailsPage extends Component {
 
 	render() {
 		const listing = this.state.listing
+		const crimeList = this.state.crimeList
+
 		return (
 			<div>
 				<DetailsBanner address={listing.UnparsedAddress}
@@ -69,7 +71,12 @@ class DetailsPage extends Component {
 					</Container>
 					<Container>
 						<FamilyFriendlyRating/>
-						<RecentCrimeReports/>
+						<RecentCrimeReports latitude={crimeList.latitude}
+						                    longitude={crimeList.longitude}
+						                    occDateTime={crimeList.occ_date_time}
+						                    crimeType={crimeList.crime_type}
+						                    familyViolence={crimeList.family_violence}
+						/>
 					</Container>
 				</div>
 				<Container>
