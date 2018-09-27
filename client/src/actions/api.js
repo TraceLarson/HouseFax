@@ -26,6 +26,7 @@ export const setCurrentListing = (listing, history) => dispatch => {
 }
 
 export const getCrimesList = (latitude, longitude) => dispatch => {
+	console.log(latitude, longitude)
 	axios.post('/api/crime', {
 		lat: latitude,
 		lng: longitude

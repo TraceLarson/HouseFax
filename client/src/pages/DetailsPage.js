@@ -26,8 +26,10 @@ class DetailsPage extends Component {
 	componentWillMount() {
 		console.log(this.props.currentListing)
 		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude )
+		let latitude = this.props.currentListing.Latitude
+		let	longitude = this.props.currentListing.Longitude
 
-		this.props.getCrimesList(this.state.listing.Latitude, this.state.listing.Longitude)
+		this.props.getCrimesList(latitude, longitude)
 
 		this.setState({
 			listing: this.props.currentListing
