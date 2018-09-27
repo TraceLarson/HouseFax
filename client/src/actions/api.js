@@ -38,6 +38,6 @@ export const getCrimesList = (latitude, longitude) => dispatch => {
 			// })
 		})
 		.catch(err => {
-			console.error('Error retrieving crimes for this location')
+			console.error('Error retrieving crimes for this location', err)
 		})
 }
