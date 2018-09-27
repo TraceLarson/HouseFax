@@ -25,6 +25,8 @@ class DetailsPage extends Component {
 		this.setState({
 			listing: this.props.currentListing
 		})
+
+
 	}
 
 	render() {
