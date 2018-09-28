@@ -8,8 +8,8 @@ import {
 	ModalFooter
 } from 'reactstrap'
 
-const CrimeMarkerComponent = ({ text }) => <div><img src={'../images/crimeMarker.png'} alt={'crime marker'}/></div>;
-const YourLocationComponent = ({ text }) => <div><img src={'../images/yourLocation.png'} alt={'your location'}/></div>;
+const CrimeMarkerComponent = () => <div><img src={'../images/crimeMarker.png'} alt={'crime marker'}/></div>;
+const YourLocationComponent = () => <div><img src={'../images/yourLocation.png'} alt={'your location'}/></div>;
 
 class CrimeCard extends Component {
 	state = {
