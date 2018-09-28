@@ -8,7 +8,8 @@ import {
 	ModalFooter
 } from 'reactstrap'
 
-const MarkerComponent = ({ text }) => <div>{text}</div>;
+const CrimeMarkerComponent = ({ text }) => <div><img src={'../images/crimeMarker.png'} alt={'crime marker'}/></div>;
+const YourLocationComponent = ({ text }) => <div><img src={'../images/yourLocation.png'} alt={'your location'}/></div>;
 
 class CrimeCard extends Component {
 	state = {
@@ -41,16 +42,20 @@ class CrimeCard extends Component {
 					<p className={'card-text'}>{`${timeDiffDay} days and ${timeDiffHr} hours ago`}</p>
 					<Button onClick={this.toggle}><strong>View On Map</strong></Button>
 				</div>
-				<Modal isOpen={this.state.modal} toggle={this.toggle}>
+				<Modal isOpen={this.state.modal} toggle={this.toggle} size={'lg'} >
 					<ModalHeader toggle={this.toggle}>{this.props.crimeType}</ModalHeader>
-					<ModalBody>
+					<ModalBody >
 						<div style={{height: '75vh', width: '100%'}}>
 							<GoogleMapReact
-								bootstrapURLKeys={{key: ''}}
+								bootstrapURLKeys={{key: 'AIzaSyBorZD9Cb_bxgM6rZKwlrqTWTNX_O1n2kw'}}
 								defaultCenter={this.state.center}
 								defaultZoom={this.state.zoom}
 							>
-								<MarkerComponent
+								<YourLocationComponent
+									lat={this.props.centerLat}
+									lng={this.props.centerLng}
+								/>
+								<CrimeMarkerComponent
 									lat={this.props.latitude}
 									lng={this.props.longitude}
 									text={this.props.crimeType}
