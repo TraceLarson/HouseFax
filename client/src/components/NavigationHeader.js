@@ -63,7 +63,7 @@ class NavigationHeader extends Component {
 		return (
 			<div className={'navbar-container'}>
 				<Navbar color="light" light expand="md">
-					<NavbarBrand href="/">HouseFax</NavbarBrand>
+					<NavbarBrand href="/"><img src="../images/logo.png" alt="logo"/></NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={this.state.isOpen} navbar>
 						{isAuthenticated ? authLinks : guestLinks}

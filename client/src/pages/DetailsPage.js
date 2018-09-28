@@ -71,7 +71,7 @@ class DetailsPage extends Component {
 					</Container>
 					<Container>
 						<div className={'crime-container'}>
-							<FamilyFriendlyRating/>
+							<FamilyFriendlyRating crimeList={crimeList} />
 							<RecentCrimeReports crimeList={crimeList} centerLat={this.props.currentListing.Latitude} centerLng={this.props.currentListing.Longitude}/>
 						</div>
 					</Container>
