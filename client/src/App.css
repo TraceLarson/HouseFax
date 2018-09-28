@@ -69,9 +69,13 @@
 
 
 /*CRIME CARDS*/
+.crime-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .crime-cards-container {
-    float: right;
-    width: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -79,6 +83,7 @@
 
 /*FAMILY FRIENDLY*/
 .family-friendly-rating-container{
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

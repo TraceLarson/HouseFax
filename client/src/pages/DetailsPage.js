@@ -25,11 +25,11 @@ class DetailsPage extends Component {
 
 	componentWillMount() {
 		console.log(this.props.currentListing)
-		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude )
+		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
 		console.log(typeof this.props.recentCrimes)
 
 		let latitude = this.props.currentListing.Latitude
-		let	longitude = this.props.currentListing.Longitude
+		let longitude = this.props.currentListing.Longitude
 
 		this.props.getCrimesList(latitude, longitude)
 
@@ -70,19 +70,22 @@ class DetailsPage extends Component {
 						/>
 					</Container>
 					<Container>
-						<FamilyFriendlyRating/>
-						<RecentCrimeReports crimeList={crimeList}/>
+						<div className={'crime-container'}>
+							<FamilyFriendlyRating/>
+							<RecentCrimeReports crimeList={crimeList}/>
+						</div>
 					</Container>
 				</div>
 				<Container>
-					<PropertyDetails propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
-					                 bedrooms={listing.BedroomsTotal}
-					                 bathrooms={listing.BathroomsTotalInteger}
-					                 buildYear={listing.YearBuilt}
-					                 sqft={listing.LivingArea}
-					                 price={listing.ListPrice}
-					                 hoaFee={listing.AssociationFee}
-					                 description={listing.PublicRemarks}
+					<PropertyDetails
+						propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
+						bedrooms={listing.BedroomsTotal}
+						bathrooms={listing.BathroomsTotalInteger}
+						buildYear={listing.YearBuilt}
+						sqft={listing.LivingArea}
+						price={listing.ListPrice}
+						hoaFee={listing.AssociationFee}
+						description={listing.PublicRemarks}
 					/>
 				</Container>
 			</div>

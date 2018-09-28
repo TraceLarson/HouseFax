@@ -3,7 +3,6 @@ import CircularProgressbar from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
 
-
 class FamilyFriendlyRating extends Component {
 	state = {
 		percentage: 75
@@ -12,16 +11,16 @@ class FamilyFriendlyRating extends Component {
 
 	render() {
 		return (
-			<div className={'family-friendly-rating-container'}>
-				<CircularProgressbar
-					percentage={this.state.percentage}
-					text={`${this.state.percentage}`}
-					initialAnimation={true}
-					styles={{
-						path: { stroke: `rgba(62, 152, 199, ${this.state.percentage / 100})` },
-						text: { fill: '#f88', fontSize: '16px' },
-					}}
-				/>
+			<div>
+				<h3>Family Friendly Rating</h3>
+				<div className={'family-friendly-rating-container dev-border'}>
+
+					<CircularProgressbar
+						percentage={this.state.percentage}
+						text={`${this.state.percentage}%`}
+						initialAnimation={true}
+					/>
+				</div>
 			</div>
 		)
 	}
