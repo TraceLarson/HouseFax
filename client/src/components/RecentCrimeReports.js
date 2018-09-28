@@ -14,6 +14,8 @@ class RecentCrimeReports extends Component {
 					           occDateTime={crime.occ_date_time}
 					           crimeType={crime.crime_type}
 					           familyViolence={crime.family_violence}
+					           centerLat={this.props.centerLat}
+					           centerLng={this.props.centerLng}
 					/>
 				)
 			} else {
