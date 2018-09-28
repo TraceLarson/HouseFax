@@ -13,12 +13,17 @@ class FamilyFriendlyRating extends Component {
 		return (
 			<div>
 				<h3>Family Friendly Rating</h3>
-				<div className={'family-friendly-rating-container dev-border'}>
-
+				<div className={'family-friendly-rating-container'}>
 					<CircularProgressbar
 						percentage={this.state.percentage}
 						text={`${this.state.percentage}%`}
 						initialAnimation={true}
+						strokeWidth={2}
+						counterClockwise={true}
+						styles={{
+							path: { stroke: `rgba(62, 152, 199, ${this.state.percentage / 100})` },
+							text: { fill: '#73cd1f', fontSize: '24px', fontWeight: '900'},
+						}}
 					/>
 				</div>
 			</div>
