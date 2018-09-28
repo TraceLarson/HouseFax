@@ -77,8 +77,11 @@
 .crime-container {
     width: 100%;
     min-height: 350px;
+    padding-bottom: 10px;
+    margin-bottom: 35px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
 }
 
 .crime-cards-container {

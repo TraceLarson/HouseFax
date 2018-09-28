@@ -12,7 +12,7 @@ class FamilyFriendlyRating extends Component {
 	render() {
 		return (
 			<div>
-				<h3 className={'mb-5'}>Family Friendly Rating</h3>
+				<h3 className={'mb-3'}>Family Friendly Rating</h3>
 				<div className={'family-friendly-rating-container'}>
 					<CircularProgressbar
 						percentage={this.state.percentage}
