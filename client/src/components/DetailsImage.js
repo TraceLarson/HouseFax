@@ -20,7 +20,7 @@ class DetailsImage extends Component {
 		)
 
 		return (
-			<Container>
+			<Container className={'pl-0'}>
 				<div className={'details-image-container'}>
 					<img className={'img-fluid'} src={imageSrc} alt={'house'} width={'760px'} height={'466px'}/>
 					<a className={'btn btn-secondary'} href={this.props.virtualTour} target={'_blank'} >Tour</a>
