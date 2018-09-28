@@ -76,6 +76,7 @@
 /*CRIME CARDS*/
 .crime-container {
     width: 100%;
+    min-height: 350px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
