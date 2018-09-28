@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types'
 import {
 	Container,
 	Button
@@ -37,6 +36,5 @@ class DetailsBanner extends Component {
 	}
 }
 
-export default DetailsBanner;
 
-DetailsBanner.propTypes = {}
+export default DetailsBanner;

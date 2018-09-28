@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {
 	Container,
-	Button
 } from 'reactstrap'
 
 class DetailsImage extends Component {
@@ -30,6 +28,5 @@ class DetailsImage extends Component {
 	}
 }
 
-DetailsImage.propTypes = {};
 
 export default DetailsImage;

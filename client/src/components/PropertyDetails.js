@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {
 	Container
 } from 'reactstrap'
@@ -31,6 +30,5 @@ class PropertyDetails extends Component {
 	}
 }
 
-PropertyDetails.propTypes = {};
 
 export default PropertyDetails;

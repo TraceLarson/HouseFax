@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import CrimeCard from "./CrimeCard";
 
 class RecentCrimeReports extends Component {
@@ -33,6 +32,5 @@ class RecentCrimeReports extends Component {
 	}
 }
 
-RecentCrimeReports.propTypes = {};
 
 export default RecentCrimeReports;
