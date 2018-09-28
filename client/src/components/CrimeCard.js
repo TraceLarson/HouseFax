@@ -5,7 +5,7 @@ class CrimeCard extends Component {
 		return (
 			<div className={'card'}>
 				<div className={'card-body'}>
-				<h5 className={'card-title'}>{this.props.crimeType}</h5>
+				<strong className={'card-title'}>{this.props.crimeType}</strong>
 				<p className={'card-text'}>{this.props.occDateTime}</p>
 				</div>
 			</div>
