@@ -34,7 +34,6 @@ export const getCrimesList = (latitude, longitude) => dispatch => {
 	})
 		.then(response => {
 			console.log('getCrimesList: ', response.data)
-			localStorage.setItem('recentCrimeList', JSON.stringify(response.data))
 			dispatch({
 				type: GET_CRIMES,
 				payload: response.data
