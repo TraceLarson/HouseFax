@@ -46,7 +46,14 @@
             
         
 - **Sitemap**
-    - (Pending design meeting)
+    ```
+    - Home -> -> -> ->  Search -> Results Page -> Details -> Modal Map
+      |                ^
+      -> Login -> Home |
+      |                |
+      -> Register -> -> -> Profile
+    ```
+           
 - **Interface**
     - _Information Architecture_
     - _Browser Support_
@@ -67,6 +74,7 @@
         - Create-react-app
         - Babel
     - _Deployment Workflow_
+        - 1.0.0: MLS features and crime reporting and mapping works
     - _Web Host_
         - Heroku for main application.
         - MLAB for mongoDB hosting.
