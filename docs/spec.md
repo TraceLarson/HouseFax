@@ -53,6 +53,7 @@
         - Chrome 72+
 - **Infrastructure**
     - _Technical Requirements_
+        - MongoDB: used for data storage
     - _Programming Languages_
         - ES6 Javascript
         - CSS3
