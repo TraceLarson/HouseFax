@@ -5,22 +5,48 @@ import 'react-circular-progressbar/dist/styles.css'
 
 class FamilyFriendlyRating extends Component {
 	state = {
-		percentage: 75
+		percentage: 0,
+		keywords: {
+			'assault': 15,
+			'marijuana': 3,
+			'theft': 5,
+			'burglary': 15,
+			'resisting': 10,
+			'harassment': 5,
+			'unlawful': 2,
+			'trespass': 3,
+			'dwi': 10,
+			'disturbance': 1,
+			'violence': 5
+		}
 	}
 
-	keywords = {
-		'assault': 15,
-		'marijuana': 3,
-		'theft': 5,
-		'burglary': 10,
-		'resisting': 10,
-		'harassment': 5,
-		'unlawful': 2,
-		'trespass': 3,
-		'dwi': 10
-	}
 
-	getCrimeRating = () => {
+
+	componentWillMount(){
+		let score = 0
+		let crimeTypeArray = []
+		this.props.crimeList.map(crime => {
+			crimeTypeArray.push(crime.crime_type)
+		})
+
+		crimeTypeArray.forEach(crime => {
+			Object.keys(this.state.keywords).map(key => {
+				let pointValue = this.state.keywords[key]
+				 if (crime.toLowerCase().includes(key)){
+				 	score += pointValue
+					 return;
+				 }else {
+				 	return;
+				 }
+			})
+			return null
+		})
+		score = score / crimeTypeArray.length
+		let percentage = 100 - score
+		this.setState({
+			percentage
+		})
 
 	}
 
