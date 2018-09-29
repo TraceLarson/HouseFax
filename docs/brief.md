@@ -22,5 +22,5 @@
 - **Pitch**
     -  [![Trace Larson Pitch Video](http://img.youtube.com/vi/XwzjJlKh2sw/0.jpg)](https://youtu.be/XwzjJlKh2sw)
     
-[Back](readme.md)
+[Back](README.md)
 
