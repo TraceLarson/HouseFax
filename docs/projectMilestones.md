@@ -6,6 +6,7 @@
 - **MVP**
     - [MVP](https://github.com/TraceLarson/HouseFax/pull/52/commits/a8c32ca2ce1694d745298c3ff88a21ee2393a4aa)
 - **Pivot**
+    - [Release-Pivot](https://github.com/TraceLarson/HouseFax/pull/52)
 - **Alpha Release**
 - **Beta Release**
 - **Public Release**
