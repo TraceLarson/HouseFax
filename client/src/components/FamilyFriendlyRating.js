@@ -8,6 +8,18 @@ class FamilyFriendlyRating extends Component {
 		percentage: 75
 	}
 
+	keywords = {
+		'assault': 15,
+		'marijuana': 3,
+		'theft': 5,
+		'burglary': 10,
+		'resisting': 10,
+		'harassment': 5,
+		'unlawful': 2,
+		'trespass': 3,
+		'dwi': 10
+	}
+
 	getCrimeRating = () => {
 
 	}
