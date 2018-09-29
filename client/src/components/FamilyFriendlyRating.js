@@ -26,6 +26,7 @@ class FamilyFriendlyRating extends Component {
 
 	componentWillMount(){
 		console.log(this.props.crimeList)
+
 		this.setState({
 			crimeList: this.props.crimeList
 		})

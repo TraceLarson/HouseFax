@@ -24,24 +24,31 @@ class DetailsPage extends Component {
 	}
 
 	componentWillMount() {
-		console.log(this.props.currentListing)
+		console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
 		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
-		console.log(typeof this.props.recentCrimes)
+		console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
 
 		let latitude = this.props.currentListing.Latitude
 		let longitude = this.props.currentListing.Longitude
 
 		this.props.getCrimesList(latitude, longitude)
-
-		this.setState({
-			listing: this.props.currentListing,
-			crimeList: this.props.recentCrimes
-		})
 	}
 
+
+	componentDidUpdate(prevProps) {
+		if (this.props.currentListing !== prevProps.currentListing){
+			console.log('componentDidUpdate ran')
+			let latitude = this.props.currentListing.Latitude
+			let longitude = this.props.currentListing.Longitude
+			this.props.getCrimesList(latitude, longitude)
+		}
+	}
+
+
+
 	render() {
-		const listing = this.state.listing
-		const crimeList = this.state.crimeList
+		const listing = this.props.currentListing
+		const crimeList = this.props.recentCrimes
 
 		return (
 			<div>
