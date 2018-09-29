@@ -47,7 +47,7 @@
         
 - **Sitemap**
     ```
-    - Home -> -> -> ->  Search -> Results Page -> Details -> Modal Map
+    - Home -> -> -> ->  Search -> Results Page -> Details Page -> Modal Map
       |                ^
       -> Login -> Home |
       |                |
@@ -56,6 +56,32 @@
            
 - **Interface**
     - _Information Architecture_
+        - HomePage Nav: HOUSE FAX Austin
+        - NavLinks: Login/Logout Register/Profile Contact
+        - FooterLinks: 
+            - Pages: Login Contact About
+            - Data Resources: Bridge API, Crime Reports API, Google APis
+            - Inspiration: Zillow, Trulia, Redfin
+            - Social Media: Facebook, Twitter, Instagram, Medium, Pinterest
+        - Search Supporting text: Family friendly property search:
+        - Search text: Search for a property
+        - Results page supporting text: 
+            - Austin, TX homes for sale and rent
+            - Results Items: Price, Address, City, State, zip, Details(button)
+        - Details Page:
+            - Banner: Address, City, State, Zip, Price, beds, baths, 
+            residence type, build year, likes, like button
+            - Family Friendly Rating, rating number
+            - Agent Contact Form:
+                - Listing Agent:
+                    - Name, Agency, Phone number
+                - Form: Name, Phone, Email, Message
+                    - Message Text: Hi I am interested in (address)
+            - Recent Crimes:
+                - Crime type, how long ago, VIEW ON MAP(button)
+            - Property Details:
+                - Residence type, beds, baths, build year, sq ft, price per sq ft, hoa $per month
+                - Remarks from property API        
     - _Browser Support_
         - Chrome 72+
 - **Infrastructure**
