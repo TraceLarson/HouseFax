@@ -8,6 +8,10 @@ class FamilyFriendlyRating extends Component {
 		percentage: 75
 	}
 
+	getCrimeRating = () => {
+
+	}
+
 
 	render() {
 		return (
