@@ -31,14 +31,19 @@
             - NavigationHeader Component
             - Search Component
             - Footer Component
-            - Login Form Component
-            - Register Form Component
+            - LoginForm Component
+            - RegisterForm Component
             - ResultsItem Component
             - DetailsBanner Component
             - FamilyFriendlyRating Component
             - CrimeMap Component
             - CrimeCard Component
             - Description Component
+            - AgentContactForm Component
+            - DetailsImage Component
+            - PropertyDetails Component
+            - RecentCrimeReports Component
+            
         
 - **Sitemap**
     - (Pending design meeting)
