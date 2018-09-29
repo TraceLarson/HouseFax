@@ -37,9 +37,7 @@ class DetailsPage extends Component {
 			listing: this.props.currentListing,
 			crimeList: this.props.recentCrimes
 		})
-
 	}
-
 
 	render() {
 		const listing = this.state.listing

@@ -18,27 +18,37 @@ class FamilyFriendlyRating extends Component {
 			'dwi': 10,
 			'disturbance': 1,
 			'violence': 5
-		}
+		},
+		crimeList: []
 	}
 
 
 
 	componentWillMount(){
+		console.log(this.props.crimeList)
+		this.setState({
+			crimeList: this.props.crimeList
+		})
+		this.getCrimeScore()
+	}
+
+	getCrimeScore = () => {
 		let score = 0
 		let crimeTypeArray = []
-		this.props.crimeList.map(crime => {
+		console.log(this.state.crimeList)
+		this.state.crimeList.map(crime => {
 			crimeTypeArray.push(crime.crime_type)
 		})
 
 		crimeTypeArray.forEach(crime => {
 			Object.keys(this.state.keywords).map(key => {
 				let pointValue = this.state.keywords[key]
-				 if (crime.toLowerCase().includes(key)){
-				 	score += pointValue
-					 return;
-				 }else {
-				 	return;
-				 }
+				if (crime.toLowerCase().includes(key)){
+					score += pointValue
+					return;
+				}else {
+					return;
+				}
 			})
 			return null
 		})
@@ -47,7 +57,6 @@ class FamilyFriendlyRating extends Component {
 		this.setState({
 			percentage
 		})
-
 	}
 
 
