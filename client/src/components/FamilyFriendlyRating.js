@@ -24,7 +24,7 @@ class FamilyFriendlyRating extends Component {
 
 
 	componentWillMount(){
-		console.log(this.props.crimeList)
+		// console.log(this.props.crimeList)
 		let score = 0
 		let crimeTypeArray = []
 		Object.keys(this.props.crimeList).map(key => {
