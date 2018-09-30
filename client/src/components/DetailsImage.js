@@ -7,15 +7,16 @@ class DetailsImage extends Component {
 	render() {
 		let mediaArray = []
 		let imageSrc = ''
-		this.props.media != null ? (
+		let setimageSrc = this.props.media != null ? (
 			Object.keys(this.props.media).map(key => {
 				let mediaItem = this.props.media[key]
 				return mediaArray.push(mediaItem)
 			}),
-				imageSrc = mediaArray[0].MediaURL
+				  mediaArray[0].MediaURL
 		) : (
-			imageSrc = 'http://fpoimg.com/760x466'
+			 'http://fpoimg.com/760x466'
 		)
+		imageSrc = setimageSrc
 
 		return (
 			<Container className={'pl-0'}>
