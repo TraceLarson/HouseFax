@@ -30,6 +30,7 @@ class FamilyFriendlyRating extends Component {
 		Object.keys(this.props.crimeList).map(key => {
 			let crime = this.props.crimeList[key]
 			crimeTypeArray.push(crime)
+			return null
 		})
 		// console.log(crimeTypeArray)
 
@@ -38,9 +39,9 @@ class FamilyFriendlyRating extends Component {
 				let pointValue = this.state.keywords[key]
 				if (crime.crime_type.toLowerCase().includes(key)){
 					score += pointValue
-					return;
+					return false;
 				}else {
-					return;
+					return false;
 				}
 			})
 			return null
