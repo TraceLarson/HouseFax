@@ -16,6 +16,8 @@ class DetailsImage extends Component {
 			 'http://fpoimg.com/760x466'
 		)
 
+		console.log(this.props.virtualTour)
+
 
 		return (
 			<Container className={'pl-0'}>
