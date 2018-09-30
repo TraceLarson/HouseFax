@@ -1,8 +1,7 @@
 import {GET_LISTINGS} from '../actions/types'
 
-const initialState = {
-
-}
+let listings = localStorage.getItem('listings') && localStorage.getItem('listings')
+const initialState = listings ? JSON.parse(listings) : {}
 
 export default function (state = initialState, action) {
 	switch (action.type) {

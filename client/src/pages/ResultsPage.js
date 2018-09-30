@@ -9,11 +9,9 @@ import {setCurrentListing} from "../actions/api";
 
 
 class ResultsPage extends Component {
-
 	handleDetails = listing => {
 		this.props.setCurrentListing(listing, this.props.history)
 	}
-
 
 	render() {
 		let resultsItems = Object.keys(this.props.listings).map(key => {

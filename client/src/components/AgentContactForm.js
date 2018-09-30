@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {
     Form,
     FormGroup,
@@ -34,6 +33,5 @@ class AgentContactForm extends Component {
     }
 }
 
-AgentContactForm.propTypes = {};
 
 export default AgentContactForm;

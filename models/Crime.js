@@ -13,6 +13,7 @@ class Crime {
 				},
 				params: {
 					$where: `within_circle(location,${lat}, ${lng}, 1000)`,
+					$order: 'occ_date DESC',
 					$limit: 10,
 				}
 			})
