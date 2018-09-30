@@ -31,7 +31,7 @@ class FamilyFriendlyRating extends Component {
 			let crime = this.props.crimeList[key]
 			crimeTypeArray.push(crime)
 		})
-		console.log(crimeTypeArray)
+		// console.log(crimeTypeArray)
 
 		crimeTypeArray.forEach(crime => {
 			Object.keys(this.state.keywords).map(key => {
@@ -45,10 +45,10 @@ class FamilyFriendlyRating extends Component {
 			})
 			return null
 		})
-		console.log(`Score pre avg: ${score}`)
+		// console.log(`Score pre avg: ${score}`)
 		score = score / crimeTypeArray.length
 		let percentage = 100 - score
-		console.log(`Crime Percentage: ${percentage}`)
+		// console.log(`Crime Percentage: ${percentage}`)
 		this.setState({
 			percentage
 		})

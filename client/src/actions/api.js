@@ -18,7 +18,7 @@ export const getListings = (query, history) => dispatch => {
 
 export const setCurrentListing = (listing, history) => dispatch => {
 	history.push('/Details')
-	console.log(listing)
+	// console.log(listing)
 	localStorage.setItem('currentListing' , JSON.stringify(listing))
 	dispatch({
 		type: SET_CURRENT_LISTING,
@@ -27,13 +27,14 @@ export const setCurrentListing = (listing, history) => dispatch => {
 }
 
 export const getCrimesList = (latitude, longitude) => dispatch => {
-	console.log(latitude, longitude)
+	// console.log(latitude, longitude)
 	axios.post('/api/crime', {
 		lat: latitude,
 		lng: longitude
 	})
 		.then(response => {
-			console.log('getCrimesList: ', response.data)
+			// console.log('getCrimesList: ', response.data)
+			localStorage.setItem('recentCrimeList',JSON.stringify(Object.assign({}, response.data)))
 			dispatch({
 				type: GET_CRIMES,
 				payload: response.data

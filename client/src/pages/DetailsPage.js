@@ -24,9 +24,9 @@ class DetailsPage extends Component {
 	}
 
 	componentWillMount() {
-		console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
-		console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
-		console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
+		// console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
+		// console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
+		// console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
 
 		let latitude = this.props.currentListing.Latitude
 		let longitude = this.props.currentListing.Longitude
@@ -37,7 +37,7 @@ class DetailsPage extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.currentListing !== prevProps.currentListing){
-			console.log('componentDidUpdate ran')
+			// console.log('componentDidUpdate ran')
 			let latitude = this.props.currentListing.Latitude
 			let longitude = this.props.currentListing.Longitude
 			this.props.getCrimesList(latitude, longitude)
