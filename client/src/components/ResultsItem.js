@@ -14,16 +14,16 @@ class ResultsItem extends Component {
 
 	render() {
 		let mediaArray = []
-		let imageSrc = ''
-		this.props.media != null ? (
+		let imageSrc = this.props.media != null ? (
 			Object.keys(this.props.media).map(key => {
 				let mediaItem = this.props.media[key]
 				return mediaArray.push(mediaItem)
 			}),
-				imageSrc = mediaArray[0].MediaURL
+				 mediaArray[0].MediaURL
 		) : (
-			imageSrc = 'http://fpoimg.com/245x200'
+			 'http://fpoimg.com/245x200'
 		)
+
 
 		return (
 			<Col sm={'12'} md={'10'} lg={'6'} className={'container mb-5 '}>
