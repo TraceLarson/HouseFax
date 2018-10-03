@@ -14,7 +14,12 @@
      or place it on par with enumerable other features. There are no apps with standout crime 
      reporting features that benefit from extra emphasis.
 - **Solution**
-    - This application will show crime statistics first and foremost. Emphasis will be put on any available data starting from the most recent occurence.
+    - This application takes crime information specific to a city (solely Austin Tx for the time being)
+    and pairs it with actual MLS real estate listing data to give the users a more complete picture
+    of what issues a property's surrounding neighborhood may encompass. Crime will be displayed
+    in neat modules directly on the property details page with no confusing similar elements to 
+    get lost in. A map of the area with marked locations for the crimes as well as a rating 
+    system for calculating how Family Friendly the location is will be available. 
 - **Unique Value Proposition**
     - This application is separated by being light weight and instead of being feature rich, will aim to one or two things really well.
      It can display crime data and allow the user to view vital statistics about a particular property.
