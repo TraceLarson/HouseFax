@@ -1,6 +1,6 @@
 
-#[Brief](brief.md)
+# [Brief](brief.md)
 
-#[Spec](spec.md)
+# [Spec](spec.md)
    
-#[Project Milestones](projectMilestones.md)
+# [Project Milestones](projectMilestones.md)
