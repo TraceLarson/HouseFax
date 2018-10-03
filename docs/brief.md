@@ -8,7 +8,11 @@
      bracket.
    
 - **Problem**
-    - The problem with the current real estate applications is that they put crime and the surrounding neighborhood secondary to every other statistic available.
+    - Current real estate applications are too broad with their property and neighborhood
+     information when referencing crime. They provide many details but the fact that they offer crime information is
+     somewhat obscure in most applications. Many applications make crime a secondary feature
+     or place it on par with enumerable other features. There are no apps with standout crime 
+     reporting features that benefit from extra emphasis.
 - **Solution**
     - This application will show crime statistics first and foremost. Emphasis will be put on any available data starting from the most recent occurence.
 - **Unique Value Proposition**
