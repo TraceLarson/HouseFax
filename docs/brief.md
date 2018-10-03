@@ -1,8 +1,12 @@
 # Brief
+
 - **Audience**
-    - The Primary audience will be technology literate users between the ages of 25 to 40 years old and a HighSchool grad or above.
-    Users should be in a position that makes them ready to purchase a home or make a move to a new community. Ideal users would
-    be shopping for better family accommodations.
+    - The primary audience would be age 30+ adults whom are established in their careers, have atleast one child, are
+     married, and are looking to purchase or rent a property in an area that is more accommodating to raise their family.
+     Due to the typically higher than average real estate prices in Austin TX as opposed to
+     other urban areas in TX, the user should be in the middle to upper middle class income
+     bracket.
+   
 - **Problem**
     - The problem with the current real estate applications is that they put crime and the surrounding neighborhood secondary to every other statistic available.
 - **Solution**
