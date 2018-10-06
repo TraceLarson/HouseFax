@@ -20,7 +20,7 @@ class Bridge {
 					return bridgeArray
 				})
 				.catch(err => {
-					console.log('error fetching MLS', err)
+					console.error('error fetching MLS', err)
 				})
 		)
 	}
@@ -39,7 +39,7 @@ class Bridge {
 					return response.data
 				})
 				.catch(err => {
-					console.log('error fetching cluster from MLS', err)
+					console.error('error fetching cluster from MLS', err)
 				})
 		)
 	}
