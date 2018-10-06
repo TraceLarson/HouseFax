@@ -82,11 +82,6 @@
 - **Infrastructure**
     - _Technical Requirements_
         - MongoDB: used for data storage
-    - _Programming Languages_
-        - ES6 Javascript
-        - CSS3
-        - HTML5
-    - _Integrations_
         - React JS
         - React Redux
         - AXIOS
@@ -94,6 +89,13 @@
         - Express JS
         - Create-react-app
         - Babel
+    - _Programming Languages_
+        - ES6 Javascript
+        - CSS3
+        - HTML5
+    - _Integrations_
+        - Bridge API for MLS data
+        - CrimeReports API from austintexas.gov integrated into Socrata API network.
     - _Deployment Workflow_
         - 1.0.0: MLS features and crime reporting and mapping works
     - _Web Host_
