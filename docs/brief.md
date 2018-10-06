@@ -1,4 +1,11 @@
 # Brief
+- Looking for a new place to live is often times an arduous process. It can start out being fun and explorative but can 
+quickly lose that luster and become a chore. Many factors come into play such as price, bedrooms, bathrooms, parking, 
+proximity to work, etc... As someone who has had to move far distances it can be stressful to have to
+drive from faraway to simply find a neighborhood that suits yourself and your family. House Fax aims to take away some 
+of this stress. Adults whom are over 30 years of age with children are more cautious about where they put down roots. The 
+Austin Texas area is expanding at a rapid rate and real estate prices are on the rise. This is why House Fax looks to target
+the subset of married adults with children who are already established in a career and make over $100k/year.
 
 - [Audience](#audience)
 - [Problem](#problem)
@@ -7,11 +14,11 @@
 - [Pitch](#pitch)
 
 ## Audience
-- The primary audience would be age 30+ adults whom are established in their careers, have atleast one child, are
-arried, and are looking to purchase or rent a property in an area that is more accommodating to raise their family.
-ue to the typically higher than average real estate prices in Austin TX as opposed to
-ther urban areas in TX, the user should be in the middle to upper middle class income
-racket.   
+- The primary audience would be age 30+ adults whom are established in their careers, have at least one child, are
+married, and are looking to purchase or rent a property in an area that is more accommodating to raise their family.
+Due to the typically higher than average real estate prices in Austin TX as opposed to
+other urban areas in TX, the user should be in the middle to upper middle class income
+bracket.   
 ## Problem
 - Current real estate applications are too broad with their property and neighborhood
  information when referencing crime. They provide many details but the fact that they offer crime information is
