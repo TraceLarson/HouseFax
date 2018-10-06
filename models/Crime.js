@@ -26,7 +26,7 @@ class Crime {
 					return crimeArray
 				})
 				.catch(err => {
-					console.log('error fetching CRIME', err)
+					console.error('error fetching CRIME', err)
 				})
 		)
 	}

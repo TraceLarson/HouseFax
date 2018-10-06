@@ -9,9 +9,11 @@ This project will be built using the MERN stack with the following popular techn
 - Redux
 - MongoDB
 
-First ensure that MongoDB is running on your system:
+First ensure that MongoDB is running on your system, you also need Concurrently installed
+globally:
 ```terminal
 mongod
+npm install -g concurrently
 ```
 if you do not have MongoDB installed you can follow the directions here:
 https://docs.mongodb.com/manual/installation/
