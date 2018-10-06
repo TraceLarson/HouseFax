@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 // Connect to MongoDB Databse
-mongoose.connect(`mongodb://${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`)
+// mongoose.connect(`mongodb://${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`)
+mongoose.connect(`mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}${process.env.MLAB_HOST}/${process.env.MLAB_DATABASE}`)
 
 // Get default connection
 var db = mongoose.connection
