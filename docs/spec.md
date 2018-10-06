@@ -1,5 +1,6 @@
 #Spec
 - **Feature Definitions**
+
     - __Back End__
         - Bridge API call
         - CrimeReports API call
@@ -22,28 +23,27 @@
     
     - __Front End__ 
         - __Pages__
-            - HomePage Component
-            - ProfilePage Component
-            - RegisterPage Component
-            - LoginPage Component
-            - ResultsPage Component
-            - DetailsPage Component
+            - [HomePage Component ](https://github.com/TraceLarson/HouseFax/issues/29)
+            - [ProfilePage Component ](https://github.com/TraceLarson/HouseFax/issues/30)
+            - [RegisterPage Component ](https://github.com/TraceLarson/HouseFax/issues/31)
+            - [LoginPage Component ](https://github.com/TraceLarson/HouseFax/issues/32)
+            - [ResultsPage Component ](https://github.com/TraceLarson/HouseFax/issues/33)
+            - [DetailsPage Component ](https://github.com/TraceLarson/HouseFax/issues/34)
         - __Components__
-            - NavigationHeader Component
-            - Search Component
-            - Footer Component
-            - LoginForm Component
-            - RegisterForm Component
-            - ResultsItem Component
-            - DetailsBanner Component
-            - FamilyFriendlyRating Component
-            - CrimeMap Component
-            - CrimeCard Component
-            - Description Component
-            - AgentContactForm Component
-            - DetailsImage Component
-            - PropertyDetails Component
-            - RecentCrimeReports Component
+            - [NavigationHeader Component](https://github.com/TraceLarson/HouseFax/issues/35)
+            - [Search Component](https://github.com/TraceLarson/HouseFax/issues/36)
+            - [Footer Component](https://github.com/TraceLarson/HouseFax/issues/37)
+            - [LoginForm Component](https://github.com/TraceLarson/HouseFax/issues/38)
+            - [RegisterForm Component](https://github.com/TraceLarson/HouseFax/issues/39)
+            - [ResultsItem Component](https://github.com/TraceLarson/HouseFax/issues/40)
+            - [DetailsBanner Component](https://github.com/TraceLarson/HouseFax/issues/62)
+            - [FamilyFriendlyRating Component](https://github.com/TraceLarson/HouseFax/issues/42)
+            - [CrimeMap Component](https://github.com/TraceLarson/HouseFax/issues/43)
+            - [CrimeCard Component](https://github.com/TraceLarson/HouseFax/issues/56)
+            - [AgentContactForm Component](https://github.com/TraceLarson/HouseFax/issues/58)
+            - [DetailsImage Component](https://github.com/TraceLarson/HouseFax/issues/59)
+            - [PropertyDetails Component](https://github.com/TraceLarson/HouseFax/issues/60)
+            - [RecentCrimeReports Component](https://github.com/TraceLarson/HouseFax/issues/61)
             
         
 - **Sitemap**
