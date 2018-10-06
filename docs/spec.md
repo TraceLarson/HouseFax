@@ -1,24 +1,25 @@
 #Spec
 - **Feature Definitions**
     - __Back End__
-    - Bridge API calls
-        - GET listings /api/bridge
-        - GET lat lng of specific listing /api/bridge/:propertyid
-    - CrimeReports API calls
-        - GET crimes within radius of lat long /api/crime/:location (location is object with lat and lng)
-    - HouseFax API calls
-        - GET user info /user/:id
-        - GET likes on property /property/:id/likes
-        - GET saved property /property/:id
-        - POST create user /user
-        - POST login user /user/login
-        - POST save property /property
-        - PUT update user info /user/:id
-        - PUT add property to favorites /property/:id/likes
-        - PUT update likes to property /property/:id/likes
-        - DELETE remove property from user /user/properties/:id
-        - DELETE remove user /user/:id
-        - DELETE remove property /property/:id
+        - Bridge API call
+        - CrimeReports API call
+        - Routing
+            - GET listings /api/bridge
+            - GET lat lng of specific listing /api/bridge/:propertyid
+            - GET crimes within radius of lat long /api/crime/:location (location is object with lat and lng)
+            - GET user info /user/:id
+            - GET likes on property /property/:id/likes
+            - GET saved property /property/:id
+            - POST create user /user
+            - POST login user /user/login
+            - POST save property /property
+            - PUT update user info /user/:id
+            - PUT add property to favorites /property/:id/likes
+            - PUT update likes to property /property/:id/likes
+            - DELETE remove property from user /user/properties/:id
+            - DELETE remove user /user/:id
+            - DELETE remove property /property/:id
+    
     - __Front End__ 
         - __Pages__
             - HomePage Component
