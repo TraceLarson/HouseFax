@@ -5,21 +5,21 @@
         - Bridge API call
         - CrimeReports API call
         - Routing
-            - GET listings /api/bridge
-            - GET lat lng of specific listing /api/bridge/:propertyid
-            - GET crimes within radius of lat long /api/crime/:location (location is object with lat and lng)
-            - GET user info /user/:id
-            - GET likes on property /property/:id/likes
-            - GET saved property /property/:id
-            - POST create user /user
-            - POST login user /user/login
-            - POST save property /property
-            - PUT update user info /user/:id
-            - PUT add property to favorites /property/:id/likes
-            - PUT update likes to property /property/:id/likes
-            - DELETE remove property from user /user/properties/:id
-            - DELETE remove user /user/:id
-            - DELETE remove property /property/:id
+            - [GET listings /api/bridge ](https://github.com/TraceLarson/HouseFax/issues/10)
+            - [GET lat lng of specific listing /api/bridge/:propertyid ](https://github.com/TraceLarson/HouseFax/issues/63)
+            - [GET crimes within radius of lat long /api/crime/:location ](https://github.com/TraceLarson/HouseFax/issues/11)
+            - [GET user info /user/:id ](https://github.com/TraceLarson/HouseFax/issues/12)
+            - [GET likes on property /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/13)
+            - [GET saved property /property/:id ](https://github.com/TraceLarson/HouseFax/issues/14)
+            - [POST create user /user ](https://github.com/TraceLarson/HouseFax/issues/15)
+            - [POST login user /user/login ](https://github.com/TraceLarson/HouseFax/issues/16)
+            - [POST save property /property ](https://github.com/TraceLarson/HouseFax/issues/17)
+            - [PUT update user info /user/:id ](https://github.com/TraceLarson/HouseFax/issues/18)
+            - [PUT add property to favorites /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/19)
+            - [PUT update likes to property /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/20)
+            - [DELETE remove property from user /user/properties/:id ](https://github.com/TraceLarson/HouseFax/issues/21)
+            - [DELETE remove user /user/:id ](https://github.com/TraceLarson/HouseFax/issues/22)
+            - [DELETE remove property /property/:id ](https://github.com/TraceLarson/HouseFax/issues/23)
     
     - __Front End__ 
         - __Pages__
