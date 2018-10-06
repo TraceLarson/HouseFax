@@ -46,13 +46,7 @@
             
         
 - **Sitemap**
-    ```
-    - Home -> -> -> ->  Search -> Results Page -> Details Page -> Modal Map
-      |                ^
-      -> Login -> Home |
-      |                |
-      -> Register -> -> -> Profile
-    ```
+![Image of Sitemap](SiteMap.png)
            
 - **Interface**
     - _Information Architecture_
