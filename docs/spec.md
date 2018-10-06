@@ -51,6 +51,7 @@
 - **Interface**
     - _Information Architecture_
         - HomePage Nav: HOUSE FAX Austin
+            - "Family friendly property search"
         - NavLinks: Login/Logout Register/Profile Contact
         - FooterLinks: 
             - Pages: Login Contact About
