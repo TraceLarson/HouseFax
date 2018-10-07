@@ -19,21 +19,20 @@ class ProfilePage extends Component {
 	}
 
 	render() {
-		let userInfoArray = []
-		Object.keys(this.state.user).map(key => {
+		let userInfo = Object.keys(this.state.user).map(key => {
 			let currentUserInfo = this.state.user[key]
-			userInfoArray.push(currentUserInfo)
-			return false
+			return (
+				<li key={key}>
+					<strong>{key}: </strong>{currentUserInfo}
+				</li>
+			)
 		})
-		userInfoArray = userInfoArray.map((info, key) => {
-			return <li key={key}>{info}</li>
-		})
-		console.log(userInfoArray)
+
 		return (
 			<div>
 				<p>Profile Page</p>
 				<ul>
-					{userInfoArray}
+					{userInfo}
 				</ul>
 			</div>
 		);

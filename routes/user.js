@@ -17,13 +17,15 @@ const Property = require('../models/Property')
 
 // Get user
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-
-	return res.json({
-		id: req.user.id,
-		firstname: req.user.firstname,
-		lastname: req.user.lastname,
-		email: req.user.email
+	User.findOne({_id: req.user.id}).populate('properties').exec((err, user) => {
+		err ? console.error('Error loading user info') : res.json(user)
 	})
+	// return res.json({
+	// 	id: req.user.id,
+	// 	firstname: req.user.firstname,
+	// 	lastname: req.user.lastname,
+	// 	email: req.user.email
+	// })
 })
 
 router.get('/', (req, res, next) => {
