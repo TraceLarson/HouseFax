@@ -6,6 +6,16 @@ const path = require('path')
 const passport = require('passport')
 
 
+// Serve static files if in production environment
+if(process.env.NODE_ENV === 'production'){
+	// Set static folder
+	app.use(express.static('client/build'))
+
+	app.get('*', (req, res) => {
+		res.sendFile([path.resolve(__dirname, 'client', 'build', 'index.html')])
+	})
+}
+
 // Passport Requirements
 app.use(passport.initialize())
 require('./passport')(passport)
@@ -15,8 +25,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 
-// Connect to MongoDB Databse
-mongoose.connect(`mongodb://${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`)
+// Connect to MongoDB Database
+process.env.NODE_ENV === 'production' ? (
+	mongoose.connect(`mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}${process.env.MLAB_HOST}/${process.env.MLAB_DATABASE}`)
+) : (
+	mongoose.connect(`mongodb://${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`) // LOCAL DEVELOPMENT
+)
+
+
 
 // Get default connection
 var db = mongoose.connection
