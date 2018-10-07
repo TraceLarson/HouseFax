@@ -35,7 +35,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 	User.findOne({_id: req.params.id}).populate('properties').exec((err, user) => {
-		err ? console.log('Error finding user', err) : ''
+		err ? console.error('Error finding user', err) : ''
 		res.send(user)
 	})
 })
