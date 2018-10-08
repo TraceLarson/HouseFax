@@ -12,9 +12,14 @@ class DetailsBanner extends Component {
 	}
 
 	handleLikeButton = e => {
+		e.preventDefault()
+
 		axios.put(`/property/${this.props.listingId}/likes`)
 			.then(response => {
 				console.log(response)
+			})
+			.catch(err => {
+				console.error('axios error liking property')
 			})
 	}
 
