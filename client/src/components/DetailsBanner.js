@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {
 	Container,
@@ -19,12 +22,15 @@ class DetailsBanner extends Component {
 				console.log(response)
 			})
 			.catch(err => {
-				console.error('axios error liking property')
+				console.error('axios error liking property', err)
 			})
 	}
 
 
 	render() {
+
+		const {isAuthenticated} = this.props.auth
+		const likeButton = <Button className={'mb-0 ml-4'} size={"sm"} onClick={this.handleLikeButton}> Like </Button>
 		return (
 			<div className={'details-banner-container'}>
 				<Container className={'d-flex justify-content-between'}>
@@ -38,7 +44,7 @@ class DetailsBanner extends Component {
 							{this.props.propertyType} -
 							Built in {this.props.buildYear}
 							<span className={'ml-4'}>152 likes</span>
-							<Button className={'mb-0 ml-4'} size={"sm"}> Like </Button>
+							{isAuthenticated ? likeButton : ''}
 						</p>
 					</div>
 					<div>
@@ -50,5 +56,13 @@ class DetailsBanner extends Component {
 	}
 }
 
+DetailsBanner.propTypes = {
+    auth: PropTypes.object.isRequired
+}
 
-export default DetailsBanner;
+const mapStateToProps = state => ({
+	auth: state.auth
+})
+
+
+export default connect(mapStateToProps)(withRouter(DetailsBanner));

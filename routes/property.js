@@ -3,6 +3,8 @@ const router = express.Router()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const path = require('path')
+const jwt = require('jsonwebtoken')
+const passport = require('passport')
 const Property = require('../models/Property')
 const User = require('../models/User')
 
@@ -52,11 +54,11 @@ router.put('/:id/likes', passport.authenticate('jwt', { session: false }), (req,
 	// From token
 	let token = req.user
 
-	User.findOne({_id: token.Id}).exec((err, user) => {
-		err ? console.error('Error loading user to add property', err) : console.log(user)
+	User.findOne({_id: token.id}).exec((err, user) => {
+		err ? console.error('Error loading user to add property', err) : console.log('found user')
 
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
-			err ? console.log('Error finding property to update likes', err) : console.log(property)
+			err ? console.log('Error finding property to update likes', err) : console.log('found property')
 
 			res.send(`user: ${user}, property ${property}`)
 
