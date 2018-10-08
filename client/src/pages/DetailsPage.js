@@ -49,10 +49,12 @@ class DetailsPage extends Component {
 	render() {
 		const listing = this.props.currentListing
 		const crimeList = this.props.recentCrimes
+		console.log(listing)
 
 		return (
 			<div>
-				<DetailsBanner address={listing.UnparsedAddress}
+				<DetailsBanner listingid={listing.ListingId}
+							   address={listing.UnparsedAddress}
 				               city={listing.City}
 				               state={listing.StateOrProvince}
 				               zip={listing.PostalCode}

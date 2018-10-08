@@ -7,7 +7,7 @@ const Property = require('../models/Property')
 const User = require('../models/User')
 
 
-
+// Get all properties saved in the db
 router.get('/', (req, res, next) => {
 	Property.find().populate('users').exec((err, properties) => {
 		err ? console.error('Error finding properties', err) : ''
@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
 	})
 })
 
+// Get a saved property by id of the Property
 router.get('/:id', (req, res, next) => {
 	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
 		err ? console.error('Error finding property', err) : ''
@@ -22,6 +23,7 @@ router.get('/:id', (req, res, next) => {
 	})
 })
 
+// Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
 	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
 		err ? console.error('Error finding likes', err) : ''
@@ -29,6 +31,7 @@ router.get('/:id/likes', (req, res, next) => {
 	})
 })
 
+// Create a new property to be saved in the database
 router.post('/', (req, res, next) => {
 	let newProperty = Property({
 		listingId: req.body.listingId,
@@ -44,7 +47,7 @@ router.post('/', (req, res, next) => {
 	})
 })
 
-
+// Update likes on a property
 router.put('/:id/likes', (req, res, next) => {
 	// From token
 	let token = {
