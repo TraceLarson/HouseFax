@@ -48,29 +48,29 @@ router.post('/', (req, res, next) => {
 })
 
 // Update likes on a property
-router.put('/:id/likes', (req, res, next) => {
+router.put('/:id/likes', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 	// From token
-	let token = {
-		userId: '5b933723b45f685e82d5212f'
-	}
-	User.findOne({_id: token.userId}).exec((err, user) => {
-		err ? console.error('Error loading user to add property', err) : ''
+	let token = req.user
+
+	User.findOne({_id: token.Id}).exec((err, user) => {
+		err ? console.error('Error loading user to add property', err) : console.log(user)
 
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
-			err ? console.log('Error finding property to update likes', err) : ''
+			err ? console.log('Error finding property to update likes', err) : console.log(property)
 
+			res.send(`user: ${user}, property ${property}`)
 
-			!JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error('user already likes this property')
-			property.likes = property.users.length
-			property.save(err => {
-				err ? console.error('Error saving likes and updating users') : ''
-			})
+			// !JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error('user already likes this property')
+			// property.likes = property.users.length
+			// property.save(err => {
+			// 	err ? console.error('Error saving likes and updating users') : ''
+			// })
 
-			!JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
-			user.save(err => {
-				err ? console.error('Error saving property to user', err) : ''
-				res.send('Added property to user')
-			})
+			// !JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
+			// user.save(err => {
+			// 	err ? console.error('Error saving property to user', err) : ''
+			// 	res.send('Added property to user')
+			// })
 		})
 	})
 })

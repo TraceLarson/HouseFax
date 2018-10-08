@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 import {
 	Container,
 	Button
@@ -9,6 +10,14 @@ class DetailsBanner extends Component {
 	numberWithCommas = (x) => {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
+
+	handleLikeButton = e => {
+		axios.put(`/property/${this.props.listingId}/likes`)
+			.then(response => {
+				console.log(response)
+			})
+	}
+
 
 	render() {
 		return (

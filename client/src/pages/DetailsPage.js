@@ -53,7 +53,7 @@ class DetailsPage extends Component {
 
 		return (
 			<div>
-				<DetailsBanner listingid={listing.ListingId}
+				<DetailsBanner listingId={listing.ListingId}
 							   address={listing.UnparsedAddress}
 				               city={listing.City}
 				               state={listing.StateOrProvince}
