@@ -1,54 +1,59 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import PropTypes from 'prop-types'
+// import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {getCurrentUser} from '../actions/user'
 
 import EditProfile from '../components/EditProfile'
 
 class ProfilePage extends Component {
 
 	state = {
-		user: {}
+		user: {},
 	}
 
 	componentWillMount() {
-		axios.get('/user/me')
-			.then(response => {
-				let user = response.data
-				console.log(user)
-				this.setState({
-					user: user
-				})
-			})
+		// axios.get('/user/me')
+		// 	.then(response => {
+		// 		let user = response.data
+		// 		console.log(user)
+		// 		this.setState({
+		// 			user: user
+		// 		})
+		// 	})
+		this.props.getCurrentUser()
+
 	}
 
+
 	render() {
-		let userInfo = Object.keys(this.state.user).map(key => {
-			let currentUserInfo = this.state.user[key]
-			return (
-				<li key={key}>
-					<strong>{key}: </strong>{currentUserInfo}
-				</li>
-			)
-		})
+		const {currentUser} = this.props
+		const created_at = currentUser.created_at && currentUser.created_at.slice(0,10)
+
+		console.log('ProfilePage Render',this.props.currentUser)
 
 		return (
 			<div>
-				<p>Profile Page</p>
-				<ul>
-					{userInfo}
-				</ul>
 				<EditProfile
-					firstname={this.state.user.firstname}
-					lastname={this.state.user.lastname}
-					email={this.state.user.email}
-					password={'*******'}
-					created_at={this.state.user.created_at}
+					firstname={currentUser.firstname && currentUser.firstname}
+					lastname={currentUser.lastname && currentUser.lastname}
+					email={currentUser.email && currentUser.email}
+					password={currentUser.password && '*******'}
+					created_at={created_at}
 				/>
-
 			</div>
 		);
 	}
 }
 
-export default connect( )(withRouter(ProfilePage));
+ProfilePage.propTypes = {
+	getCurrentUser: PropTypes.func.isRequired,
+	currentUser: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = state => ({
+	currentUser: state.currentUser
+})
+
+export default connect(mapStateToProps, {getCurrentUser})(withRouter(ProfilePage));
