@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+import EditProfile from '../components/EditProfile'
 
 class ProfilePage extends Component {
 
@@ -34,9 +38,17 @@ class ProfilePage extends Component {
 				<ul>
 					{userInfo}
 				</ul>
+				<EditProfile
+					firstname={this.state.user.firstname}
+					lastname={this.state.user.lastname}
+					email={this.state.user.email}
+					password={'*******'}
+					created_at={this.state.user.created_at}
+				/>
+
 			</div>
 		);
 	}
 }
 
-export default ProfilePage;
+export default connect( )(withRouter(ProfilePage));
