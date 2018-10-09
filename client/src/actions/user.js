@@ -12,9 +12,10 @@ export const getCurrentUser = () => dispatch => {
 		})
 }
 
-export const updateCurrentUser = () => dispatch => {
-	axios.put()
-		.then(response => {
-			console.log('updateCurrentUser action ran')
-		})
+export const updateCurrentUser = (user, history) => dispatch => {
+	console.log('updateCurrentUser', user)
+	// axios.put()
+	// 	.then(response => {
+	// 		console.log('updateCurrentUser action ran')
+	// 	})
 }

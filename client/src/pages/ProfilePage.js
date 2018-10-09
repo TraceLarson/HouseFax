@@ -4,13 +4,15 @@ import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getCurrentUser} from '../actions/user'
+import {updateCurrentUser} from '../actions/user'
 
 import EditProfile from '../components/EditProfile'
 
 class ProfilePage extends Component {
 
 	state = {
-		user: {},
+		user: {
+		},
 	}
 
 	componentWillMount() {
@@ -19,8 +21,17 @@ class ProfilePage extends Component {
 
 	handleSave = e => {
 		e.preventDefault()
-
-		console.log([e.target.firstname.value])
+		console.log('handleSave ', e.target.lastname.value)
+		let user = {
+			firstname: e.target.firstname.value,
+			lastname: e.target.lastname.value,
+			email: e.target.email.value,
+			password: e.target.password.value
+		}
+		this.setState({
+			user: user
+		})
+		this.props.updateCurrentUser(this.state.user, this.props.history)
 	}
 
 	handleProfileChange = e => {
@@ -57,6 +68,7 @@ class ProfilePage extends Component {
 
 ProfilePage.propTypes = {
 	getCurrentUser: PropTypes.func.isRequired,
+	updateCurrentUser: PropTypes.func.isRequired,
 	currentUser: PropTypes.object.isRequired,
 }
 
@@ -64,4 +76,4 @@ const mapStateToProps = state => ({
 	currentUser: state.currentUser
 })
 
-export default connect(mapStateToProps, {getCurrentUser})(withRouter(ProfilePage));
+export default connect(mapStateToProps, {getCurrentUser, updateCurrentUser})(withRouter(ProfilePage));
