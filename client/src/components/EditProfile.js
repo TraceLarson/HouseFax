@@ -1,83 +1,55 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class EditProfile extends Component {
-
-	state = {
-		firstname: '',
-		lastname: '',
-		email: '',
-		password: '',
-		created_at: ''
-	}
-
-	handleChange = e => {
-		e.preventDefault()
-
-		this.setState({
-			[e.target.name]: e.target.value
-		})
-	}
-
-	handleSubmit = e => {
-
-	}
-
-	render() {
-
-		return (
-			<div className={"container"}>
-				<form>
-					<p className={"text-primary"}>Edit Profile</p>
-					<p className={"text-primary"}>Member since: {this.props.created_at}</p>
-					<div className={"form-group"}>
-						<label className={"d-none"} htmlFor="firstname">first name</label>
-						<input className={"form-control"}
-						       type="text"
-						       name={"firstname"}
-						       id={"firstname"}
-						       autoComplete={"off"}
-						       placeholder={this.props.firstname}
-						       value={this.state.firstname}
-						       onChange={this.handleChange}/>
-					</div>
-					<div className={"form-group"}>
-						<label className={"d-none"} htmlFor="lastname">last name</label>
-						<input className={"form-control"}
-						       type="text" name={"lastname"}
-						       id={"lastname"}
-						       autoComplete={"off"}
-						       placeholder={this.props.lastname}
-						       value={this.state.lastname}
-						       onChange={this.handleChange}/>
-					</div>
-					<div className={"form-group"}>
-						<label className={"d-none"} htmlFor="email">email</label>
-						<input className={"form-control"}
-						       type="email"
-						       name={"email"}
-						       id={"email"}
-						       autoComplete={"off"}
-						       placeholder={this.props.email}
-						       value={this.state.email}
-						       onChange={this.handleChange}/>
-					</div>
-					<div className={"form-group"}>
-						<label className={"d-none"} htmlFor="password">password</label>
-						<input className={"form-control"}
-						       type="password"
-						       name={"password"}
-						       id={"password"}
-						       autoComplete={"off"}
-						       placeholder={this.props.password}
-						       value={this.state.password}
-						       onChange={this.handleChange}/>
-					</div>
-					<button className={"btn btn-primary"}> Save </button>
-				</form>
-			</div>
-		);
-	}
+const EditProfile = props => {
+	return (
+		<div className={"container"}>
+			<form onSubmit={props.handleSave}>
+				<p className={"text-primary"}>Edit Profile</p>
+				<p className={"text-primary"}>Member since: {props.created_at}</p>
+				<div className={"form-group"}>
+					<label className={"d-none"} htmlFor="firstname">first name</label>
+					<input className={"form-control"}
+					       type="text"
+					       name={"firstname"}
+					       id={"firstname"}
+					       autoComplete={"off"}
+					       defaultValue={props.firstname}
+					       onChange={props.handleProfileChange}/>
+				</div>
+				<div className={"form-group"}>
+					<label className={"d-none"} htmlFor="lastname">last name</label>
+					<input className={"form-control"}
+					       type="text" name={"lastname"}
+					       id={"lastname"}
+					       autoComplete={"off"}
+					       defaultValue={props.lastname}
+					       onChange={props.handleProfileChange}/>
+				</div>
+				<div className={"form-group"}>
+					<label className={"d-none"} htmlFor="email">email</label>
+					<input className={"form-control"}
+					       type="email"
+					       name={"email"}
+					       id={"email"}
+					       autoComplete={"off"}
+					       defaultValue={props.email}
+					       onChange={props.handleProfileChange}/>
+				</div>
+				<div className={"form-group"}>
+					<label className={"d-none"} htmlFor="password">password</label>
+					<input className={"form-control"}
+					       type="password"
+					       name={"password"}
+					       id={"password"}
+					       autoComplete={"off"}
+					       defaultValue={props.password}
+					       onChange={props.handleProfileChange}/>
+				</div>
+				<button className={"btn btn-primary"} type={"submit"}> Save</button>
+			</form>
+		</div>
+	);
 }
 
 EditProfile.propTypes = {
@@ -85,9 +57,10 @@ EditProfile.propTypes = {
 	lastname: PropTypes.string,
 	email: PropTypes.string,
 	password: PropTypes.string,
-	created_at: PropTypes.string
+	created_at: PropTypes.string,
+	handleProfileChange: PropTypes.func,
+	handleSave: PropTypes.func,
 };
-
 
 
 export default EditProfile;

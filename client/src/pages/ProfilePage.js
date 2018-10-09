@@ -14,17 +14,23 @@ class ProfilePage extends Component {
 	}
 
 	componentWillMount() {
-		// axios.get('/user/me')
-		// 	.then(response => {
-		// 		let user = response.data
-		// 		console.log(user)
-		// 		this.setState({
-		// 			user: user
-		// 		})
-		// 	})
 		this.props.getCurrentUser()
-
 	}
+
+	handleSave = e => {
+		e.preventDefault()
+
+		console.log([e.target.firstname.value])
+	}
+
+	handleProfileChange = e => {
+		this.setState({
+			user: {
+				[e.target.name]: e.target.value
+			}
+		})
+	}
+
 
 
 	render() {
@@ -36,6 +42,8 @@ class ProfilePage extends Component {
 		return (
 			<div>
 				<EditProfile
+					handleProfileChange={this.handleProfileChange}
+					handleSave={this.handleSave}
 					firstname={currentUser.firstname && currentUser.firstname}
 					lastname={currentUser.lastname && currentUser.lastname}
 					email={currentUser.email && currentUser.email}
