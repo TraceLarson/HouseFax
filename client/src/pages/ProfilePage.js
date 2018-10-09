@@ -21,8 +21,9 @@ class ProfilePage extends Component {
 
 	handleSave = e => {
 		e.preventDefault()
-		console.log('handleSave ', e.target.lastname.value)
+		console.log('handleSave ', this.props.currentUser._id,)
 		let user = {
+			_id: this.props.currentUser._id,
 			firstname: e.target.firstname.value,
 			lastname: e.target.lastname.value,
 			email: e.target.email.value,
@@ -31,7 +32,7 @@ class ProfilePage extends Component {
 		this.setState({
 			user: user
 		})
-		this.props.updateCurrentUser(this.state.user, this.props.history)
+		this.props.updateCurrentUser(user, this.props.history)
 	}
 
 	handleProfileChange = e => {
