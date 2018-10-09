@@ -128,7 +128,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, 
 					err ? console.error('Error bcrypt-ing password', err) : ''
 					user.password = hash
 					user.save((err, user) => {
-						err ? console.log('Error saving user', err) : console.log('After bcrypt ',user)
+						err ? console.error('Error saving user', err) : console.log('After bcrypt ',user)
 						res.json(user)
 					})
 				})
