@@ -36,6 +36,7 @@ class EditProfile extends Component {
 						       type="text"
 						       name={"firstname"}
 						       id={"firstname"}
+						       placeholder={this.props.firstname}
 						       value={this.state.firstname}
 						       onChange={this.handleChange}/>
 					</div>
@@ -44,6 +45,7 @@ class EditProfile extends Component {
 						<input className={"form-control"}
 						       type="text" name={"lastname"}
 						       id={"lastname"}
+						       placeholder={this.props.lastname}
 						       value={this.state.lastname}
 						       onChange={this.handleChange}/>
 					</div>
@@ -53,6 +55,7 @@ class EditProfile extends Component {
 						       type="email"
 						       name={"email"}
 						       id={"email"}
+						       placeholder={this.props.email}
 						       value={this.state.email}
 						       onChange={this.handleChange}/>
 					</div>
@@ -62,6 +65,7 @@ class EditProfile extends Component {
 						       type="password"
 						       name={"password"}
 						       id={"password"}
+						       placeholder={this.props.password}
 						       value={this.state.password}
 						       onChange={this.handleChange}/>
 					</div>
@@ -73,11 +77,11 @@ class EditProfile extends Component {
 }
 
 EditProfile.propTypes = {
-	firstname: PropTypes.string.isRequired,
-	lastname: PropTypes.string.isRequired,
-	email: PropTypes.string.isRequired,
-	password: PropTypes.string.isRequired,
-	created_at: PropTypes.string.isRequired
+	firstname: PropTypes.string,
+	lastname: PropTypes.string,
+	email: PropTypes.string,
+	password: PropTypes.string,
+	created_at: PropTypes.string
 };
 
 
