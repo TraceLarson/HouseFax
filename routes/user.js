@@ -97,7 +97,7 @@ router.post('/login', (req, res, next) => {
 							email: user.email
 						}
 						jwt.sign(payload, process.env.JWT_SECRET, {
-							expiresIn: process.env.JWT_EXPIRE
+							expiresIn: parseInt(process.env.JWT_EXPIRE)
 						}, (err, token) => {
 							err ? console.error('Error in token', err) : ''
 							res.json({
