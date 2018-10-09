@@ -115,10 +115,6 @@ router.post('/login', (req, res, next) => {
 })
 
 router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-
-
-
-
 	User.findOneAndUpdate(
 		{_id: req.params.id},
 		{$set: req.body.user},
