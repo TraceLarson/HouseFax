@@ -59,7 +59,7 @@ class ProfilePage extends Component {
 					firstname={currentUser.firstname && currentUser.firstname}
 					lastname={currentUser.lastname && currentUser.lastname}
 					email={currentUser.email && currentUser.email}
-					password={currentUser.password && '*******'}
+					password={currentUser.password && currentUser.password}
 					created_at={created_at}
 				/>
 			</div>
