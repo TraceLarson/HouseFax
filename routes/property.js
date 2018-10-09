@@ -44,7 +44,7 @@ router.post('/', (req, res, next) => {
 	})
 
 	newProperty.save((err, property) => {
-		err ? console.error('Error creating property', err) : ''
+		err ? console.error(`!!! Error creating property ${err.errmsg} !!!`) : ''
 		res.send('Property Created')
 	})
 })
@@ -57,22 +57,24 @@ router.put('/:id/likes', passport.authenticate('jwt', { session: false }), (req,
 	User.findOne({_id: token.id}).exec((err, user) => {
 		err ? console.error('Error loading user to add property', err) : console.log('found user')
 
-		Property.findOne({_id: req.params.id}).exec((err, property) => {
-			err ? console.log('Error finding property to update likes', err) : console.log('found property')
+		Property.findOne({listingId: req.params.id}).exec((err, property) => {
+			err ? console.log('Error finding property to update likes', err.name) : console.log('found property')
 
-			res.send(`user: ${user}, property: ${property}`)
+			// res.send(`user: ${user}, property: ${property}`)
 
-			// !JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error('user already likes this property')
-			// property.likes = property.users.length
-			// property.save(err => {
-			// 	err ? console.error('Error saving likes and updating users') : ''
-			// })
+			!JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error(`user already likes this property. Property Likes:  ${property.likes}`)
+			property.likes = property.users.length
+			property.save(err => {
+				err ? console.error('Error saving likes and updating users') : ''
 
-			// !JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
-			// user.save(err => {
-			// 	err ? console.error('Error saving property to user', err) : ''
-			// 	res.send('Added property to user')
-			// })
+				!JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
+				user.save(err => {
+					err ? console.error('Error saving property to user', err) : ''
+					res.send(property.likes)
+				})
+			})
+
+
 		})
 	})
 })

@@ -22,13 +22,16 @@ class DetailsBanner extends Component {
 			address: this.props.address,
 			city: this.props.city,
 			state: this.props.state,
-			likes: ''
+			likes: null // TODO: get likes from database
 		})
+			.then(response => {
+				console.log('handleLikeButton axios POST: ', response)
+			})
 
 
 		axios.put(`/property/${this.props.listingId}/likes`)
 			.then(response => {
-				console.log(response)
+				console.log('handleLikeButton axios PUT: ',response)
 			})
 			.catch(err => {
 				console.error('axios error liking property', err)
