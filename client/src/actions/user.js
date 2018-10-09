@@ -14,8 +14,8 @@ export const getCurrentUser = () => dispatch => {
 
 export const updateCurrentUser = (user, history) => dispatch => {
 	console.log('updateCurrentUser', user)
-	// axios.put()
-	// 	.then(response => {
-	// 		console.log('updateCurrentUser action ran')
-	// 	})
+	axios.put(`/user/${user._id}`,{user})
+		.then(response => {
+			console.log('updateCurrentUser action ran', response)
+		})
 }

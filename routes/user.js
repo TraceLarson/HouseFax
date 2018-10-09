@@ -114,13 +114,14 @@ router.post('/login', (req, res, next) => {
 		})
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+	console.log(req.body.user)
 	User.findOneAndUpdate(
 		{_id: req.params.id},
-		{$set: req.body},
+		{$set: req.body.user},
 		{new: true},
 		(err, user) => {
-			err ? console.log('Error updating user', err) : ''
+			err ? console.error('Error updating user', err) : console.log(user)
 			res.send(user)
 		})
 })
