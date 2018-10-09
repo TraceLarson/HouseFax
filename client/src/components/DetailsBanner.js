@@ -17,6 +17,15 @@ class DetailsBanner extends Component {
 	handleLikeButton = e => {
 		e.preventDefault()
 
+		axios.post('/property', {
+			listingId: this.props.listingId,
+			address: this.props.address,
+			city: this.props.city,
+			state: this.props.state,
+			likes: ''
+		})
+
+
 		axios.put(`/property/${this.props.listingId}/likes`)
 			.then(response => {
 				console.log(response)

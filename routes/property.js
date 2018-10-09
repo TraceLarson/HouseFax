@@ -60,7 +60,7 @@ router.put('/:id/likes', passport.authenticate('jwt', { session: false }), (req,
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
 			err ? console.log('Error finding property to update likes', err) : console.log('found property')
 
-			res.send(`user: ${user}, property ${property}`)
+			res.send(`user: ${user}, property: ${property}`)
 
 			// !JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error('user already likes this property')
 			// property.likes = property.users.length
