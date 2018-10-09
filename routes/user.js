@@ -121,7 +121,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, 
 		{new: true},
 		(err, user) => {
 			err ? console.error('Error updating user', err) : console.log(user)
-			res.send(user)
+			res.json(user)
 		})
 })
 

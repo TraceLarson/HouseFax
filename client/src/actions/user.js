@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_CURRENT_USER, UPDATE_CURRENT_USER} from './types'
+import {GET_CURRENT_USER} from './types'
 
 export const getCurrentUser = () => dispatch => {
 	axios.get('/user/me')
@@ -17,5 +17,6 @@ export const updateCurrentUser = (user, history) => dispatch => {
 	axios.put(`/user/${user._id}`,{user})
 		.then(response => {
 			console.log('updateCurrentUser action ran', response)
+			history.push('/Profile')
 		})
 }
