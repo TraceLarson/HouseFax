@@ -115,13 +115,28 @@ router.post('/login', (req, res, next) => {
 })
 
 router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+
+
+
+
 	User.findOneAndUpdate(
 		{_id: req.params.id},
 		{$set: req.body.user},
 		{new: true},
 		(err, user) => {
 			err ? console.error('Error updating user', err) : console.log(user)
-			res.json(user)
+			// res.json(user)
+			bcrypt.genSalt(10, (err, salt) => {
+				err ? console.error('Error bcrypt-ing', err) : ''
+				bcrypt.hash(user.password, salt, (err, hash) => {
+					err ? console.error('Error bcrypt-ing password', err) : ''
+					user.password = hash
+					user.save((err, user) => {
+						err ? console.log('Error saving user', err) : console.log('After bcrypt ',user)
+						res.json(user)
+					})
+				})
+			})
 		})
 })
 
