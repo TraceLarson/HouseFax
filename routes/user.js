@@ -17,13 +17,15 @@ const Property = require('../models/Property')
 
 // Get user
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-
-	return res.json({
-		id: req.user.id,
-		firstname: req.user.firstname,
-		lastname: req.user.lastname,
-		email: req.user.email
+	User.findOne({_id: req.user.id}).populate('properties').exec((err, user) => {
+		err ? console.error('Error loading user info') : res.json(user)
 	})
+	// return res.json({
+	// 	id: req.user.id,
+	// 	firstname: req.user.firstname,
+	// 	lastname: req.user.lastname,
+	// 	email: req.user.email
+	// })
 })
 
 router.get('/', (req, res, next) => {
@@ -95,7 +97,7 @@ router.post('/login', (req, res, next) => {
 							email: user.email
 						}
 						jwt.sign(payload, process.env.JWT_SECRET, {
-							expiresIn: process.env.JWT_EXPIRE
+							expiresIn: parseInt(process.env.JWT_EXPIRE)
 						}, (err, token) => {
 							err ? console.error('Error in token', err) : ''
 							res.json({
@@ -112,14 +114,25 @@ router.post('/login', (req, res, next) => {
 		})
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 	User.findOneAndUpdate(
 		{_id: req.params.id},
-		{$set: req.body},
+		{$set: req.body.user},
 		{new: true},
 		(err, user) => {
-			err ? console.error('Error updating user', err) : ''
-			res.send(user)
+			err ? console.error('Error updating user', err) : console.log(user)
+			// res.json(user)
+			bcrypt.genSalt(10, (err, salt) => {
+				err ? console.error('Error bcrypt-ing', err) : ''
+				bcrypt.hash(user.password, salt, (err, hash) => {
+					err ? console.error('Error bcrypt-ing password', err) : ''
+					user.password = hash
+					user.save((err, user) => {
+						err ? console.error('Error saving user', err) : console.log('After bcrypt ',user)
+						res.json(user)
+					})
+				})
+			})
 		})
 })
 

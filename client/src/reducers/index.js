@@ -4,11 +4,13 @@ import authReducer from './authReducer'
 import bridgeReducer from './bridgeReducer'
 import currentListingReducer from "./currentListingReducer";
 import crimeListReducer from './crimeListReducer'
+import currentUserReducer from './currentUserReducer'
 
 export default combineReducers({
 	errors: errorReducer,
 	auth: authReducer,
 	listings: bridgeReducer,
 	currentListing: currentListingReducer,
-	recentCrimes: crimeListReducer
+	recentCrimes: crimeListReducer,
+	currentUser: currentUserReducer,
 })
