@@ -36,6 +36,7 @@ class EditProfile extends Component {
 						       type="text"
 						       name={"firstname"}
 						       id={"firstname"}
+						       autoComplete={"off"}
 						       placeholder={this.props.firstname}
 						       value={this.state.firstname}
 						       onChange={this.handleChange}/>
@@ -45,6 +46,7 @@ class EditProfile extends Component {
 						<input className={"form-control"}
 						       type="text" name={"lastname"}
 						       id={"lastname"}
+						       autoComplete={"off"}
 						       placeholder={this.props.lastname}
 						       value={this.state.lastname}
 						       onChange={this.handleChange}/>
@@ -55,6 +57,7 @@ class EditProfile extends Component {
 						       type="email"
 						       name={"email"}
 						       id={"email"}
+						       autoComplete={"off"}
 						       placeholder={this.props.email}
 						       value={this.state.email}
 						       onChange={this.handleChange}/>
@@ -65,6 +68,7 @@ class EditProfile extends Component {
 						       type="password"
 						       name={"password"}
 						       id={"password"}
+						       autoComplete={"off"}
 						       placeholder={this.props.password}
 						       value={this.state.password}
 						       onChange={this.handleChange}/>
