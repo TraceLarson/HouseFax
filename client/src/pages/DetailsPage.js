@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {
@@ -44,6 +45,32 @@ class DetailsPage extends Component {
 		}
 	}
 
+	handleLikeButton = e => {
+		e.preventDefault()
+		console.log('pressed like button')
+
+		axios.post('/property', {
+			listingId: this.props.currentListing.ListingId,
+			address: this.props.currentListing.UnparsedAddress,
+			city: this.props.currentListing.City,
+			state: this.props.currentListing.StateOrProvince,
+			likes: null // TODO: get likes from database
+		})
+			.then(response => {
+				console.log('handleLikeButton axios POST: ', response)
+			})
+
+
+		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
+			.then(response => {
+				console.log('handleLikeButton axios PUT: ',response)
+
+			})
+			.catch(err => {
+				console.error('axios error liking property', err)
+			})
+	}
+
 
 
 	render() {
@@ -63,6 +90,7 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
+				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
 					<Container className={'d-flex flex-wrap flex-md-nowrap mt-1'}>

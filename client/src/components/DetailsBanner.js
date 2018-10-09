@@ -10,39 +10,41 @@ import {
 
 class DetailsBanner extends Component {
 
+
 	numberWithCommas = (x) => {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 
-	handleLikeButton = e => {
-		e.preventDefault()
-
-		axios.post('/property', {
-			listingId: this.props.listingId,
-			address: this.props.address,
-			city: this.props.city,
-			state: this.props.state,
-			likes: null // TODO: get likes from database
-		})
-			.then(response => {
-				console.log('handleLikeButton axios POST: ', response)
-			})
-
-
-		axios.put(`/property/${this.props.listingId}/likes`)
-			.then(response => {
-				console.log('handleLikeButton axios PUT: ',response)
-			})
-			.catch(err => {
-				console.error('axios error liking property', err)
-			})
-	}
+	// handleLikeButton = e => {
+	// 	e.preventDefault()
+	//
+	// 	axios.post('/property', {
+	// 		listingId: this.props.listingId,
+	// 		address: this.props.address,
+	// 		city: this.props.city,
+	// 		state: this.props.state,
+	// 		likes: null // TODO: get likes from database
+	// 	})
+	// 		.then(response => {
+	// 			console.log('handleLikeButton axios POST: ', response)
+	// 		})
+	//
+	//
+	// 	axios.put(`/property/${this.props.listingId}/likes`)
+	// 		.then(response => {
+	// 			console.log('handleLikeButton axios PUT: ',response)
+	//
+	// 		})
+	// 		.catch(err => {
+	// 			console.error('axios error liking property', err)
+	// 		})
+	// }
 
 
 	render() {
 
 		const {isAuthenticated} = this.props.auth
-		const likeButton = <Button className={'mb-0 ml-4'} size={"sm"} onClick={this.handleLikeButton}> Like </Button>
+		const likeButton = <Button className={'mb-0 ml-4'} size={"sm"} onClick={this.props.handleLikeButton}> Like </Button>
 		return (
 			<div className={'details-banner-container'}>
 				<Container className={'d-flex justify-content-between'}>
@@ -69,7 +71,8 @@ class DetailsBanner extends Component {
 }
 
 DetailsBanner.propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+	handleLikeButton: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
