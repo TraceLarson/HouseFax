@@ -59,6 +59,9 @@ class DetailsPage extends Component {
 			.then(response => {
 				console.log('handleLikeButton axios POST: ', response)
 			})
+			.catch(err => {
+				console.error(`handleLikeButton: Error created property ${err}`)
+			})
 
 
 		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
@@ -67,7 +70,7 @@ class DetailsPage extends Component {
 
 			})
 			.catch(err => {
-				console.error('axios error liking property', err)
+				console.error('axios error liking property', err.response.status)
 			})
 	}
 

@@ -35,47 +35,72 @@ router.get('/:id/likes', (req, res, next) => {
 
 // Create a new property to be saved in the database
 router.post('/', (req, res, next) => {
-	let newProperty = Property({
-		listingId: req.body.listingId,
-		address: req.body.address,
-		city: req.body.city,
-		state: req.body.state,
-		likes: req.body.likes ? req.body.likes : 0
-	})
 
-	newProperty.save((err, property) => {
-		err ? console.error(`!!! Error creating property ${err.errmsg} !!!`) : ''
-		res.send('Property Created')
-	})
+	Property.find({listingId: req.body.listingId})
+		.exec((err, properties) => {
+			console.log(properties)
+			if (properties.length)
+				res.send(`Property Already Exists`)
+			else {
+				let newProperty = Property({
+					listingId: req.body.listingId,
+					address: req.body.address,
+					city: req.body.city,
+					state: req.body.state,
+					likes: req.body.likes ? req.body.likes : 0
+				})
+				newProperty.save((err, property) => {
+					err ? res.sendStatus(400).send(`!!! Error creating property ${err.errmsg} !!!`) : res.send('Property Created')
+				})
+			}
+		})
+
+
 })
 
 // Update likes on a property
-router.put('/:id/likes', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.put('/:id/likes', passport.authenticate('jwt', {session: false}), (req, res, next) => {
 	// From token
 	let token = req.user
 
 	User.findOne({_id: token.id}).exec((err, user) => {
-		err ? console.error('Error loading user to add property', err) : console.log('found user')
+		if (err) {
+			res.sendStatus(400).send('Error loading user to add property', err)
+		} else {
+			console.log('found user')
 
-		Property.findOne({listingId: req.params.id}).exec((err, property) => {
-			err ? console.log('Error finding property to update likes', err.name) : console.log('found property')
+			Property.findOne({listingId: req.params.id}).exec((err, property) => {
+				if (err) {
+					res.sendStatus(400).send(`Error finding property to update likes ${err.name}`)
+				} else {
+					console.log('found property')
+					console.log(property)
 
-			// res.send(`user: ${user}, property: ${property}`)
-
-			!JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error(`user already likes this property. Property Likes:  ${property.likes}`)
-			property.likes = property.users.length
-			property.save(err => {
-				err ? console.error('Error saving likes and updating users') : ''
-
-				!JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
-				user.save(err => {
-					err ? console.error('Error saving property to user', err) : ''
-					res.send(property.likes)
-				})
+					!JSON.stringify(property.users).includes(user.id) ? property.users.push(user) : console.error(`user already likes this property`)
+					console.log(`added user to property`)
+					property.likes = property.users.length
+					console.log('set likes = property.users.length')
+					property.save(err => {
+						console.log(`property.save method`)
+						if (err) {
+							console.log(`Error saving likes and updating users`)
+							res.sendStatus(400).send(`Error saving likes and updating users ${err}`)
+						} else {
+							!JSON.stringify(user.properties).includes(property.id) ? user.properties.push(property) : 'property already liked by this user'
+							console.log(`added property to user`)
+							user.save(err => {
+								if (err) {
+									console.log(`Error Saving property to user`)
+									res.sendStatus(400).send(`Error Saving property to user ${err}`)
+								} else
+									console.log(`saved user with new property, response sent`)
+									res.send(property.likes)
+							})
+						}
+					})
+				}
 			})
-
-
-		})
+		}
 	})
 })
 
