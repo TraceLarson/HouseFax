@@ -1,0 +1,106 @@
+#Spec
+- **Feature Definitions**
+
+    - __Back End__
+        - Bridge API call
+        - CrimeReports API call
+        - Routing
+            - [GET listings /api/bridge ](https://github.com/TraceLarson/HouseFax/issues/10)
+            - [GET lat lng of specific listing /api/bridge/:propertyid ](https://github.com/TraceLarson/HouseFax/issues/63)
+            - [GET crimes within radius of lat long /api/crime/:location ](https://github.com/TraceLarson/HouseFax/issues/11)
+            - [GET user info /user/:id ](https://github.com/TraceLarson/HouseFax/issues/12)
+            - [GET likes on property /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/13)
+            - [GET saved property /property/:id ](https://github.com/TraceLarson/HouseFax/issues/14)
+            - [POST create user /user ](https://github.com/TraceLarson/HouseFax/issues/15)
+            - [POST login user /user/login ](https://github.com/TraceLarson/HouseFax/issues/16)
+            - [POST save property /property ](https://github.com/TraceLarson/HouseFax/issues/17)
+            - [PUT update user info /user/:id ](https://github.com/TraceLarson/HouseFax/issues/18)
+            - [PUT add property to favorites /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/19)
+            - [PUT update likes to property /property/:id/likes ](https://github.com/TraceLarson/HouseFax/issues/20)
+            - [DELETE remove property from user /user/properties/:id ](https://github.com/TraceLarson/HouseFax/issues/21)
+            - [DELETE remove user /user/:id ](https://github.com/TraceLarson/HouseFax/issues/22)
+            - [DELETE remove property /property/:id ](https://github.com/TraceLarson/HouseFax/issues/23)
+    
+    - __Front End__ 
+        - __Pages__
+            - [HomePage Component ](https://github.com/TraceLarson/HouseFax/issues/29)
+            - [ProfilePage Component ](https://github.com/TraceLarson/HouseFax/issues/30)
+            - [RegisterPage Component ](https://github.com/TraceLarson/HouseFax/issues/31)
+            - [LoginPage Component ](https://github.com/TraceLarson/HouseFax/issues/32)
+            - [ResultsPage Component ](https://github.com/TraceLarson/HouseFax/issues/33)
+            - [DetailsPage Component ](https://github.com/TraceLarson/HouseFax/issues/34)
+        - __Components__
+            - [NavigationHeader Component](https://github.com/TraceLarson/HouseFax/issues/35)
+            - [Search Component](https://github.com/TraceLarson/HouseFax/issues/36)
+            - [Footer Component](https://github.com/TraceLarson/HouseFax/issues/37)
+            - [LoginForm Component](https://github.com/TraceLarson/HouseFax/issues/38)
+            - [RegisterForm Component](https://github.com/TraceLarson/HouseFax/issues/39)
+            - [ResultsItem Component](https://github.com/TraceLarson/HouseFax/issues/40)
+            - [DetailsBanner Component](https://github.com/TraceLarson/HouseFax/issues/62)
+            - [FamilyFriendlyRating Component](https://github.com/TraceLarson/HouseFax/issues/42)
+            - [CrimeMap Component](https://github.com/TraceLarson/HouseFax/issues/43)
+            - [CrimeCard Component](https://github.com/TraceLarson/HouseFax/issues/56)
+            - [AgentContactForm Component](https://github.com/TraceLarson/HouseFax/issues/58)
+            - [DetailsImage Component](https://github.com/TraceLarson/HouseFax/issues/59)
+            - [PropertyDetails Component](https://github.com/TraceLarson/HouseFax/issues/60)
+            - [RecentCrimeReports Component](https://github.com/TraceLarson/HouseFax/issues/61)
+            
+        
+- **Sitemap**
+![Image of Sitemap](SiteMap.png)
+           
+- **Interface**
+    - _Information Architecture_
+        - HomePage Nav: HOUSE FAX Austin
+            - "Family friendly property search"
+        - NavLinks: Login/Logout Register/Profile Contact
+        - FooterLinks: 
+            - Pages: Login Contact About
+            - Data Resources: Bridge API, Crime Reports API, Google APis
+            - Inspiration: Zillow, Trulia, Redfin
+            - Social Media: Facebook, Twitter, Instagram, Medium, Pinterest
+        - Search Supporting text: Family friendly property search:
+        - Search text: Search for a property
+        - Results page supporting text: 
+            - Austin, TX homes for sale and rent
+            - Results Items: Price, Address, City, State, zip, Details(button)
+        - Details Page:
+            - Banner: Address, City, State, Zip, Price, beds, baths, 
+            residence type, build year, likes, like button
+            - Family Friendly Rating, rating number
+            - Agent Contact Form:
+                - Listing Agent:
+                    - Name, Agency, Phone number
+                - Form: Name, Phone, Email, Message
+                    - Message Text: Hi I am interested in (address)
+            - Recent Crimes:
+                - Crime type, how long ago, VIEW ON MAP(button)
+            - Property Details:
+                - Residence type, beds, baths, build year, sq ft, price per sq ft, hoa $per month
+                - Remarks from property API        
+    - _Browser Support_
+        - Chrome 72+
+- **Infrastructure**
+    - _Technical Requirements_
+        - MongoDB: used for data storage
+        - React JS
+        - React Redux
+        - AXIOS
+        - Node JS
+        - Express JS
+        - Create-react-app
+        - Babel
+    - _Programming Languages_
+        - ES6 Javascript
+        - CSS3
+        - HTML5
+    - _Integrations_
+        - Bridge API for MLS data
+        - CrimeReports API from austintexas.gov integrated into Socrata API network.
+    - _Deployment Workflow_
+        - 1.0.0: MLS features and crime reporting and mapping works
+    - _Web Host_
+        - Heroku for main application.
+        - MLAB for mongoDB hosting.
+
+[Back](README.md)
