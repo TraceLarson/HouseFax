@@ -10,36 +10,9 @@ import {
 
 class DetailsBanner extends Component {
 
-
 	numberWithCommas = (x) => {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
-
-	// handleLikeButton = e => {
-	// 	e.preventDefault()
-	//
-	// 	axios.post('/property', {
-	// 		listingId: this.props.listingId,
-	// 		address: this.props.address,
-	// 		city: this.props.city,
-	// 		state: this.props.state,
-	// 		likes: null // TODO: get likes from database
-	// 	})
-	// 		.then(response => {
-	// 			console.log('handleLikeButton axios POST: ', response)
-	// 		})
-	//
-	//
-	// 	axios.put(`/property/${this.props.listingId}/likes`)
-	// 		.then(response => {
-	// 			console.log('handleLikeButton axios PUT: ',response)
-	//
-	// 		})
-	// 		.catch(err => {
-	// 			console.error('axios error liking property', err)
-	// 		})
-	// }
-
 
 	render() {
 
