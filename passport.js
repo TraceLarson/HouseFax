@@ -13,8 +13,8 @@ module.exports = passport => {
 	passport.use(new JWTStrategy(opts, (jwt_payload, done) => {
 		User.findById(jwt_payload.id)
 			.then(user => {
-				user ? done(null, user) : done(null, false)
+				user ? done(null, user) : done(null, false, {message: 'user not found'})
 			})
-			.catch(err => console.error(err))
+			.catch(err => console.error(`Passport error ${err}`))
 	}))
 }
