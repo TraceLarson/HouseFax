@@ -21,7 +21,8 @@ class DetailsPage extends Component {
 
 	state = {
 		listing: {},
-		crimeList: {}
+		crimeList: {},
+		likes: 0
 	}
 
 	componentDidMount() {
@@ -33,6 +34,9 @@ class DetailsPage extends Component {
 		let longitude = this.props.currentListing.Longitude
 
 		this.props.getCrimesList(latitude, longitude)
+
+		this.getLikes()
+
 	}
 
 
@@ -49,6 +53,12 @@ class DetailsPage extends Component {
 		e.preventDefault()
 		console.log('pressed like button')
 
+		this.addProperty()
+		this.updateLikes()
+
+	}
+
+	addProperty = () => {
 		axios.post('/property', {
 			listingId: this.props.currentListing.ListingId,
 			address: this.props.currentListing.UnparsedAddress,
@@ -62,12 +72,22 @@ class DetailsPage extends Component {
 			.catch(err => {
 				console.error(`handleLikeButton: Error created property ${err}`)
 			})
+	}
 
+	getLikes = () => {
+		axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
+			.then(response => {
+				console.log(`getLikes: ${response.data}`)
+			})
+			.catch(err => {
+				console.error(`error retrieving likes on property ${err.response.data}`)
+			})
+	}
 
+	updateLikes = () => {
 		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
 			.then(response => {
 				console.log('handleLikeButton axios PUT: ',response)
-
 			})
 			.catch(err => {
 				console.error('axios error liking property', err.response.status)

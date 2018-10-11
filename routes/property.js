@@ -27,7 +27,7 @@ router.get('/:id', (req, res, next) => {
 
 // Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
-	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
+	Property.findOne({listingId: req.params.id}).populate('users').exec((err, property) => {
 		err ? console.error('Error finding likes', err) : ''
 		res.send(property.likes.toString())
 	})
@@ -94,7 +94,7 @@ router.put('/:id/likes', passport.authenticate('jwt', {session: false}), (req, r
 									res.sendStatus(400).send(`Error Saving property to user ${err}`)
 								} else
 									console.log(`saved user with new property, response sent`)
-									res.send(property.likes)
+									res.send(property.likes.toString())
 							})
 						}
 					})
