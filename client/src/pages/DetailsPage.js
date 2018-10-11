@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {
@@ -20,10 +21,11 @@ class DetailsPage extends Component {
 
 	state = {
 		listing: {},
-		crimeList: {}
+		crimeList: {},
+		likes: 0
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		// console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
 		// console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
 		// console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
@@ -32,6 +34,9 @@ class DetailsPage extends Component {
 		let longitude = this.props.currentListing.Longitude
 
 		this.props.getCrimesList(latitude, longitude)
+
+		this.getLikes()
+
 	}
 
 
@@ -44,15 +49,67 @@ class DetailsPage extends Component {
 		}
 	}
 
+	handleLikeButton = e => {
+		e.preventDefault()
+		console.log('pressed like button')
+
+		this.addProperty()
+		this.updateLikes()
+
+	}
+
+	addProperty = () => {
+		axios.post('/property', {
+			listingId: this.props.currentListing.ListingId,
+			address: this.props.currentListing.UnparsedAddress,
+			city: this.props.currentListing.City,
+			state: this.props.currentListing.StateOrProvince,
+			likes: null // TODO: get likes from database
+		})
+			.then(response => {
+				console.log('handleLikeButton axios POST: ', response)
+			})
+			.catch(err => {
+				console.error(`handleLikeButton: Error created property ${err}`)
+			})
+	}
+
+	getLikes = () => {
+		axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
+			.then(response => {
+				console.log(`getLikes: ${response.data}`)
+				this.setState({
+					likes: response.data
+				})
+
+			})
+			.catch(err => {
+				console.error(`error retrieving likes on property ${err.response.data}`)
+			})
+	}
+
+	updateLikes = () => {
+		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
+			.then(response => {
+				console.log('handleLikeButton axios PUT: ',response)
+				this.getLikes()
+			})
+			.catch(err => {
+				console.error('axios error liking property', err.response.status)
+			})
+	}
+
 
 
 	render() {
 		const listing = this.props.currentListing
 		const crimeList = this.props.recentCrimes
+		console.log(listing)
 
 		return (
 			<div>
-				<DetailsBanner address={listing.UnparsedAddress}
+				<DetailsBanner listingId={listing.ListingId}
+							   address={listing.UnparsedAddress}
 				               city={listing.City}
 				               state={listing.StateOrProvince}
 				               zip={listing.PostalCode}
@@ -61,6 +118,8 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
+				               likes={this.state.likes}
+				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
 					<Container className={'d-flex flex-wrap flex-md-nowrap mt-1'}>
