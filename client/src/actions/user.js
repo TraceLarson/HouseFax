@@ -10,6 +10,12 @@ export const getCurrentUser = () => dispatch => {
 				payload: response.data
 			})
 		})
+		.catch(err => {
+			console.error(`getCurrentUser: ${err}`)
+			if(err.response.status === 401){
+				window.location.href = `/Login`
+			}
+		})
 }
 
 export const updateCurrentUser = (user, history) => dispatch => {
@@ -18,5 +24,11 @@ export const updateCurrentUser = (user, history) => dispatch => {
 		.then(response => {
 			console.log('updateCurrentUser action ran', response)
 			history.push('/Profile')
+		})
+		.catch(err => {
+			console.error(`updateCurrentUser: ${err}`)
+			if(err.response.status === 401){
+				window.location.href = `/Login`
+			}
 		})
 }
