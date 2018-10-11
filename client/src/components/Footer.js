@@ -5,7 +5,7 @@ class Footer extends Component {
 		return (
 			<div className="container">
 				<div className="row text-center text-xs-center text-sm-left text-md-left">
-					<div className="col-xs-12 col-sm-4 col-md-4">
+					<div className="col-xs-12 col-sm-5 col-md-3">
 						<h5>Pages</h5>
 						<ul className="list-unstyled quick-links">
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
@@ -15,7 +15,7 @@ class Footer extends Component {
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Videos</a></li>
 						</ul>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-4">
+					<div className="col-xs-12 col-sm-5 col-md-3">
 						<h5>Data Resources</h5>
 						<ul className="list-unstyled quick-links">
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
@@ -25,7 +25,7 @@ class Footer extends Component {
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Videos</a></li>
 						</ul>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-4">
+					<div className="col-xs-12 col-sm-5 col-md-3">
 						<h5>Inspiration</h5>
 						<ul className="list-unstyled quick-links">
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
@@ -36,7 +36,7 @@ class Footer extends Component {
 								className="fa fa-angle-double-right"></i>Imprint</a></li>
 						</ul>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-4">
+					<div className="col-xs-12 col-sm-5 col-md-3">
 						<h5>Social Media</h5>
 						<ul className="list-unstyled quick-links">
 							<li><a href="#"><i className="fa fa-angle-double-right"></i>Home</a></li>
