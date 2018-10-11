@@ -29,7 +29,7 @@ class DetailsBanner extends Component {
 							{this.props.bathrooms} Bath -
 							{this.props.propertyType} -
 							Built in {this.props.buildYear}
-							<span className={'ml-4'}>152 likes</span>
+							<span className={'ml-4'}>{this.props.likes} likes</span>
 							{isAuthenticated ? likeButton : ''}
 						</p>
 					</div>
