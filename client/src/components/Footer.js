@@ -33,11 +33,11 @@ class Footer extends Component {
 					<div className="col-xs-12 col-sm-5 col-md-3">
 						<h5 className={"text-primary"}>Social Media</h5>
 						<ul className="list-unstyled quick-links">
-							<li><a className={"text-secondary"} href="#"><i className="fa fa-facebook"></i> Facebook</a></li>
-							<li><a className={"text-secondary"} href="#"><i className="fa fa-twitter"></i> Twitter</a></li>
-							<li><a className={"text-secondary"} href="#"><i className="fa fa-instagram"></i> Instagram</a></li>
-							<li><a className={"text-secondary"} href="#"><i className="fa fa-medium"></i> Medium</a></li>
-							<li><a className={"text-secondary"} href="#"><i className="fa fa-pinterest"></i> Pinterest</a></li>
+							<li><a className={"text-secondary"} href="#"><span className="fa fa-facebook"></span> &nbsp; Facebook</a></li>
+							<li><a className={"text-secondary"} href="#"><span className="fa fa-twitter"></span> &nbsp;Twitter</a></li>
+							<li><a className={"text-secondary"} href="#"><span className="fa fa-instagram"></span> &nbsp;Instagram</a></li>
+							<li><a className={"text-secondary"} href="#"><span className="fa fa-medium"></span> &nbsp;Medium</a></li>
+							<li><a className={"text-secondary"} href="#"><span className="fa fa-pinterest"></span> &nbsp;Pinterest</a></li>
 						</ul>
 					</div>
 				</div>
