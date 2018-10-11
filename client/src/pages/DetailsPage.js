@@ -78,6 +78,10 @@ class DetailsPage extends Component {
 		axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
 			.then(response => {
 				console.log(`getLikes: ${response.data}`)
+				this.setState({
+					likes: response.data
+				})
+
 			})
 			.catch(err => {
 				console.error(`error retrieving likes on property ${err.response.data}`)
@@ -88,6 +92,7 @@ class DetailsPage extends Component {
 		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
 			.then(response => {
 				console.log('handleLikeButton axios PUT: ',response)
+				this.getLikes()
 			})
 			.catch(err => {
 				console.error('axios error liking property', err.response.status)
@@ -113,6 +118,7 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
+				               likes={this.state.likes}
 				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
