@@ -44,4 +44,5 @@ export const logoutUser = history => dispatch => {
 	setAuthToken(false)
 	dispatch(setCurrentUser({}))
 	// history.push('/Login')
+	window.location.href = `/Login`
 }
