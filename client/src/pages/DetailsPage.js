@@ -24,7 +24,7 @@ class DetailsPage extends Component {
 		crimeList: {}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		// console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
 		// console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
 		// console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
