@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {GET_LISTINGS, SET_CURRENT_LISTING, GET_CRIMES} from './types'
+import {getLikes} from './property'
 
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
@@ -26,14 +27,18 @@ export const setCurrentListing = (listing, history) => dispatch => {
 	})
 }
 
-export const getCrimesList = (latitude, longitude) => dispatch => {
-	// console.log(latitude, longitude)
+export const getCrimesList = (latitude, longitude, listingId) => dispatch => {
+	console.log(latitude, longitude)
 	axios.post('/api/crime', {
 		lat: latitude,
 		lng: longitude
 	})
 		.then(response => {
-			// console.log('getCrimesList: ', response.data)
+			dispatch(getLikes(listingId))
+			return response
+		})
+		.then(response => {
+			console.log('getCrimesList: ', response.data)
 			localStorage.setItem('recentCrimeList',JSON.stringify(Object.assign({}, response.data)))
 			dispatch({
 				type: GET_CRIMES,
