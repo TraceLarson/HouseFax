@@ -1,6 +1,21 @@
 import axios from 'axios'
 
-export const addProperty = (currentListing) => {
+export const getLikes = () => dispatch => {
+	axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
+		.then(response => {
+			console.log(`getLikes: ${response.data}`)
+			dispatch({
+				type: GET_LIKES,
+				payload: response.data
+			})
+
+		})
+		.catch(err => {
+			console.error(`error retrieving likes on property ${err.response.data}`)
+		})
+}
+
+export const addProperty = (currentListing) => dispatch => {
 	axios.post('/property', {
 		listingId: currentListing.ListingId,
 		address: currentListing.UnparsedAddress,
@@ -13,5 +28,15 @@ export const addProperty = (currentListing) => {
 		})
 		.catch(err => {
 			console.error(`addProperty action: Error created property ${err}`)
+		})
+}
+
+export const updateLikes = (listingId) => dispatch => {
+	axios.put(`/property/${listingId}/likes`)
+		.then(response => {
+			console.log('handleLikeButton axios PUT: ',response)
+		})
+		.catch(err => {
+			console.error('axios error liking property', err.response.status)
 		})
 }

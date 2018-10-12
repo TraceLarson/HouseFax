@@ -15,7 +15,7 @@ import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
 import {getCrimesList} from '../actions/api'
-import {addProperty} from '../actions/property'
+import {addProperty, updateLikes} from '../actions/property'
 
 
 class DetailsPage extends Component {
@@ -53,9 +53,8 @@ class DetailsPage extends Component {
 	handleLikeButton = e => {
 		e.preventDefault()
 		console.log('pressed like button')
-
-		this.props.addProperty(this.props)
-		this.updateLikes()
+		this.props.addProperty(this.props.currentListing)
+		this.props.updateLikes(this.props.currentListing.ListingId)
 
 	}
 
@@ -163,7 +162,8 @@ DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
 	recentCrimes: PropTypes.object.isRequired,
 	getCrimesList: PropTypes.func.isRequired,
-	addProperty: PropTypes.func.isRequired
+	addProperty: PropTypes.func.isRequired,
+	updateLikes: PropTypes.func.isRequired
 
 }
 
@@ -172,4 +172,4 @@ const mapStateToProps = state => ({
 	recentCrimes: state.recentCrimes
 })
 
-export default connect(mapStateToProps, {getCrimesList, addProperty})(withRouter(DetailsPage));
+export default connect(mapStateToProps, {getCrimesList, addProperty, updateLikes})(withRouter(DetailsPage));
