@@ -1,0 +1,62 @@
+{
+  "name": "HouseFax",
+  "scripts": {
+  },
+  "env": {
+    "BRIDGE_API_BROWSER_TOKEN": {
+      "required": true
+    },
+    "BRIDGE_API_CLIENT_ID": {
+      "required": true
+    },
+    "BRIDGE_API_CLIENT_SECRET": {
+      "required": true
+    },
+    "BRIDGE_API_ENDPOINT": {
+      "required": true
+    },
+    "BRIDGE_API_SERVER_TOKEN": {
+      "required": true
+    },
+    "CRIME_API_APP_SECRET": {
+      "required": true
+    },
+    "CRIME_API_APP_TOKEN": {
+      "required": true
+    },
+    "CRIME_API_ENDPOINT": {
+      "required": true
+    },
+    "JWT_EXPIRE": {
+      "required": true
+    },
+    "JWT_SECRET": {
+      "required": true
+    },
+    "MLAB_DATABASE": {
+      "required": true
+    },
+    "MLAB_HOST": {
+      "required": true
+    },
+    "MLAB_PASS": {
+      "required": true
+    },
+    "MLAB_USER": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 import {
 	Container,
 	Button
@@ -11,6 +14,9 @@ class DetailsBanner extends Component {
 	}
 
 	render() {
+
+		const {isAuthenticated} = this.props.auth
+		const likeButton = <Button className={'mb-0 ml-4'} size={"sm"} onClick={this.props.handleLikeButton}> Like </Button>
 		return (
 			<div className={'details-banner-container'}>
 				<Container className={'d-flex justify-content-between'}>
@@ -23,8 +29,8 @@ class DetailsBanner extends Component {
 							{this.props.bathrooms} Bath -
 							{this.props.propertyType} -
 							Built in {this.props.buildYear}
-							<span className={'ml-4'}>152 likes</span>
-							<Button className={'mb-0 ml-4'} size={"sm"}> Like </Button>
+							<span className={'ml-4'}>{this.props.likes} likes</span>
+							{isAuthenticated ? likeButton : ''}
 						</p>
 					</div>
 					<div>
@@ -36,5 +42,14 @@ class DetailsBanner extends Component {
 	}
 }
 
+DetailsBanner.propTypes = {
+    auth: PropTypes.object.isRequired,
+	handleLikeButton: PropTypes.func.isRequired
+}
 
-export default DetailsBanner;
+const mapStateToProps = state => ({
+	auth: state.auth
+})
+
+
+export default connect(mapStateToProps)(withRouter(DetailsBanner));

@@ -2,7 +2,7 @@
 var NODE_ENV = process.env.NODE_ENV || 'development'
 
 if (NODE_ENV === 'development') {
-	require('dotenv').load()
+	require('dotenv').config()
 }
 
 const app = require('../app')
