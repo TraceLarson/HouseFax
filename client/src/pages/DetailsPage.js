@@ -39,21 +39,21 @@ class DetailsPage extends Component {
 	}
 
 
-	componentDidUpdate(prevProps) {
-		if (this.props.currentListing !== prevProps.currentListing){
-			// console.log('componentDidUpdate ran')
-			let latitude = this.props.currentListing.Latitude
-			let longitude = this.props.currentListing.Longitude
-			this.props.getCrimesList(latitude, longitude)
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (this.props.currentListing !== prevProps.currentListing){
+	// 		console.log('componentDidUpdate ran')
+	// 		let latitude = this.props.currentListing.Latitude
+	// 		let longitude = this.props.currentListing.Longitude
+	// 		this.props.getCrimesList(latitude, longitude)
+	// 	}
+	// }
 
 	handleLikeButton = e => {
 		e.preventDefault()
 		console.log('pressed like button')
 		this.props.addProperty(this.props.currentListing)
 		this.props.updateLikes(this.props.currentListing.ListingId)
-
+		this.props.getLikes(this.props.currentListing.ListingId)
 
 	}
 
@@ -102,12 +102,6 @@ class DetailsPage extends Component {
 
 	render() {
 		const {currentListing: listing, recentCrimes: crimeList, likes } = this.props
-		// const listing = this.props.currentListing
-		// const crimeList = this.props.recentCrimes
-		// const likes = this.props.likes
-		console.log(listing)
-		console.log(crimeList)
-		console.log(likes)
 
 		return (
 			<div>
@@ -121,7 +115,7 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
-				               likes={this.state.likes}
+				               likes={likes.toString()}
 				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
