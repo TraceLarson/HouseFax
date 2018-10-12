@@ -1,10 +1,11 @@
 import axios from 'axios'
+import {GET_LIKES} from './types'
 
 export const getLikes = () => dispatch => {
 	axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
 		.then(response => {
 			console.log(`getLikes: ${response.data}`)
-			dispatch({
+				dispatch({
 				type: GET_LIKES,
 				payload: response.data
 			})
