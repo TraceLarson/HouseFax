@@ -33,29 +33,27 @@ class DetailsPage extends Component {
 		const {Latitude: latitude, Longitude: longitude, ListingId: listingId} = this.props.currentListing
 		// let latitude = this.props.currentListing.Latitude
 		// let longitude = this.props.currentListing.Longitude
+
 		this.props.getCrimesList(latitude, longitude, listingId)
+		// this.props.getCrimesList(latitude, longitude)
 
-
+		// this.props.getLikes(listingId)
 
 
 	}
 
-
-	// componentDidUpdate(prevProps) {
-	// 	if (this.props.currentListing !== prevProps.currentListing){
-	// 		console.log('componentDidUpdate ran')
-	// 		let latitude = this.props.currentListing.Latitude
-	// 		let longitude = this.props.currentListing.Longitude
-	// 		this.props.getCrimesList(latitude, longitude)
-	// 	}
-	// }
+	shouldComponentUpdate(){
+		return true
+	}
 
 	handleLikeButton = e => {
 		e.preventDefault()
-		console.log('pressed like button')
+		console.log(`pressed like button: likes: ${this.props.likes}`)
 		this.props.addProperty(this.props.currentListing)
 		this.props.updateLikes(this.props.currentListing.ListingId)
 		this.props.getLikes(this.props.currentListing.ListingId)
+		this.shouldComponentUpdate()
+
 
 	}
 
@@ -119,6 +117,7 @@ class DetailsPage extends Component {
 DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
 	recentCrimes: PropTypes.object.isRequired,
+	likes: PropTypes.object.isRequired,
 	getCrimesList: PropTypes.func.isRequired,
 	addProperty: PropTypes.func.isRequired,
 	updateLikes: PropTypes.func.isRequired,
