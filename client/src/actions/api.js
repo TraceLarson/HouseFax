@@ -34,16 +34,15 @@ export const getCrimesList = (latitude, longitude, listingId) => dispatch => {
 		lng: longitude
 	})
 		.then(response => {
-			dispatch(getLikes(listingId))
-			return response
-		})
-		.then(response => {
 			console.log('getCrimesList: ', response.data)
 			localStorage.setItem('recentCrimeList',JSON.stringify(Object.assign({}, response.data)))
 			dispatch({
 				type: GET_CRIMES,
 				payload: response.data
 			})
+		})
+		.then(() => {
+			dispatch(getLikes(listingId))
 		})
 		.catch(err => {
 			console.error('Error retrieving crimes for this location', err)
