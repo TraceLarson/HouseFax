@@ -27,9 +27,8 @@ router.get('/:id', (req, res, next) => {
 
 // Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
-	Property.findOne({listingId: req.params.id}).populate('users').exec((err, property) => {
-		err ? console.error('Error finding likes', err) : res.send(property.likes.toString())
-
+	Property.findOne({listingId: req.params.id}).exec((err, property) => {
+		err ? res.sendStatus(status).send('Error finding likes', err) : res.sendStatus(status).send(property.likes)
 	})
 })
 
