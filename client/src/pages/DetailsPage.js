@@ -15,6 +15,7 @@ import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
 import {getCrimesList} from '../actions/api'
+import {addProperty} from '../actions/property'
 
 
 class DetailsPage extends Component {
@@ -53,7 +54,7 @@ class DetailsPage extends Component {
 		e.preventDefault()
 		console.log('pressed like button')
 
-		this.addProperty()
+		this.props.addProperty(this.props)
 		this.updateLikes()
 
 	}
@@ -105,6 +106,7 @@ class DetailsPage extends Component {
 		const listing = this.props.currentListing
 		const crimeList = this.props.recentCrimes
 		console.log(listing)
+		console.log(crimeList)
 
 		return (
 			<div>
@@ -160,7 +162,8 @@ class DetailsPage extends Component {
 DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
 	recentCrimes: PropTypes.object.isRequired,
-	getCrimesList: PropTypes.func.isRequired
+	getCrimesList: PropTypes.func.isRequired,
+	addProperty: PropTypes.func.isRequired
 
 }
 
@@ -169,4 +172,4 @@ const mapStateToProps = state => ({
 	recentCrimes: state.recentCrimes
 })
 
-export default connect(mapStateToProps, {getCrimesList})(withRouter(DetailsPage));
+export default connect(mapStateToProps, {getCrimesList, addProperty})(withRouter(DetailsPage));
