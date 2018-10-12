@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import axios from 'axios'
+// import axios from 'axios'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {
@@ -15,6 +15,7 @@ import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
 import {getCrimesList} from '../actions/api'
+import {addProperty, updateLikes, getLikes} from '../actions/property'
 
 
 class DetailsPage extends Component {
@@ -32,79 +33,75 @@ class DetailsPage extends Component {
 
 		let latitude = this.props.currentListing.Latitude
 		let longitude = this.props.currentListing.Longitude
-
 		this.props.getCrimesList(latitude, longitude)
-
-		this.getLikes()
+		this.props.getLikes(this.props.currentListing.ListingId)
 
 	}
 
 
-	componentDidUpdate(prevProps) {
-		if (this.props.currentListing !== prevProps.currentListing){
-			// console.log('componentDidUpdate ran')
-			let latitude = this.props.currentListing.Latitude
-			let longitude = this.props.currentListing.Longitude
-			this.props.getCrimesList(latitude, longitude)
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (this.props.currentListing !== prevProps.currentListing){
+	// 		console.log('componentDidUpdate ran')
+	// 		let latitude = this.props.currentListing.Latitude
+	// 		let longitude = this.props.currentListing.Longitude
+	// 		this.props.getCrimesList(latitude, longitude)
+	// 	}
+	// }
 
 	handleLikeButton = e => {
 		e.preventDefault()
 		console.log('pressed like button')
-
-		this.addProperty()
-		this.updateLikes()
+		this.props.addProperty(this.props.currentListing)
+		this.props.updateLikes(this.props.currentListing.ListingId)
+		this.props.getLikes(this.props.currentListing.ListingId)
 
 	}
 
-	addProperty = () => {
-		axios.post('/property', {
-			listingId: this.props.currentListing.ListingId,
-			address: this.props.currentListing.UnparsedAddress,
-			city: this.props.currentListing.City,
-			state: this.props.currentListing.StateOrProvince,
-			likes: null // TODO: get likes from database
-		})
-			.then(response => {
-				console.log('handleLikeButton axios POST: ', response)
-			})
-			.catch(err => {
-				console.error(`handleLikeButton: Error created property ${err}`)
-			})
-	}
+	// addProperty = () => {
+	// 	axios.post('/property', {
+	// 		listingId: this.props.currentListing.ListingId,
+	// 		address: this.props.currentListing.UnparsedAddress,
+	// 		city: this.props.currentListing.City,
+	// 		state: this.props.currentListing.StateOrProvince,
+	// 		likes: null // TODO: get likes from database
+	// 	})
+	// 		.then(response => {
+	// 			console.log('handleLikeButton axios POST: ', response)
+	// 		})
+	// 		.catch(err => {
+	// 			console.error(`handleLikeButton: Error created property ${err}`)
+	// 		})
+	// }
 
-	getLikes = () => {
-		axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
-			.then(response => {
-				console.log(`getLikes: ${response.data}`)
-				this.setState({
-					likes: response.data
-				})
+	// getLikes = () => {
+	// 	axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
+	// 		.then(response => {
+	// 			console.log(`getLikes: ${response.data}`)
+	// 			this.setState({
+	// 				likes: response.data
+	// 			})
+	//
+	// 		})
+	// 		.catch(err => {
+	// 			console.error(`error retrieving likes on property ${err.response.data}`)
+	// 		})
+	// }
 
-			})
-			.catch(err => {
-				console.error(`error retrieving likes on property ${err.response.data}`)
-			})
-	}
-
-	updateLikes = () => {
-		axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
-			.then(response => {
-				console.log('handleLikeButton axios PUT: ',response)
-				this.getLikes()
-			})
-			.catch(err => {
-				console.error('axios error liking property', err.response.status)
-			})
-	}
+	// updateLikes = () => {
+	// 	axios.put(`/property/${this.props.currentListing.ListingId}/likes`)
+	// 		.then(response => {
+	// 			console.log('handleLikeButton axios PUT: ',response)
+	// 			this.getLikes()
+	// 		})
+	// 		.catch(err => {
+	// 			console.error('axios error liking property', err.response.status)
+	// 		})
+	// }
 
 
 
 	render() {
-		const listing = this.props.currentListing
-		const crimeList = this.props.recentCrimes
-		console.log(listing)
+		const {currentListing: listing, recentCrimes: crimeList, likes } = this.props
 
 		return (
 			<div>
@@ -118,7 +115,7 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
-				               likes={this.state.likes}
+				               likes={likes.toString()}
 				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
@@ -160,13 +157,17 @@ class DetailsPage extends Component {
 DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
 	recentCrimes: PropTypes.object.isRequired,
-	getCrimesList: PropTypes.func.isRequired
+	getCrimesList: PropTypes.func.isRequired,
+	addProperty: PropTypes.func.isRequired,
+	updateLikes: PropTypes.func.isRequired,
+	getLikes: PropTypes.func.isRequired
 
 }
 
 const mapStateToProps = state => ({
 	currentListing: state.currentListing,
-	recentCrimes: state.recentCrimes
+	recentCrimes: state.recentCrimes,
+	likes: state.likes,
 })
 
-export default connect(mapStateToProps, {getCrimesList})(withRouter(DetailsPage));
+export default connect(mapStateToProps, {getCrimesList, addProperty, updateLikes, getLikes})(withRouter(DetailsPage));
