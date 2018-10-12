@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {GET_LIKES} from './types'
 
-export const getLikes = () => dispatch => {
-	axios.get(`/property/${this.props.currentListing.ListingId}/likes`)
+export const getLikes = (listingId) => dispatch => {
+	axios.get(`/property/${listingId}/likes`)
 		.then(response => {
 			console.log(`getLikes: ${response.data}`)
 				dispatch({
