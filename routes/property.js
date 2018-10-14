@@ -9,6 +9,7 @@ const Property = require('../models/Property')
 const User = require('../models/User')
 
 
+
 // Get all properties saved in the db
 router.get('/', (req, res, next) => {
 	Property.find().populate('users').exec((err, properties) => {
@@ -17,25 +18,36 @@ router.get('/', (req, res, next) => {
 	})
 })
 
-// Get a saved property by id of the Property
-router.get('/:id', (req, res, next) => {
-	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
-		err ? console.error('Error finding property', err) : ''
-		res.send(property)
-	})
-})
+
 
 // Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
-	Property.findOne({listingId: req.params.id}).exec((err, property) => {
-		if (err ){
-			res.sendStatus(500).send('Error finding likes', err)
-		}
-		else {
-			res.sendStatus(200).send(property.likes)
+	console.log('running /property/id/likes')
+	Property.findOne({listingId: req.params.id},(err, property ) => {
+		const defaultValue = "0"
+		if (err) {
+			res.sendStatus(500).send(defaultValue)
+		}else {
+			console.log(`property likes router: ${property}`)
+			property === null ? res.send(defaultValue) : res.send(property.likes.toString())
 		}
 	})
+		.catch(err => {
+			console.error(`/property/id/likes error : ${err}`)
+		})
 })
+
+
+
+// Get a saved property by id of the Property
+router.get('/:id', (req, res, next) => {
+	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
+		err ? console.error('Error finding property', err) : res.send(property)
+
+	})
+})
+
+
 
 // Create a new property to be saved in the database
 router.post('/', (req, res, next) => {
@@ -58,9 +70,9 @@ router.post('/', (req, res, next) => {
 				})
 			}
 		})
-
-
 })
+
+
 
 // Update likes on a property
 router.put('/:id/likes', passport.authenticate('jwt', {session: false}), (req, res, next) => {
@@ -107,6 +119,9 @@ router.put('/:id/likes', passport.authenticate('jwt', {session: false}), (req, r
 		}
 	})
 })
+
+
+
 
 router.delete('/:id', (req, res, next) => {
 	Property.findOneAndRemove({_id: req.params.id}).exec((err, property) => {

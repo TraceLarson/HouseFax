@@ -7,8 +7,9 @@ const initialState = {
 export default function(state = initialState, action){
 	switch (action.type) {
 		case GET_LIKES:
-			console.log(`propertyReducer Likes: ${action.payload}`)
-			return action.payload
+			// console.log(`propertyReducer object: ${action.payload}`)
+			// return (Object.assign({}, state, action.payload))
+			return {...state, Likes: action.payload}
 		default:
 			return state
 	}
