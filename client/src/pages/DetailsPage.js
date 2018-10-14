@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
+// import axios from 'axios'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {
@@ -14,45 +15,58 @@ import RecentCrimeReports from "../components/RecentCrimeReports";
 import PropertyDetails from "../components/PropertyDetails";
 
 import {getCrimesList} from '../actions/api'
+import {addProperty, updateLikes, getLikes} from '../actions/property'
 
 
 class DetailsPage extends Component {
 
 	state = {
 		listing: {},
-		crimeList: {}
+		crimeList: {},
+		likes: 0
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		// console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
 		// console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
 		// console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
+		const {Latitude: latitude, Longitude: longitude, ListingId: listingId} = this.props.currentListing
+		// let latitude = this.props.currentListing.Latitude
+		// let longitude = this.props.currentListing.Longitude
 
-		let latitude = this.props.currentListing.Latitude
-		let longitude = this.props.currentListing.Longitude
+		this.props.getCrimesList(latitude, longitude, listingId)
+		// this.props.getCrimesList(latitude, longitude)
 
-		this.props.getCrimesList(latitude, longitude)
+		// this.props.getLikes(listingId)
+
+
 	}
 
-
-	componentDidUpdate(prevProps) {
-		if (this.props.currentListing !== prevProps.currentListing){
-			// console.log('componentDidUpdate ran')
-			let latitude = this.props.currentListing.Latitude
-			let longitude = this.props.currentListing.Longitude
-			this.props.getCrimesList(latitude, longitude)
-		}
+	shouldComponentUpdate(){
+		return true
 	}
 
+	handleLikeButton = e => {
+		e.preventDefault()
+		console.log(`pressed like button: likes: ${this.props.likes}`)
+		this.props.addProperty(this.props.currentListing)
+		this.props.updateLikes(this.props.currentListing.ListingId)
+		this.props.getLikes(this.props.currentListing.ListingId)
+		this.shouldComponentUpdate()
+
+
+	}
 
 
 	render() {
-		const listing = this.props.currentListing
-		const crimeList = this.props.recentCrimes
+		const {currentListing: listing, recentCrimes: crimeList, likes } = this.props && this.props
+
+		console.log(`DetailsPage render: ${likes.Likes} `)
 
 		return (
 			<div>
-				<DetailsBanner address={listing.UnparsedAddress}
+				<DetailsBanner listingId={listing.ListingId}
+							   address={listing.UnparsedAddress}
 				               city={listing.City}
 				               state={listing.StateOrProvince}
 				               zip={listing.PostalCode}
@@ -61,6 +75,8 @@ class DetailsPage extends Component {
 				               propertyType={listing.PropertySubType != null ? listing.PropertyType + ' ' + listing.PropertySubType : listing.PropertyType}
 				               buildYear={listing.YearBuilt}
 				               price={listing.ListPrice}
+				               likes={likes.Likes}
+				               handleLikeButton={this.handleLikeButton}
 				/>
 				<div className={'details-top-section'}>
 					<Container className={'d-flex flex-wrap flex-md-nowrap mt-1'}>
@@ -77,7 +93,7 @@ class DetailsPage extends Component {
 					<Container>
 						<div className={'crime-container'}>
 							<FamilyFriendlyRating crimeList={crimeList} />
-							<RecentCrimeReports crimeList={crimeList} centerLat={this.props.currentListing.Latitude} centerLng={this.props.currentListing.Longitude}/>
+							<RecentCrimeReports crimeList={crimeList} centerLat={listing.Latitude} centerLng={listing.Longitude}/>
 						</div>
 					</Container>
 				</div>
@@ -101,13 +117,18 @@ class DetailsPage extends Component {
 DetailsPage.propTypes = {
 	currentListing: PropTypes.object.isRequired,
 	recentCrimes: PropTypes.object.isRequired,
-	getCrimesList: PropTypes.func.isRequired
+	likes: PropTypes.object.isRequired,
+	getCrimesList: PropTypes.func.isRequired,
+	addProperty: PropTypes.func.isRequired,
+	updateLikes: PropTypes.func.isRequired,
+	getLikes: PropTypes.func.isRequired
 
 }
 
 const mapStateToProps = state => ({
 	currentListing: state.currentListing,
-	recentCrimes: state.recentCrimes
+	recentCrimes: state.recentCrimes,
+	likes: state.likes,
 })
 
-export default connect(mapStateToProps, {getCrimesList})(withRouter(DetailsPage));
+export default connect(mapStateToProps, {getCrimesList, addProperty, updateLikes, getLikes})(withRouter(DetailsPage));

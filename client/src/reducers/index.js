@@ -5,6 +5,7 @@ import bridgeReducer from './bridgeReducer'
 import currentListingReducer from "./currentListingReducer";
 import crimeListReducer from './crimeListReducer'
 import currentUserReducer from './currentUserReducer'
+import propertyReducer from './propertyReducer'
 
 export default combineReducers({
 	errors: errorReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
 	currentListing: currentListingReducer,
 	recentCrimes: crimeListReducer,
 	currentUser: currentUserReducer,
+	likes: propertyReducer,
 })
