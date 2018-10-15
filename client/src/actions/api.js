@@ -5,12 +5,14 @@ import {getLikes} from './property'
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
 		.then(response => {
-			history.push('/Results')
 			localStorage.setItem('listings' , JSON.stringify(response.data.bundle))
 			dispatch({
 				type: GET_LISTINGS,
 				payload: response.data.bundle
 			})
+		})
+		.then(() => {
+			history.push('/Results')
 		})
 		.catch(err => {
 			console.error('Error calling bridge API', err)

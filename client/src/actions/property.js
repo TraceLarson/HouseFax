@@ -12,7 +12,7 @@ export const getLikes = (listingId) => dispatch => {
 
 		})
 		.catch(err => {
-			console.error(`error retrieving likes on property ${err.response.data}`)
+			console.error(`error retrieving likes on property ${err.message}`)
 		})
 }
 

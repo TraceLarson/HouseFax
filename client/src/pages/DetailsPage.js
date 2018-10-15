@@ -27,17 +27,13 @@ class DetailsPage extends Component {
 	}
 
 	componentDidMount() {
-		// console.log('DetailsPage componentWillMount current listing:', this.props.currentListing)
-		// console.log(this.props.currentListing.Latitude, this.props.currentListing.Longitude)
-		// console.log('DetailsPage componentWillMount recent crime:', this.props.recentCrimes)
+
 		const {Latitude: latitude, Longitude: longitude, ListingId: listingId} = this.props.currentListing
-		// let latitude = this.props.currentListing.Latitude
-		// let longitude = this.props.currentListing.Longitude
+
 
 		this.props.getCrimesList(latitude, longitude, listingId)
-		// this.props.getCrimesList(latitude, longitude)
 
-		// this.props.getLikes(listingId)
+		this.props.getLikes(listingId)
 
 
 	}

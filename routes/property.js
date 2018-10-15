@@ -23,18 +23,15 @@ router.get('/', (req, res, next) => {
 // Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
 	console.log('running /property/id/likes')
-	Property.findOne({listingId: req.params.id},(err, property ) => {
+	Property.findOne({listingId: req.params.id}).exec((err, property ) => {
 		const defaultValue = "0"
 		if (err) {
-			res.sendStatus(500).send(defaultValue)
+			console.error(`Error retrieving likes on property ${err.message}`)
 		}else {
 			console.log(`property likes router: ${property}`)
 			property === null ? res.send(defaultValue) : res.send(property.likes.toString())
 		}
 	})
-		.catch(err => {
-			console.error(`/property/id/likes error : ${err}`)
-		})
 })
 
 
