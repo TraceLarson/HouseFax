@@ -31,7 +31,7 @@ class Search extends Component {
 		const welcome = (window.location.href === ('http://' + window.location.host + '/Results')) ? '' : <h3>Family Friendly property search:</h3>
 
 		return (
-			<Container className={'text-center search-component'}>
+			<Container className={'container text-center search-component pt-5 pb-5'}>
 				{welcome}
 				<Form onSubmit={this.handleSubmit} className={'search-form'}>
 					<FormGroup className={'d-flex'}>
