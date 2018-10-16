@@ -145,25 +145,27 @@ router.delete('/:id', (req, res, next) => {
 router.delete('/properties/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 	// From token
 	let token = req.user
+	console.log(token)
 
-	User.findOne({_id: token.Id}).exec((err, user) => {
+	User.findOne({_id: token._id}).exec((err, user) => {
 		err ? console.error('Error finding user to remove property from', err) : ''
-
+		console.log(`User.findOne ${user}`)
 		Property.findOne({_id: req.params.id}).exec((err, property) => {
 			err ? console.error('Error finding property to remove user from users', err) : ''
-
+			console.log(`Property.findOne: ${property}`)
 			JSON.stringify(user.properties).includes(property.id) ? user.properties.splice(user.properties.indexOf(property), 1) : res.status(404).send(`Could not find ${req.params.id} in \r\n ${user.properties}`)
+			console.log(`User Properties: ${user.properties}`)
 			user.save((err) => {
 				err ? console.error('Error saving user after removing liked property', err) : console.log('saved user')
-			})
 
-			JSON.stringify(property.users).includes(user.id) ? property.users.splice(property.users.indexOf(user), 1) : res.status(404).send(`user id ${token.userId} not found in this property's users \r\n ${property.users}`)
-			property.save((err) => {
-				err ? console.error('Error saving property after removing user from users', err) : console.log('saved property')
+				JSON.stringify(property.users).includes(user.id) ? property.users.splice(property.users.indexOf(user), 1) : res.status(404).send(`user id ${token.userId} not found in this property's users \r\n ${property.users}`)
+				console.log(`Property Users: ${property.users}`)
+				property.save((err) => {
+					err ? console.error('Error saving property after removing user from users', err) : res.send(`Deleted property ${req.params.id} from user id: ${token.userId}`)
+				})
 			})
-
-			res.send(`Deleted property ${req.params.id} from user id: ${token.userId}`)
 		})
+		// res.send('testing')
 	})
 })
 
