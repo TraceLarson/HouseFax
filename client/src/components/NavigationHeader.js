@@ -62,7 +62,7 @@ class NavigationHeader extends Component {
 
 		return (
 			<div className={'navbar-container'}>
-				<Navbar color="light" expand="md">
+				<Navbar expand="md">
 					<NavbarBrand href="/"><h2>HOUSE FAX</h2></NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={this.state.isOpen} navbar>
