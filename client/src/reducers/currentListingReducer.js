@@ -1,7 +1,7 @@
 import {SET_CURRENT_LISTING} from '../actions/types'
 
-let local = localStorage.getItem('currentListing') && localStorage.getItem('currentListing')
-const initialState = local ? JSON.parse(local) : {}
+let currentListing = localStorage.getItem('currentListing') && localStorage.getItem('currentListing')
+const initialState = currentListing || {}
 
 export default function (state = initialState, action) {
     switch (action.type) {

@@ -13,8 +13,8 @@ class Footer extends Component {
 						<ul className="list-unstyled quick-links">
 							<li><a className={"text-secondary"} href="/">Home</a></li>
 							<li><a className={"text-secondary"} href="/Login">Login</a></li>
-							<li><a className={"text-secondary disabled"} href="#">Contact</a></li>
-							<li><a className={"text-secondary disabled"} href="#">About</a></li>
+							<li><a className={"text-secondary disabled"} href="/">Contact</a></li>
+							<li><a className={"text-secondary disabled"} href="/">About</a></li>
 						</ul>
 					</div>
 					<div className="col-xs-12 col-sm-5 col-md-3">
