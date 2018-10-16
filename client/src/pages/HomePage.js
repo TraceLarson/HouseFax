@@ -4,7 +4,7 @@ import Search from '../components/Search'
 class HomePage extends Component {
 	render() {
 		return (
-			<div>
+			<div className={'home-container'}>
 				<p>Home Page</p>
 				<Search />
 			</div>

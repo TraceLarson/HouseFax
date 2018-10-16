@@ -3,6 +3,12 @@
     /*src: local('LogoFont'), url(''), format("");*/
 /*}*/
 
+/*Home Page*/
+.home-container{
+    background-image: url("/images/austinFullScreen.png");
+    background-size: cover;
+    height: 100vh;
+}
 
 .nav-link {
     color: #4A90E2 !important;
@@ -117,3 +123,5 @@
     background: #F3F3F3;
     box-shadow: 1px 1px 4px #000 ;
 }
+
+
