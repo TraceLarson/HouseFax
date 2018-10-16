@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-// import axios from 'axios'
+import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getCurrentUser} from '../actions/user'
@@ -45,6 +45,15 @@ class ProfilePage extends Component {
 
 	handleDeleteLike = (property) => {
 		console.log(property)
+		axios.delete(`user/properties/${property}`)
+			.then(response => {
+				console.log(`handleDeleteLikes: ${response.data}`)
+				this.componentDidMount()
+			})
+			.catch(err => {
+				console.error(`handleDeleteLikes: Error deleting property ${err.message}`)
+			})
+
 	}
 
 
