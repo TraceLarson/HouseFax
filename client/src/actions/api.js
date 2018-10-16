@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {GET_LISTINGS, SET_CURRENT_LISTING, GET_CRIMES} from './types'
-import {getLikes} from './property'
+// import {getLikes} from './property'
 
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
