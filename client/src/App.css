@@ -1,7 +1,17 @@
-/*@font-face {*/
-    /*font-family: 'LogoFont';*/
-    /*src: local('LogoFont'), url(''), format("");*/
-/*}*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+/*font-family: 'Anton', sans-serif;*/
+
+.body{
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+
+.dev-border {
+    border: 1px solid red;
+}
+
 
 /*Home Page*/
 .home-container{
@@ -13,19 +23,39 @@
     align-items: center;
 }
 
-.nav-link {
-    color: #4A90E2 !important;
+/*Search Component*/
+.search-component{
+    color: #F3F3F3;
+}
+.search-component h3 {
+
 }
 
+
+
+/*Navbar */
 .navbar-container {
     position: relative;
     box-shadow: 1px 1px 4px #000000 ;
 }
 
-.dev-border {
-    border: 1px solid red;
+.navbar-container h2{
+    font-family: 'Anton', sans-serif;
+    font-weight: bolder;
+    color: #4A90E2;
 }
 
+.nav-link {
+    color: #4A90E2 !important;
+}
+
+.navbar{
+    background: transparent;
+}
+
+
+
+/*RESULTS*/
 .result-item {
     background: #F3F3F3;
     border: 1px solid #979797;
@@ -125,6 +155,12 @@
 .footer {
     background: #F3F3F3;
     box-shadow: 1px 1px 4px #000 ;
+}
+
+.footer h2{
+    font-family: 'Anton', sans-serif;
+    font-weight: bolder;
+    color: #4A90E2;
 }
 
 

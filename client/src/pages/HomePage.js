@@ -5,7 +5,6 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div className={'home-container'}>
-
 				<div className={'container'} >
 					<Search />
 				</div>

@@ -29,8 +29,8 @@ class Search extends Component {
 
 	render() {
 		return (
-			<Container className={'text-center'}>
-				<p>Search Component</p>
+			<Container className={'text-center search-component'}>
+				<h3>Family Friendly property search:</h3>
 				<Form onSubmit={this.handleSubmit}>
 					<FormGroup className={'d-flex'}>
 						<Input type={'text'} onChange={this.handleChange} value={this.state.location}/>
