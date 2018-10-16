@@ -19,7 +19,7 @@ class Crime {
 			})
 				.then(response => {
 					let crimeArray = []
-					console.log(response)
+					// console.log(response)
 					response.data.map(occurence => {
 						crimeArray.push(occurence)
 					})

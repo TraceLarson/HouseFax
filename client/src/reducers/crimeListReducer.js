@@ -1,7 +1,8 @@
 import {GET_CRIMES} from '../actions/types'
 
 let recentCrime = localStorage.getItem('recentCrimeList') && JSON.parse(localStorage.getItem('recentCrimeList'))
-const initialState = recentCrime
+let initialState = recentCrime || {}
+
 
 export default function (state = initialState, action) {
 	switch (action.type) {
