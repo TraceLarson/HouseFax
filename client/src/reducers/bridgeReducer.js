@@ -1,6 +1,6 @@
 import {GET_LISTINGS} from '../actions/types'
 
-let listings = localStorage.getItem('listings') /*&& JSON.parse(localStorage.getItem('listings'))*/
+let listings = localStorage.getItem('listings') && JSON.parse(localStorage.getItem('listings'))
 let initialState = listings || {}
 
 

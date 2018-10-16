@@ -48,7 +48,7 @@ class DetailsPage extends Component {
 		this.props.addProperty(this.props.currentListing)
 		this.props.updateLikes(this.props.currentListing.ListingId)
 		this.props.getLikes(this.props.currentListing.ListingId)
-		this.shouldComponentUpdate()
+		this.componentDidMount()
 
 
 	}

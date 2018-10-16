@@ -1,6 +1,6 @@
 import {GET_CRIMES} from '../actions/types'
 
-let recentCrime = localStorage.getItem('recentCrimeList')/* && JSON.parse(localStorage.getItem('recentCrimeList'))*/
+let recentCrime = localStorage.getItem('recentCrimeList') && JSON.parse(localStorage.getItem('recentCrimeList'))
 let initialState = recentCrime || {}
 
 

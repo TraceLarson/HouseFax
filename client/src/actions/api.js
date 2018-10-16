@@ -5,7 +5,7 @@ import {getLikes} from './property'
 export const getListings = (query, history) => dispatch => {
 	axios.post('/api/bridge',{location: query})
 		.then(response => {
-			localStorage.setItem('listings' , JSON.stringify(response.data.bundle))
+			response && localStorage.setItem('listings' , JSON.stringify(response.data.bundle))
 			dispatch({
 				type: GET_LISTINGS,
 				payload: response.data.bundle
@@ -22,7 +22,7 @@ export const getListings = (query, history) => dispatch => {
 export const setCurrentListing = (listing, history) => dispatch => {
 	history.push('/Details')
 	// console.log(listing)
-	localStorage.setItem('currentListing' , JSON.stringify(listing))
+	listing && localStorage.setItem('currentListing' , JSON.stringify(listing))
 	dispatch({
 		type: SET_CURRENT_LISTING,
 		payload: listing
@@ -37,15 +37,15 @@ export const getCrimesList = (latitude, longitude, listingId) => dispatch => {
 	})
 		.then(response => {
 			console.log('getCrimesList: ', response.data)
-			localStorage.setItem('recentCrimeList',JSON.stringify(Object.assign({}, response.data)))
+			response.data && localStorage.setItem('recentCrimeList',JSON.stringify(Object.assign({}, response.data)))
 			dispatch({
 				type: GET_CRIMES,
 				payload: response.data
 			})
 		})
-		.then(() => {
-			dispatch(getLikes(listingId))
-		})
+		// .then(() => {
+		// 	dispatch(getLikes(listingId))
+		// })
 		.catch(err => {
 			console.error('Error retrieving crimes for this location', err)
 		})
