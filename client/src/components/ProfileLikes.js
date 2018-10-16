@@ -20,11 +20,11 @@ class ProfileLikes extends Component {
 	}
 
 	render() {
-		const {likes} = this.props
+		const {likes, deleteLike} = this.props
 		const likesList = likes.map(like => {
 			return(
 				<ListGroupItem key={like._id}>
-					{like.address}, {like.city}, {like.state}<button className={'btn btn-danger pull-right'}>X</button>
+					{like.address}, {like.city}, {like.state}<button onClick={() => {deleteLike(like._id)}} className={'btn btn-danger pull-right'}>X</button>
 				</ListGroupItem>
 			)
 		})
@@ -43,7 +43,8 @@ class ProfileLikes extends Component {
 }
 
 ProfileLikes.propTypes = {
-	likes: PropTypes.array.isRequired
+	likes: PropTypes.array.isRequired,
+	deleteLike: PropTypes.func.isRequired
 }
 
 export default ProfileLikes;

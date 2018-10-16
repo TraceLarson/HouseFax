@@ -43,6 +43,10 @@ class ProfilePage extends Component {
 		})
 	}
 
+	handleDeleteLike = (property) => {
+		console.log(property)
+	}
+
 
 	render() {
 		const {currentUser} = this.props
@@ -75,7 +79,7 @@ class ProfilePage extends Component {
 							password={currentUser.password && currentUser.password}
 							created_at={created_at}
 						/>
-						<ProfileLikes likes={currentUser.properties || ['...Loading']}/>
+						<ProfileLikes likes={currentUser.properties || ['...Loading']} deleteLike={this.handleDeleteLike}/>
 					</div>
 				</div>
 			</div>
