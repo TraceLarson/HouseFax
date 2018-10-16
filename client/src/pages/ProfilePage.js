@@ -15,7 +15,7 @@ class ProfilePage extends Component {
 		},
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.getCurrentUser()
 	}
 

@@ -4,7 +4,7 @@ import CrimeCard from "./CrimeCard";
 class RecentCrimeReports extends Component {
 	render() {
 
-		let crimes = Object.keys(this.props.crimeList).map(key => {
+		let crimes =this.props.crimeList && Object.keys(this.props.crimeList).map(key => {
 			let crime = this.props.crimeList[key]
 			if (key < 4) {
 				return (

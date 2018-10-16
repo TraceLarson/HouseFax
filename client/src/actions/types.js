@@ -4,3 +4,6 @@ export const GET_LISTINGS = 'GET_LISTINGS'
 export const SET_CURRENT_LISTING = 'SET_CURRENT_LISTING'
 export const GET_CRIMES = 'GET_CRIMES'
 export const GET_CURRENT_USER = 'GET_CURRENT_USER'
+export const GET_LIKES = 'GET_LIKES'
+
+
