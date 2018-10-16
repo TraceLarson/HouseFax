@@ -33,7 +33,11 @@ class Search extends Component {
 				<h3>Family Friendly property search:</h3>
 				<Form onSubmit={this.handleSubmit} className={'search-form'}>
 					<FormGroup className={'d-flex'}>
-						<Input className={'search-input'} type={'text'} onChange={this.handleChange} value={this.state.location}/>
+						<Input className={'search-input'}
+						       type={'text'}
+						       placeholder={'Search for a property'}
+						       onChange={this.handleChange}
+						       value={this.state.location}/>
 						<Button color={'primary'} className={'search-button'} type={'submit'}>GO!</Button>
 					</FormGroup>
 				</Form>

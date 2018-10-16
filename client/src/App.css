@@ -31,7 +31,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
 }
 
 .search-form{
@@ -40,7 +39,6 @@
 
 .search-input{
     height: 50px;
-
 }
 
 .search-button{
@@ -176,6 +174,7 @@
 .footer {
     background: #F3F3F3;
     box-shadow: 1px 1px 4px #000 ;
+    padding-bottom: 20px;
 }
 
 .footer h2{
