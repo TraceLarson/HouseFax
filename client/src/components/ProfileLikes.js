@@ -10,7 +10,7 @@ import {
 class ProfileLikes extends Component {
 
 	state = {
-		collapse: true
+		collapse: false
 	}
 
 	toggle = () => {
@@ -30,7 +30,7 @@ class ProfileLikes extends Component {
 		})
 
 		return (
-			<div className={'container mt-5'}>
+			<div className={'container mt-5 mb-5'}>
 				<Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>likes</Button>
 				<Collapse isOpen={this.state.collapse}>
 					<ListGroup>
