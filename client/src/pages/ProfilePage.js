@@ -7,12 +7,12 @@ import {getCurrentUser} from '../actions/user'
 import {updateCurrentUser} from '../actions/user'
 
 import EditProfile from '../components/EditProfile'
+import ProfileLikes from '../components/ProfileLikes'
 
 class ProfilePage extends Component {
 
 	state = {
-		user: {
-		},
+		user: {},
 	}
 
 	componentDidMount() {
@@ -44,24 +44,39 @@ class ProfilePage extends Component {
 	}
 
 
-
 	render() {
 		const {currentUser} = this.props
-		const created_at = currentUser.created_at && currentUser.created_at.slice(0,10)
+		const created_at = currentUser.created_at && currentUser.created_at.slice(0, 10)
 
-		console.log('ProfilePage Render',this.props.currentUser)
+		console.log('ProfilePage Render', this.props.currentUser)
 
 		return (
-			<div>
-				<EditProfile
-					handleProfileChange={this.handleProfileChange}
-					handleSave={this.handleSave}
-					firstname={currentUser.firstname && currentUser.firstname}
-					lastname={currentUser.lastname && currentUser.lastname}
-					email={currentUser.email && currentUser.email}
-					password={currentUser.password && currentUser.password}
-					created_at={created_at}
-				/>
+			<div className={'container'}>
+				<div className={'row'}>
+					<div className={'col-sm-10 col-md-6'}>
+						<EditProfile
+							handleProfileChange={this.handleProfileChange}
+							handleSave={this.handleSave}
+							firstname={currentUser.firstname && currentUser.firstname}
+							lastname={currentUser.lastname && currentUser.lastname}
+							email={currentUser.email && currentUser.email}
+							password={currentUser.password && currentUser.password}
+							created_at={created_at}
+						/>
+					</div>
+					<div className={'col-sm-10 col-md-6'}>
+						<EditProfile
+							handleProfileChange={this.handleProfileChange}
+							handleSave={this.handleSave}
+							firstname={currentUser.firstname && currentUser.firstname}
+							lastname={currentUser.lastname && currentUser.lastname}
+							email={currentUser.email && currentUser.email}
+							password={currentUser.password && currentUser.password}
+							created_at={created_at}
+						/>
+						<ProfileLikes/>
+					</div>
+				</div>
 			</div>
 		);
 	}
