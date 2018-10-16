@@ -117,3 +117,10 @@
     background: #F3F3F3;
     box-shadow: 1px 1px 4px #000 ;
 }
+
+
+/*PROFILE PAGE*/
+
+.likes-item{
+    max-height: 40px !important;
+}
