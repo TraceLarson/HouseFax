@@ -48,6 +48,7 @@ class ProfilePage extends Component {
 		const {currentUser} = this.props
 		const created_at = currentUser.created_at && currentUser.created_at.slice(0, 10)
 
+
 		console.log('ProfilePage Render', this.props.currentUser)
 
 		return (
@@ -74,7 +75,7 @@ class ProfilePage extends Component {
 							password={currentUser.password && currentUser.password}
 							created_at={created_at}
 						/>
-						<ProfileLikes/>
+						<ProfileLikes likes={currentUser.properties || ['...Loading']}/>
 					</div>
 				</div>
 			</div>
