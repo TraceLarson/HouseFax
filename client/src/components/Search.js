@@ -31,10 +31,10 @@ class Search extends Component {
 		return (
 			<Container className={'text-center search-component'}>
 				<h3>Family Friendly property search:</h3>
-				<Form onSubmit={this.handleSubmit}>
+				<Form onSubmit={this.handleSubmit} className={'search-form'}>
 					<FormGroup className={'d-flex'}>
-						<Input type={'text'} onChange={this.handleChange} value={this.state.location}/>
-						<Button type={'submit'}>Search!</Button>
+						<Input className={'search-input'} type={'text'} onChange={this.handleChange} value={this.state.location}/>
+						<Button color={'primary'} className={'search-button'} type={'submit'}>GO!</Button>
 					</FormGroup>
 				</Form>
 			</Container>

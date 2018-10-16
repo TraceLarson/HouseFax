@@ -26,7 +26,29 @@
 /*Search Component*/
 .search-component{
     color: #F3F3F3;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
 }
+
+.search-form{
+    width: 70%;
+}
+
+.search-input{
+    height: 50px;
+
+}
+
+.search-button{
+    margin-left: 7px;
+    padding-left: 7px;
+    width: 110px;
+}
+
 .search-component h3 {
 
 }
@@ -52,7 +74,6 @@
 .navbar{
     background: transparent;
 }
-
 
 
 /*RESULTS*/
