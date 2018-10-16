@@ -33,7 +33,6 @@ class ResultsPage extends Component {
 
 		return (
 			<Container className={'px-5'}>
-				<p>Results Page</p>
 				<Search/>
 				<Row>
 					{resultsItems}

@@ -1,22 +1,77 @@
-/*@font-face {*/
-    /*font-family: 'LogoFont';*/
-    /*src: local('LogoFont'), url(''), format("");*/
-/*}*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Anton');
 
+/*font-family: 'Anton', sans-serif;*/
 
-.nav-link {
-    color: #4A90E2 !important;
+.body{
+    font-family: 'Open Sans Condensed', sans-serif !important;
 }
 
-.navbar-container {
-    position: relative;
-    box-shadow: 1px 1px 4px #000000 ;
-}
 
 .dev-border {
     border: 1px solid red;
 }
 
+
+/*Home Page*/
+.home-container{
+    background-image: url("/images/austinFullScreen.png");
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+/*Search Component*/
+.search-component{
+    color: #F3F3F3;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-form{
+    width: 70%;
+}
+
+.search-input{
+    height: 50px;
+}
+
+.search-button{
+    margin-left: 7px;
+    padding-left: 7px;
+    width: 110px;
+}
+
+
+
+/*Navbar */
+.navbar-container {
+    position: relative;
+    box-shadow: 1px 1px 4px #000000 ;
+
+}
+
+.navbar-container h2{
+    font-family: 'Anton', sans-serif;
+    font-weight: bolder;
+    color: #4A90E2;
+}
+
+.nav-link {
+    color: #4A90E2 !important;
+}
+
+.navbar{
+    background: transparent;
+}
+
+
+/*RESULTS*/
 .result-item {
     background: #F3F3F3;
     border: 1px solid #979797;
@@ -116,4 +171,19 @@
 .footer {
     background: #F3F3F3;
     box-shadow: 1px 1px 4px #000 ;
+    padding-bottom: 20px;
+}
+
+.footer h2{
+    font-family: 'Anton', sans-serif;
+    font-weight: bolder;
+    color: #4A90E2;
+}
+
+
+
+/*PROFILE PAGE*/
+
+.likes-item{
+    max-height: 40px !important;
 }
