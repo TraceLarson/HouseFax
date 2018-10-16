@@ -79,15 +79,6 @@ class ProfilePage extends Component {
 						/>
 					</div>
 					<div className={'col-sm-10 col-md-6'}>
-						<EditProfile
-							handleProfileChange={this.handleProfileChange}
-							handleSave={this.handleSave}
-							firstname={currentUser.firstname && currentUser.firstname}
-							lastname={currentUser.lastname && currentUser.lastname}
-							email={currentUser.email && currentUser.email}
-							password={currentUser.password && currentUser.password}
-							created_at={created_at}
-						/>
 						<ProfileLikes likes={currentUser.properties || ['...Loading']} deleteLike={this.handleDeleteLike}/>
 					</div>
 				</div>

@@ -21,9 +21,9 @@ class ProfileLikes extends Component {
 
 	render() {
 		const {likes, deleteLike} = this.props
-		const likesList = likes.map(like => {
+		const likesList = likes.map((like, index) => {
 			return(
-				<ListGroupItem key={like._id}>
+				<ListGroupItem key={index}>
 					{like.address}, {like.city}, {like.state}<button onClick={() => {deleteLike(like._id)}} className={'btn btn-danger pull-right'}>X</button>
 				</ListGroupItem>
 			)
