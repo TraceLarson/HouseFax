@@ -2,6 +2,9 @@ import axios from 'axios'
 import {GET_LIKES} from './types'
 
 export const getLikes = (listingId) => dispatch => {
+
+	console.log(`getLikes redux action - listingId parameter: ${listingId}`)
+
 	axios.get(`/property/${listingId}/likes`)
 		.then(response => {
 			console.log(`getLikes: ${response.data}`)
@@ -12,7 +15,7 @@ export const getLikes = (listingId) => dispatch => {
 
 		})
 		.catch(err => {
-			console.error(`error retrieving likes on property ${err.message}`)
+			console.error(`getLikes redux action - axios error catch: ${err.message}`)
 		})
 }
 
