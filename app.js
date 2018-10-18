@@ -7,6 +7,28 @@ const passport = require('passport')
 
 
 
+// ROUTES
+// TODO: create routes
+const index = require('./routes/index')
+const api = require('./routes/api')
+const user = require('./routes/user')
+const property = require('./routes/property')
+app.use('/', index)
+app.use('/api', api)
+app.use('/user', user)
+app.use('/property', property)
+
+// Serve static files if in production environment
+if(process.env.NODE_ENV === 'production'){
+	// Set static folder
+	app.use(express.static('client/build'))
+
+	app.get('*', (req, res) => {
+		// res.sendFile([path.resolve(__dirname, 'client', 'build', 'index.html')])
+		res.sendFile(path.join(__dirname + '/client/build/index.html'))
+		// res.sendFile(path.join(__dirname + '/../client/build/index.html'))
+	})
+}
 
 // Passport Requirements
 app.use(passport.initialize())
@@ -36,27 +58,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 
 
-// ROUTES
-// TODO: create routes
-const index = require('./routes/index')
-const api = require('./routes/api')
-const user = require('./routes/user')
-const property = require('./routes/property')
-app.use('/', index)
-app.use('/api', api)
-app.use('/user', user)
-app.use('/property', property)
 
-// Serve static files if in production environment
-if(process.env.NODE_ENV === 'production'){
-	// Set static folder
-	app.use(express.static('client/build'))
 
-	app.get('*', (req, res) => {
-		// res.sendFile([path.resolve(__dirname, 'client', 'build', 'index.html')])
-		res.sendFile(path.join(__dirname + '/client/build/index.html'))
-		// res.sendFile(path.join(__dirname + '/../client/build/index.html'))
-	})
-}
 
 module.exports = app
