@@ -10,16 +10,6 @@ const User = require('../models/User')
 
 
 
-// Get all properties saved in the db
-router.get('/', (req, res, next) => {
-	Property.find().populate('users').exec((err, properties) => {
-		err ? console.error('Error finding properties', err) : ''
-		res.send(properties)
-	})
-})
-
-
-
 // Get the number of likes on a Property by id of the property
 router.get('/:id/likes', (req, res, next) => {
 	console.log('running /property/id/likes')
@@ -35,7 +25,6 @@ router.get('/:id/likes', (req, res, next) => {
 })
 
 
-
 // Get a saved property by id of the Property
 router.get('/:id', (req, res, next) => {
 	Property.findOne({_id: req.params.id}).populate('users').exec((err, property) => {
@@ -44,6 +33,14 @@ router.get('/:id', (req, res, next) => {
 	})
 })
 
+
+// Get all properties saved in the db
+router.get('/', (req, res, next) => {
+	Property.find().populate('users').exec((err, properties) => {
+		err ? console.error('Error finding properties', err) : ''
+		res.send(properties)
+	})
+})
 
 
 // Create a new property to be saved in the database
