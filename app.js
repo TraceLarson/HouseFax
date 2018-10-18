@@ -6,6 +6,18 @@ const path = require('path')
 const passport = require('passport')
 
 
+
+// ROUTES
+// TODO: create routes
+const index = require('./routes/index')
+const api = require('./routes/api')
+const user = require('./routes/user')
+const property = require('./routes/property')
+app.use('/', index)
+app.use('/api', api)
+app.use('/user', user)
+app.use('/property', property)
+
 // Serve static files if in production environment
 if(process.env.NODE_ENV === 'production'){
 	// Set static folder
@@ -46,16 +58,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 
 
-// ROUTES
-// TODO: create routes
-const index = require('./routes/index')
-const api = require('./routes/api')
-const user = require('./routes/user')
-const property = require('./routes/property')
-app.use('/', index)
-app.use('/api', api)
-app.use('/user', user)
-app.use('/property', property)
+
 
 app.use((req,res) => {
 	res.redirect('/')
