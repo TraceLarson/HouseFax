@@ -7,12 +7,18 @@ const passport = require('passport')
 
 
 
+const index = require('./routes/index')
+const api = require('./routes/api')
+const user = require('./routes/user')
+const property = require('./routes/property')
+
+
 
 
 // Serve static files if in production environment
 if(process.env.NODE_ENV === 'production'){
 	// Set static folder
-	app.use(express.static('client/build'))
+	app.use(express.static('./client/build'))
 
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
@@ -50,10 +56,7 @@ db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 
 // ROUTES
 // TODO: create routes
-const index = require('./routes/index')
-const api = require('./routes/api')
-const user = require('./routes/user')
-const property = require('./routes/property')
+
 app.use('/', index)
 app.use('/api', api)
 app.use('/user', user)
