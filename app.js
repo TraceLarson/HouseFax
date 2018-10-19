@@ -12,24 +12,30 @@ const api = require('./routes/api')
 const user = require('./routes/user')
 const property = require('./routes/property')
 
+// app.use('/', index)
+app.use('/api', api)
+app.use('/user', user)
+app.use('/property', property)
+
 
 
 
 // Serve static files if in production environment
 if(process.env.NODE_ENV === 'production'){
 	// Set static folder
-	app.use(express.static(path.join(__dirname, 'client', 'build')))
+	app.use(express.static('client/build'))
+
+	app.get('*', (res, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+	});
+
+
 	// app.use(express.static('client/build/'))
 	// app.use('/static', express.static(path.join(__dirname, 'client/build')));
-
 	// app.get('/', (req, res) => {
 	// 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 	// 	// res.sendFile(path.join(__dirname + '/client/build/index.html'))
 	// })
-
-	app.get('/*', function(req, res) {
-		res.sendFile(path.join(__dirname, 'client','build', 'index.html'));
-	});
 }
 
 // Passport Requirements
@@ -62,10 +68,7 @@ db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 // ROUTES
 // TODO: create routes
 
-// app.use('/', index)
-app.use('/api', api)
-app.use('/user', user)
-app.use('/property', property)
+
 
 
 
