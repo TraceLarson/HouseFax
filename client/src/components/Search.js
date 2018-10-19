@@ -28,7 +28,7 @@ class Search extends Component {
 	}
 
 	render() {
-		const welcome = (window.location.href === ('http://' + window.location.host + '/Results')) ? '' : <h3>Family Friendly property search:</h3>
+		const welcome = (window.location.href === ('http://' + window.location.host + '/Results')) || (window.location.href === ('https://' + window.location.host + '/Results')) ? '' : <h3>Family Friendly property search:</h3>
 
 		return (
 			<Container className={'container text-center search-component pt-5 pb-5'}>
