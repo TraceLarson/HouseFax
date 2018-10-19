@@ -2,11 +2,11 @@
   "name": "housefax",
   "version": "1.0.0",
   "description": "HouseFax web application for Capstone Project at Full Sail University",
-  "main": "app.js",
+  "main": "bin/www",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "node app.js",
-    "server": "nodemon app.js",
+    "start": "node bin/www",
+    "server": "nodemon bin/www",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run client \" \"npm run server\" ",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
