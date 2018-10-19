@@ -7,19 +7,6 @@ const passport = require('passport')
 
 
 
-// const index = require('./routes/index')
-const api = require('./routes/api')
-const user = require('./routes/user')
-const property = require('./routes/property')
-
-// app.use('/', index)
-app.use('/api', api)
-app.use('/user', user)
-app.use('/property', property)
-
-
-
-
 // Serve static files if in production environment
 if(process.env.NODE_ENV === 'production'){
 	// Set static folder
@@ -37,6 +24,16 @@ if(process.env.NODE_ENV === 'production'){
 	// 	// res.sendFile(path.join(__dirname + '/client/build/index.html'))
 	// })
 }
+
+// const index = require('./routes/index')
+const api = require('./routes/api')
+const user = require('./routes/user')
+const property = require('./routes/property')
+
+// app.use('/', index)
+app.use('/api', api)
+app.use('/user', user)
+app.use('/property', property)
 
 // Passport Requirements
 app.use(passport.initialize())
