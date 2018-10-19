@@ -7,7 +7,7 @@ const passport = require('passport')
 
 
 
-const index = require('./routes/index')
+// const index = require('./routes/index')
 const api = require('./routes/api')
 const user = require('./routes/user')
 const property = require('./routes/property')
@@ -56,7 +56,7 @@ db.once('open', () => console.log('DATABASE CONNECTED SUCCESSFULLY'))
 // ROUTES
 // TODO: create routes
 
-app.use('/', index)
+// app.use('/', index)
 app.use('/api', api)
 app.use('/user', user)
 app.use('/property', property)
