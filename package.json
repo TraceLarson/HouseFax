@@ -5,7 +5,6 @@
   "main": "bin/www",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/www",
     "server": "nodemon bin/www",
     "client": "npm start --prefix client",
@@ -27,15 +26,15 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.2.13",
+    "mongoose": "^5.3.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "validator": "^10.7.1"
+    "validator": "^10.8.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
