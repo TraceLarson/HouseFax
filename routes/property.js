@@ -53,6 +53,9 @@ router.post('/', (req, res, next) => {
 	console.log(`********* \r\nProperty route POST /property\r\n Listing from params: ${req.body.listingId}\r\n*********`)
 	Property.find({listingId: req.body.listingId})
 		.exec((err, properties) => {
+			if (err){
+				console.log(`******\r\nProperty route POST /property \r\n error finding property ${err.message}\r\n****`)
+			}
 			console.log(`********* \r\nProperty route POST /property MONGOOSE 1 \r\n Properties returned from DB ${properties.length} \r\n*********`)
 			if (properties.length) {
 				console.log(`********* \r\nProperty route POST /property MONGOOSE ALERT\r\n Property Already Exists \r\n*********`)
@@ -60,6 +63,7 @@ router.post('/', (req, res, next) => {
 			}
 			else {
 				console.log(`********* \r\nProperty route POST /property MONGOOSE 2\r\n Creating NEW property\r\n*********`)
+				console.log(`${req.body.listingId}\r\n${req.body.address}\r\n${req.body.city}\r\n${req.body.state}\r\n${req.body.likes ? req.body.likes : 0}`)
 				let newProperty = new Property({
 					listingId: req.body.listingId,
 					address: req.body.address,
@@ -67,8 +71,9 @@ router.post('/', (req, res, next) => {
 					state: req.body.state,
 					likes: req.body.likes ? req.body.likes : 0
 				})
+				console.log(`#### newProperty: \r\n ${newProperty}`)
 				newProperty.save((err, property) => {
-					console.log(`********* \r\nProperty route POST /property MONGOOSE 3\r\n Saving NEW property ${property}\r\n*********`)
+					console.log(`********* \r\nProperty route POST /property MONGOOSE 3\r\n Saving NEW property ${newProperty}\r\n*********`)
 					err ? res.sendStatus(400).send(`!!! Error creating property ${err.errmsg} !!!`) : res.send('Property Created')
 				})
 			}
