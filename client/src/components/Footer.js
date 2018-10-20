@@ -5,7 +5,7 @@ class Footer extends Component {
 		return (
 			<div className="container-fluid footer pl-4 pt-4">
 				<div className="row text-center text-xs-center mb-4">
-					<a href={"/"}><img src="../images/logo.png" alt="logo"/></a>
+					<a href={"/"}><h2>HOUSE FAX</h2></a>
 				</div>
 				<div className="row text-center text-xs-center text-sm-left text-md-left">
 					<div className="col-xs-12 col-sm-5 col-md-3">

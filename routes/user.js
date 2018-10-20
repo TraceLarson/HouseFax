@@ -14,9 +14,8 @@ const User = require('../models/User')
 const Property = require('../models/Property')
 
 
-
 // Get user
-router.get('/me', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.get('/me', passport.authenticate('jwt', {session: false}), (req, res, next) => {
 	User.findOne({_id: req.user.id}).populate('properties').exec((err, user) => {
 		err ? console.error('Error loading user info') : res.json(user)
 	})
@@ -51,7 +50,7 @@ router.post('/', (req, res, next) => {
 	User.findOne({
 		email: req.body.email
 	}).then(user => {
-		user ?  res.status(400).json({email: 'email already exits'}) : ''
+		user ? res.status(400).json({email: 'email already exits'}) : ''
 		let newUser = new User({
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
@@ -83,13 +82,13 @@ router.post('/login', (req, res, next) => {
 
 	User.findOne({email})
 		.then(user => {
-			if(!user){
+			if (!user) {
 				errors.email = 'User not found'
 				return res.status(404).json(errors)
 			}
 			bcrypt.compare(password, user.password)
 				.then(isMatch => {
-					if(isMatch) {
+					if (isMatch) {
 						const payload = {
 							id: user.id,
 							firstname: user.firstname,
@@ -114,7 +113,7 @@ router.post('/login', (req, res, next) => {
 		})
 })
 
-router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', {session: false}), (req, res, next) => {
 	User.findOneAndUpdate(
 		{_id: req.params.id},
 		{$set: req.body.user},
@@ -128,7 +127,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), (req, res, 
 					err ? console.error('Error bcrypt-ing password', err) : ''
 					user.password = hash
 					user.save((err, user) => {
-						err ? console.error('Error saving user', err) : console.log('After bcrypt ',user)
+						err ? console.error('Error saving user', err) : console.log('After bcrypt ', user)
 						res.json(user)
 					})
 				})
@@ -142,28 +141,77 @@ router.delete('/:id', (req, res, next) => {
 	})
 })
 
-router.delete('/properties/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+
+
+router.delete('/properties/:id', passport.authenticate('jwt', {session: false}), (req, res, next) => {
 	// From token
-	let token = req.user
+	const token = req.user
 
-	User.findOne({_id: token.Id}).exec((err, user) => {
-		err ? console.error('Error finding user to remove property from', err) : ''
+	console.log(`*****\r\n USER user/properties/:id DELETE INFO 1 \r\nToken: ${token.firstname}\r\n*****`)
 
-		Property.findOne({_id: req.params.id}).exec((err, property) => {
-			err ? console.error('Error finding property to remove user from users', err) : ''
+	User.findOne({_id: token._id}).exec((err, user) => {
 
-			JSON.stringify(user.properties).includes(property.id) ? user.properties.splice(user.properties.indexOf(property), 1) : res.status(404).send(`Could not find ${req.params.id} in \r\n ${user.properties}`)
-			user.save((err) => {
-				err ? console.error('Error saving user after removing liked property', err) : console.log('saved user')
+		if (err)
+			console.log(`*****\r\n USER user/properties/:id DELETE ERROR 1\r\n error: ${err.message}\r\n*****`)
+		else {
+
+			console.log(`*****\r\nUSER user/properties/:id DELETE INFO 2 \r\n User.findOne ${user} \r\n *******`)
+
+			Property.findOne({_id: req.params.id}).exec((err, property) => {
+
+				if (err)
+					console.log(`*****\r\n USER user/properties/:id DELETE ERROR 2\r\n error: ${err.message}\r\n*****`)
+				else {
+
+					console.log(`*****\r\nUSER user/properties/:id DELETE INFO 3 \r\n Property.findOne: ${property} \r\n *******`)
+
+					if (!JSON.stringify(user.properties).includes(property._id)) {
+						console.log(`*****\r\n USER user/properties/:id DELETE ERROR 3\r\n Could not find ${req.params.id} in \r\n ${user.properties}\r\n*****`)
+						res.status(404).send(`Could not find ${req.params.id} in \r\n ${user.properties}`)
+					}
+					else {
+						user.properties.splice(user.properties.indexOf(property._id), 1)
+
+						console.log(`*****\r\nUSER user/properties/:id DELETE INFO 4 \r\n User Properties: ${user.properties} \r\n *******`)
+
+						user.save((err) => {
+							if (err)
+								console.log(`*****\r\n USER user/properties/:id DELETE ERROR 4\r\n Error saving user after removing liked property ${err.message}\r\n*****`)
+							else {
+
+								console.log(`*****\r\nUSER user/properties/:id DELETE INFO 5 \r\n saved user ${user} \r\n *******`)
+
+								if (!JSON.stringify(property.users).includes(user.id)) {
+									console.log(`*****\r\n USER user/properties/:id DELETE ERROR 5\r\n user id ${token.userId} not found in this property's users\r\n ${property.users}\r\n*****`)
+									res.status(404).send(`user id ${user._id} not found in this property's users \r\n ${property.users}`)
+								}
+								else {
+									console.log(`******\r\nUSER user/properties/:id DELETE INFO 6 \r\n Property Users before slice: ${property.users}\r\n`)
+
+									property.users.splice(property.users.indexOf(user), 1)
+
+									console.log(`\r\n Property Users after slice: ${property.users} \r\n *******`)
+
+									property.save((err) => {
+										if(err) {
+											console.log(`*****\r\n USER user/properties/:id DELETE ERROR 5\r\n Error saving property after removing user from users ${err.message}\r\n*****`)
+											console.error('', err)
+										}
+										else{
+											console.log(`*****\r\nUSER user/properties/:id DELETE INFO 6 \r\n Deleted property ${req.params.id} from user id: ${user._id} \r\n *******`)
+											res.send(`Deleted property ${req.params.id} from user id: ${user._id}`)
+										}
+									})
+								}
+
+							}
+
+						})
+					}
+				}
 			})
-
-			JSON.stringify(property.users).includes(user.id) ? property.users.splice(property.users.indexOf(user), 1) : res.status(404).send(`user id ${token.userId} not found in this property's users \r\n ${property.users}`)
-			property.save((err) => {
-				err ? console.error('Error saving property after removing user from users', err) : console.log('saved property')
-			})
-
-			res.send(`Deleted property ${req.params.id} from user id: ${token.userId}`)
-		})
+			// res.send('testing')
+		}
 	})
 })
 

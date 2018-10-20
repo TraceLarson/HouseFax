@@ -28,13 +28,19 @@ class Search extends Component {
 	}
 
 	render() {
+		const welcome = (window.location.href === ('http://' + window.location.host + '/Results')) || (window.location.href === ('https://' + window.location.host + '/Results')) ? '' : <h3>Family Friendly property search:</h3>
+
 		return (
-			<Container className={'text-center'}>
-				<p>Search Component</p>
-				<Form onSubmit={this.handleSubmit}>
+			<Container className={'container text-center search-component pt-5 pb-5'}>
+				{welcome}
+				<Form onSubmit={this.handleSubmit} className={'search-form'}>
 					<FormGroup className={'d-flex'}>
-						<Input type={'text'} onChange={this.handleChange} value={this.state.location}/>
-						<Button type={'submit'}>Search!</Button>
+						<Input className={'search-input'}
+						       type={'text'}
+						       placeholder={'Search for a property'}
+						       onChange={this.handleChange}
+						       value={this.state.location}/>
+						<Button color={'primary'} className={'search-button'} type={'submit'}>GO!</Button>
 					</FormGroup>
 				</Form>
 			</Container>
