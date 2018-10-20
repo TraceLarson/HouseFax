@@ -36,10 +36,23 @@ class Bridge {
 				}
 			})
 				.then(response => {
+					console.log(' ')
+					console.log('********************')
+					console.log('getNearbyListings response')
+					console.log(response.data.bundle.length)
+					console.log('********************')
+					console.log(' ')
 					return response.data
 				})
 				.catch(err => {
-					console.error('error fetching cluster from MLS', err)
+					console.log(' ')
+					console.log('********************')
+					console.log('getNearbyListings error:')
+					console.log(`error fetching cluster from MLS ${err.message}`)
+					console.log('********************')
+					console.log(' ')
+
+
 				})
 		)
 	}

@@ -11,12 +11,18 @@ import ProfileLikes from '../components/ProfileLikes'
 
 class ProfilePage extends Component {
 
-	state = {
-		user: {},
+	constructor(props) {
+		super(props);
+		this.state = {
+			user: {},
+		}
+		this.handleDeleteLike = this.handleDeleteLike.bind(this)
 	}
 
-	componentDidMount() {
-		this.props.getCurrentUser()
+	async componentDidMount() {
+		await this.setState({
+			user: this.props.getCurrentUser()
+		})
 	}
 
 	handleSave = e => {
@@ -30,7 +36,8 @@ class ProfilePage extends Component {
 			password: e.target.password.value
 		}
 		this.setState({
-			user: user
+			user: user,
+
 		})
 		this.props.updateCurrentUser(user, this.props.history)
 	}
@@ -43,16 +50,18 @@ class ProfilePage extends Component {
 		})
 	}
 
-	handleDeleteLike = (property) => {
-		console.log(property)
-		axios.delete(`user/properties/${property}`)
+
+	async handleDeleteLike(property) {
+		console.log(`****\r\n handleDeleteLike button\r\n property id: ${property}\r\n****`)
+		await axios.delete(`user/properties/${property}`)
 			.then(response => {
-				console.log(`handleDeleteLikes: ${response.data}`)
+				console.log(`****\r\n handleDeleteLike button\r\n response from delete: ${response.data}\r\n****`)
 				this.componentDidMount()
 			})
 			.catch(err => {
-				console.error(`handleDeleteLikes: Error deleting property ${err.message}`)
+				console.error(`****\r\n handleDeleteLike button ERROR \r\nError deleting property ${err.message}\r\n****`)
 			})
+
 
 	}
 
@@ -62,7 +71,7 @@ class ProfilePage extends Component {
 		const created_at = currentUser.created_at && currentUser.created_at.slice(0, 10)
 
 
-		console.log('ProfilePage Render', this.props.currentUser)
+		console.log(`****\r\nProfilePage Render\r\n CurrentUser: ${this.props.currentUser}\r\n****` )
 
 		return (
 			<div className={'container'}>
@@ -79,7 +88,7 @@ class ProfilePage extends Component {
 						/>
 					</div>
 					<div className={'col-sm-10 col-md-6'}>
-						<ProfileLikes likes={currentUser.properties || ['...Loading']} deleteLike={this.handleDeleteLike}/>
+						<ProfileLikes likes={currentUser.properties || ['...Loading']} deleteLike={this.handleDeleteLike.bind(this)}/>
 					</div>
 				</div>
 			</div>
