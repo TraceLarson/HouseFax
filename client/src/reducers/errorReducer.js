@@ -5,6 +5,7 @@ const initialState = {}
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case GET_ERRORS:
+			console.log(`*********\r\n Error Reducer\r\n${action.payload}\r\n*************`)
 			return action.payload
 		default:
 			return state

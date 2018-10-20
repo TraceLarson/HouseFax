@@ -9,11 +9,39 @@ import {setCurrentListing} from "../actions/api";
 
 
 class ResultsPage extends Component {
+
+	state = {
+		errors: {}
+	}
+
+	componentDidMount() {
+		const {errors} = this.props
+		console.log(`**********\r\n ResultsPage componentDidMount ERRORS\r\n ${Object.keys(errors).length}\r\n**********`)
+
+		this.setState({
+			errors: this.props.errors
+		})
+	}
+
 	handleDetails = listing => {
 		this.props.setCurrentListing(listing, this.props.history)
 	}
 
+	componentWillReceiveProps(nextProps) {
+		console.log(`**********\r\n ResultsPage componentWillReceiveProps ERRORS\r\n ${nextProps.errors}\r\n**********`)
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			})
+		}
+	}
+
+
 	render() {
+		const {errors} = this.state
+		console.log(`********* \r\n RESULTS PAGE ERRORS: \r\n${errors} \r\n ************`)
+
+
 		let resultsItems = Object.keys(this.props.listings).map(key => {
 			let listing = this.props.listings[key]
 			return (
@@ -33,10 +61,10 @@ class ResultsPage extends Component {
 
 		return (
 			<Container className={'px-5'}>
-				<p>Results Page</p>
 				<Search/>
 				<Row>
-					{resultsItems}
+					{Object.keys(errors).length !== 0 ? (<div className={'alert alert-danger container text-center'}><h4>{errors}</h4></div>) : resultsItems }
+
 				</Row>
 			</Container>
 		);
@@ -50,7 +78,8 @@ ResultsPage.propTypes = {
 
 const mapStateToProps = state => ({
 	listings: state.listings,
-	currentListing: state.currentListing
+	currentListing: state.currentListing,
+	errors: state.errors
 })
 
 export default connect(mapStateToProps, {setCurrentListing})(withRouter(ResultsPage));

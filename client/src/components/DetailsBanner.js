@@ -14,7 +14,6 @@ class DetailsBanner extends Component {
 	}
 
 	render() {
-
 		const {isAuthenticated} = this.props.auth
 		const likeButton = <Button className={'mb-0 ml-4'} size={"sm"} onClick={this.props.handleLikeButton}> Like </Button>
 		return (
