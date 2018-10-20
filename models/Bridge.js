@@ -39,7 +39,7 @@ class Bridge {
 					console.log(' ')
 					console.log('********************')
 					console.log('getNearbyListings response')
-					console.log(response.data)
+					console.log(response.data.bundle.length)
 					console.log('********************')
 					console.log(' ')
 					return response.data
@@ -48,7 +48,7 @@ class Bridge {
 					console.log(' ')
 					console.log('********************')
 					console.log('getNearbyListings error:')
-					console.error('error fetching cluster from MLS', err)
+					console.log(`error fetching cluster from MLS ${err.message}`)
 					console.log('********************')
 					console.log(' ')
 

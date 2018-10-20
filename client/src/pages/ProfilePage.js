@@ -44,14 +44,14 @@ class ProfilePage extends Component {
 	}
 
 	handleDeleteLike = (property) => {
-		console.log(property)
+		console.log(`****\r\n handleDeleteLike button\r\n property id: ${property}\r\n****`)
 		axios.delete(`user/properties/${property}`)
 			.then(response => {
-				console.log(`handleDeleteLikes: ${response.data}`)
+				console.log(`****\r\n handleDelteLike button\r\n response from delete: ${response.data}\r\n****`)
 				this.componentDidMount()
 			})
 			.catch(err => {
-				console.error(`handleDeleteLikes: Error deleting property ${err.message}`)
+				console.error(`****\r\n handleDelteLike button ERROR \r\nError deleting property ${err.message}\r\n****`)
 			})
 
 	}
@@ -62,7 +62,7 @@ class ProfilePage extends Component {
 		const created_at = currentUser.created_at && currentUser.created_at.slice(0, 10)
 
 
-		console.log('ProfilePage Render', this.props.currentUser)
+		console.log(`****\r\nProfilePage Render\r\n CurrentUser: ${this.props.currentUser}\r\n****` )
 
 		return (
 			<div className={'container'}>
