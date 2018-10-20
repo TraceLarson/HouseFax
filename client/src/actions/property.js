@@ -2,6 +2,9 @@ import axios from 'axios'
 import {GET_LIKES} from './types'
 
 export const getLikes = (listingId) => dispatch => {
+
+	console.log(`getLikes redux action - listingId parameter: ${listingId}`)
+
 	axios.get(`/property/${listingId}/likes`)
 		.then(response => {
 			console.log(`****** \r\n getLikes ACTION:\r\n response ${response.data} \r\n ******`)

@@ -74,6 +74,9 @@ app.use('/user', user)
 app.use('/property', property)
 
 
+app.use((req,res) => {
+	res.redirect('/')
+})
 
 
 module.exports = app
