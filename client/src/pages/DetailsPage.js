@@ -92,8 +92,8 @@ class DetailsPage extends Component {
 						/>
 					</Container>
 					<Container>
-						<div className={'row'} style={{"max-height": "1000px"}}>
-							<FamilyFriendlyRating className={'col-xs-12 col-md-6 '} crimeList={crimeList}/>
+						<div className={'row d-flex justify-content-center  justify-content-lg-between dev-border'} style={{"max-height": "1000px"}}>
+							<FamilyFriendlyRating className={'col-xs-12 col-md-6'} crimeList={crimeList}/>
 							<RecentCrimeReports className={'col-xs-12 col-md-6'} crimeList={crimeList} centerLat={listing.Latitude}
 							                    centerLng={listing.Longitude}/>
 						</div>

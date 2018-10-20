@@ -58,15 +58,16 @@ class FamilyFriendlyRating extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className={'dev-border'}>
 				<h3 className={'mb-3'}>Family Friendly Rating</h3>
-				<div className={'family-friendly-rating-container'}>
+				<div className={'family-friendly-rating-container'} style={{"max-height":"600px"}}>
 					<CircularProgressbar
 						percentage={this.state.percentage}
 						text={`${isNaN(this.state.percentage ) ? "0" : this.state.percentage}%`}
 						initialAnimation={true}
 						strokeWidth={2}
 						counterClockwise={true}
+						className={'h-100'}
 						styles={{
 							path: { stroke: `rgba(62, 152, 199, ${this.state.percentage / 100})` },
 							text: { fill: '#73cd1f', fontSize: '24px', fontWeight: '900'},
