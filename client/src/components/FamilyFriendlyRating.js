@@ -23,18 +23,18 @@ class FamilyFriendlyRating extends Component {
 
 
 
-	componentDidMount(){
+	async componentDidMount(){
 		// console.log(this.props.crimeList)
 		let score = 0
 		let crimeTypeArray = []
-		this.props.crimeList && Object.keys(this.props.crimeList).map(key => {
+		await this.props.crimeList && Object.keys(this.props.crimeList).map(key => {
 			let crime = this.props.crimeList[key]
 			crimeTypeArray.push(crime)
 			return null
 		})
 		// console.log(crimeTypeArray)
 
-		crimeTypeArray.forEach(crime => {
+		await crimeTypeArray.forEach(crime => {
 			Object.keys(this.state.keywords).map(key => {
 				let pointValue = this.state.keywords[key]
 				if (crime.crime_type.toLowerCase().includes(key)){
@@ -60,13 +60,14 @@ class FamilyFriendlyRating extends Component {
 		return (
 			<div>
 				<h3 className={'mb-3'}>Family Friendly Rating</h3>
-				<div className={'family-friendly-rating-container'}>
+				<div className={'family-friendly-rating-container'} style={{"max-height":"600px"}}>
 					<CircularProgressbar
 						percentage={this.state.percentage}
-						text={`${this.state.percentage}%`}
+						text={`${isNaN(this.state.percentage ) ? "0" : this.state.percentage}%`}
 						initialAnimation={true}
 						strokeWidth={2}
 						counterClockwise={true}
+						className={'h-100'}
 						styles={{
 							path: { stroke: `rgba(62, 152, 199, ${this.state.percentage / 100})` },
 							text: { fill: '#73cd1f', fontSize: '24px', fontWeight: '900'},
