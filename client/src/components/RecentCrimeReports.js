@@ -4,7 +4,7 @@ import CrimeCard from "./CrimeCard";
 class RecentCrimeReports extends Component {
 	render() {
 
-		let crimes =this.props.crimeList && Object.keys(this.props.crimeList).map(key => {
+		let crimes = this.props.crimeList && Object.keys(this.props.crimeList).map(key => {
 			let crime = this.props.crimeList[key]
 			if (key < 4) {
 				return (
@@ -16,6 +16,7 @@ class RecentCrimeReports extends Component {
 					           familyViolence={crime.family_violence}
 					           centerLat={this.props.centerLat}
 					           centerLng={this.props.centerLng}
+					           className={'col-md-6'}
 					/>
 				)
 			} else {
@@ -26,8 +27,10 @@ class RecentCrimeReports extends Component {
 		return (
 			<div>
 				<h3>Most Recent Reports</h3>
-				<div className={'crime-cards-container'}>
-					{crimes}
+				<div className={'row'}>
+					<div className={'crime-cards-container'}>
+						{crimes}
+					</div>
 				</div>
 			</div>
 		);

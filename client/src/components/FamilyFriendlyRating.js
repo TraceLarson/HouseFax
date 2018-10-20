@@ -58,7 +58,7 @@ class FamilyFriendlyRating extends Component {
 
 	render() {
 		return (
-			<div className={'dev-border'}>
+			<div>
 				<h3 className={'mb-3'}>Family Friendly Rating</h3>
 				<div className={'family-friendly-rating-container'} style={{"max-height":"600px"}}>
 					<CircularProgressbar
