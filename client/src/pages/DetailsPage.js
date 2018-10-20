@@ -92,9 +92,9 @@ class DetailsPage extends Component {
 						/>
 					</Container>
 					<Container>
-						<div className={'crime-container'}>
-							<FamilyFriendlyRating crimeList={crimeList}/>
-							<RecentCrimeReports crimeList={crimeList} centerLat={listing.Latitude}
+						<div className={'row'} style={{"max-height": "1000px"}}>
+							<FamilyFriendlyRating className={'col-xs-12 col-md-6 '} crimeList={crimeList}/>
+							<RecentCrimeReports className={'col-xs-12 col-md-6'} crimeList={crimeList} centerLat={listing.Latitude}
 							                    centerLng={listing.Longitude}/>
 						</div>
 					</Container>
