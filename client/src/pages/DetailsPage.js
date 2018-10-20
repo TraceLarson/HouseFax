@@ -19,50 +19,55 @@ import {addProperty, updateLikes, getLikes} from '../actions/property'
 
 
 class DetailsPage extends Component {
+	constructor(props) {
+		super(props);
 
-	state = {
-		listing: {},
-		crimeList: {},
-		likes: 0
+		this.state = {
+			listing: {},
+			crimeList: {},
+			likes: 0
+		}
+
+		this.handleLikeButton = this.handleLikeButton.bind(this)
 	}
 
-	componentDidMount() {
 
+	async componentDidMount() {
+		console.log(`*****\r\nDetailsPage componentDidMount Ran\r\n`)
 		const {Latitude: latitude, Longitude: longitude, ListingId: listingId} = this.props.currentListing
-
-
-		this.props.getCrimesList(latitude, longitude, listingId)
-
-		this.props.getLikes(listingId)
+		console.log(`destructured props`)
+		await this.props.getCrimesList(latitude, longitude, listingId)
+		console.log(`ran props.getCrimesList`)
+		await this.props.getLikes(listingId)
+		console.log(`ran props.getLikes\r\n*******`)
 
 
 	}
 
-	shouldComponentUpdate(){
+	shouldComponentUpdate() {
 		return true
 	}
 
-	handleLikeButton = e => {
+	async handleLikeButton(e) {
 		e.preventDefault()
-		console.log(`pressed like button: likes: ${this.props.likes}`)
-		this.props.addProperty(this.props.currentListing)
-		this.props.updateLikes(this.props.currentListing.ListingId)
-		this.props.getLikes(this.props.currentListing.ListingId)
+		console.log(`*****\r\nDetailsPage pressed like button\r\n*********`)
+		await this.props.addProperty(this.props.currentListing)
+		await this.props.updateLikes(this.props.currentListing.ListingId)
+		await this.props.getLikes(this.props.currentListing.ListingId)
 		this.componentDidMount()
-
 
 	}
 
 
 	render() {
-		const {currentListing: listing, recentCrimes: crimeList, likes } = this.props && this.props
+		const {currentListing: listing, recentCrimes: crimeList, likes} = this.props && this.props
 
-		console.log(`DetailsPage render: ${likes.Likes} `)
+		console.log(`******\r\nDetailsPage render:\r\n Likes: ${likes.Likes}\r\n****** `)
 
 		return (
 			<div>
 				<DetailsBanner listingId={listing.ListingId}
-							   address={listing.UnparsedAddress}
+				               address={listing.UnparsedAddress}
 				               city={listing.City}
 				               state={listing.StateOrProvince}
 				               zip={listing.PostalCode}
@@ -88,8 +93,9 @@ class DetailsPage extends Component {
 					</Container>
 					<Container>
 						<div className={'crime-container'}>
-							<FamilyFriendlyRating crimeList={crimeList} />
-							<RecentCrimeReports crimeList={crimeList} centerLat={listing.Latitude} centerLng={listing.Longitude}/>
+							<FamilyFriendlyRating crimeList={crimeList}/>
+							<RecentCrimeReports crimeList={crimeList} centerLat={listing.Latitude}
+							                    centerLng={listing.Longitude}/>
 						</div>
 					</Container>
 				</div>

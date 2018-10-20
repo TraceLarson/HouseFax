@@ -7,7 +7,7 @@ export const getLikes = (listingId) => dispatch => {
 
 	axios.get(`/property/${listingId}/likes`)
 		.then(response => {
-			console.log(`getLikes: ${response.data}`)
+			console.log(`****** \r\n getLikes ACTION:\r\n response ${response.data} \r\n ******`)
 				dispatch({
 				type: GET_LIKES,
 				payload: response.data
@@ -15,7 +15,7 @@ export const getLikes = (listingId) => dispatch => {
 
 		})
 		.catch(err => {
-			console.error(`getLikes redux action - axios error catch: ${err.message}`)
+			console.error(`******\r\n getLikes ACTION ERROR:\r\n retrieving likes on property ${err.message}\r\n********`)
 		})
 }
 
