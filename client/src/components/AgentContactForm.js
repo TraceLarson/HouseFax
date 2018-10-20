@@ -10,7 +10,7 @@ import {
 class AgentContactForm extends Component {
     render() {
         return (
-            <div>
+            <div className={'agent-contact-form'}>
                 <Form>
                     <FormGroup className={'d-flex'}>
                         <Label className={'d-none'} for={'name'}>Name:</Label>

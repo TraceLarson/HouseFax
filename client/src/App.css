@@ -120,6 +120,18 @@
     left: 85%;
 }
 
+/*AGENT CONTACT FORM*/
+.agent-contact-form{
+    min-width: 400px;
+}
+
+@media screen and (max-width: 766px) {
+    .agent-contact-form{
+        min-width: 100%;
+    }
+}
+
+
 /*PROPERTY DETAILS*/
 .details-property-details-container ul {
     list-style: none;
@@ -142,6 +154,11 @@
 .crime-cards-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+@media screen and (max-width: 600px ){
+    .crime-cards-container{
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
